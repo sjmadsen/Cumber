@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'net/http'
 
 describe Cumber do
 
@@ -7,7 +8,7 @@ describe Cumber do
     it 'should send the command to server and return the response' do
 
       step = 'target.frontMostApp().keyboard().typeString("pas&word");'
-      Cumber.should_receive('send_command').with(step).and_return('{"message":"result"}')
+      Cumber.should_receive(:send_command).with(step).and_return('{"message":"result"}')
       Cumber.execute_step(step).should eql('result')
     end
   end
@@ -91,13 +92,30 @@ describe Cumber do
     end
   end
 
-  #context 'Send Command to the server' do
-  #
-  #  it 'should send the command and get a response' do
-  #   false
-  #  end
-  #
-  #end
+  context 'Send Command to the server' do
+
+    it 'should send the command and get a response' do
+
+      command = 'target.frontMostApp().keyboard().typeString("pas&word");'
+
+      http = double :http
+      mock_request = double :mock_request
+      mock_response = double :mock_response
+
+      mock_request.stub(:body).and_return('')
+      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);"}')
+
+      Net::HTTP::Post.stub(:new).and_return(mock_request)
+      Net::HTTP.stub(:start).and_yield http
+
+      http.should_receive(:request).with(mock_request).and_return mock_response
+
+      mock_response.should_receive(:body).and_return('{"message":"test"}')
+
+      Cumber.send_command(command).should eql '{"message":"test"}'
+    end
+
+  end
 
 end
 

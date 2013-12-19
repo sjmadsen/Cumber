@@ -22,14 +22,15 @@ class Cumber
 
   def self.send_command(command)
 
-    req = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' =>'application/json'})
-    req.body = format_command(command)
+    request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' =>'application/json'})
+    request.body = format_command(command)
 
-    response = Net::HTTP.new(@host, @port).start {|http| http.request(req) }
-
-    puts "Response #{response.code} #{response.message}: #{response.body}"
+    response = Net::HTTP.start(@host, @port) do |http|
+      http.request(request)
+    end
 
     return response.body
+
   end
 
   def self.format_command(command)
