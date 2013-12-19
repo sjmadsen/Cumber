@@ -1,0 +1,8 @@
+require 'rspec/core/rake_task'
+
+desc 'Run Unit Tests'
+RSpec::Core::RakeTask.new(:specs)
+
+desc 'Run all tests'
+task :test => [:specs]
+
