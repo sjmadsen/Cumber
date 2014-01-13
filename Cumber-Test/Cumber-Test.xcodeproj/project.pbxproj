@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0413B2001879EE7600DE8676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B1FF1879EE7600DE8676 /* Foundation.framework */; };
+		0413B2021879EE7600DE8676 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B2011879EE7600DE8676 /* CoreGraphics.framework */; };
+		0413B2041879EE7600DE8676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B2031879EE7600DE8676 /* UIKit.framework */; };
+		0413B20A1879EE7600DE8676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2081879EE7600DE8676 /* InfoPlist.strings */; };
+		0413B20C1879EE7600DE8676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B20B1879EE7600DE8676 /* main.m */; };
+		0413B2101879EE7600DE8676 /* EBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B20F1879EE7600DE8676 /* EBAppDelegate.m */; };
+		0413B2121879EE7600DE8676 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2111879EE7600DE8676 /* Images.xcassets */; };
+		0413B2191879EE7600DE8676 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B2181879EE7600DE8676 /* XCTest.framework */; };
+		0413B21A1879EE7600DE8676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B1FF1879EE7600DE8676 /* Foundation.framework */; };
+		0413B21B1879EE7600DE8676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B2031879EE7600DE8676 /* UIKit.framework */; };
+		0413B2231879EE7600DE8676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2211879EE7600DE8676 /* InfoPlist.strings */; };
+		0413B2251879EE7600DE8676 /* Cumber_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B2241879EE7600DE8676 /* Cumber_TestTests.m */; };
+		0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */; };
+		0413B2331879EEF100DE8676 /* EBUIAElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */; };
+		047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B31E31883744B0073D15A /* UILabel+CumberExtension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0413B21C1879EE7600DE8676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0413B1F41879EE7600DE8676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0413B1FB1879EE7600DE8676;
+			remoteInfo = "Cumber-Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0413B1FC1879EE7600DE8676 /* Cumber-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cumber-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0413B1FF1879EE7600DE8676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0413B2011879EE7600DE8676 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0413B2031879EE7600DE8676 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0413B2071879EE7600DE8676 /* Cumber-Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cumber-Test-Info.plist"; sourceTree = "<group>"; };
+		0413B2091879EE7600DE8676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0413B20B1879EE7600DE8676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0413B20D1879EE7600DE8676 /* Cumber-Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cumber-Test-Prefix.pch"; sourceTree = "<group>"; };
+		0413B20E1879EE7600DE8676 /* EBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EBAppDelegate.h; sourceTree = "<group>"; };
+		0413B20F1879EE7600DE8676 /* EBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EBAppDelegate.m; sourceTree = "<group>"; };
+		0413B2111879EE7600DE8676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0413B2171879EE7600DE8676 /* Cumber-TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cumber-TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0413B2181879EE7600DE8676 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0413B2201879EE7600DE8676 /* Cumber-TestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cumber-TestTests-Info.plist"; sourceTree = "<group>"; };
+		0413B2221879EE7600DE8676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0413B2241879EE7600DE8676 /* Cumber_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cumber_TestTests.m; sourceTree = "<group>"; };
+		0413B22F1879EEF100DE8676 /* EBUIAElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAElementViewController.h; sourceTree = "<group>"; };
+		0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAElementViewController.m; sourceTree = "<group>"; };
+		0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAElementViewController.xib; sourceTree = "<group>"; };
+		047B31E21883744B0073D15A /* UILabel+CumberExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CumberExtension.h"; sourceTree = "<group>"; };
+		047B31E31883744B0073D15A /* UILabel+CumberExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CumberExtension.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0413B1F91879EE7600DE8676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0413B2021879EE7600DE8676 /* CoreGraphics.framework in Frameworks */,
+				0413B2041879EE7600DE8676 /* UIKit.framework in Frameworks */,
+				0413B2001879EE7600DE8676 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0413B2141879EE7600DE8676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0413B2191879EE7600DE8676 /* XCTest.framework in Frameworks */,
+				0413B21B1879EE7600DE8676 /* UIKit.framework in Frameworks */,
+				0413B21A1879EE7600DE8676 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0413B1F31879EE7600DE8676 = {
+			isa = PBXGroup;
+			children = (
+				0413B2051879EE7600DE8676 /* Cumber-Test */,
+				0413B21E1879EE7600DE8676 /* Cumber-TestTests */,
+				0413B1FE1879EE7600DE8676 /* Frameworks */,
+				0413B1FD1879EE7600DE8676 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0413B1FD1879EE7600DE8676 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0413B1FC1879EE7600DE8676 /* Cumber-Test.app */,
+				0413B2171879EE7600DE8676 /* Cumber-TestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0413B1FE1879EE7600DE8676 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0413B1FF1879EE7600DE8676 /* Foundation.framework */,
+				0413B2011879EE7600DE8676 /* CoreGraphics.framework */,
+				0413B2031879EE7600DE8676 /* UIKit.framework */,
+				0413B2181879EE7600DE8676 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0413B2051879EE7600DE8676 /* Cumber-Test */ = {
+			isa = PBXGroup;
+			children = (
+				047B31DE188371E00073D15A /* CumberExtensions */,
+				0413B22E1879EE8E00DE8676 /* UIAElement */,
+				0413B20E1879EE7600DE8676 /* EBAppDelegate.h */,
+				0413B20F1879EE7600DE8676 /* EBAppDelegate.m */,
+				0413B2111879EE7600DE8676 /* Images.xcassets */,
+				0413B2061879EE7600DE8676 /* Supporting Files */,
+			);
+			path = "Cumber-Test";
+			sourceTree = "<group>";
+		};
+		0413B2061879EE7600DE8676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0413B2071879EE7600DE8676 /* Cumber-Test-Info.plist */,
+				0413B2081879EE7600DE8676 /* InfoPlist.strings */,
+				0413B20B1879EE7600DE8676 /* main.m */,
+				0413B20D1879EE7600DE8676 /* Cumber-Test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0413B21E1879EE7600DE8676 /* Cumber-TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				0413B2241879EE7600DE8676 /* Cumber_TestTests.m */,
+				0413B21F1879EE7600DE8676 /* Supporting Files */,
+			);
+			path = "Cumber-TestTests";
+			sourceTree = "<group>";
+		};
+		0413B21F1879EE7600DE8676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0413B2201879EE7600DE8676 /* Cumber-TestTests-Info.plist */,
+				0413B2211879EE7600DE8676 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0413B22E1879EE8E00DE8676 /* UIAElement */ = {
+			isa = PBXGroup;
+			children = (
+				0413B22F1879EEF100DE8676 /* EBUIAElementViewController.h */,
+				0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */,
+				0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */,
+			);
+			name = UIAElement;
+			sourceTree = "<group>";
+		};
+		047B31DE188371E00073D15A /* CumberExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				047B31E21883744B0073D15A /* UILabel+CumberExtension.h */,
+				047B31E31883744B0073D15A /* UILabel+CumberExtension.m */,
+			);
+			name = CumberExtensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0413B1FB1879EE7600DE8676 /* Cumber-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0413B2281879EE7600DE8676 /* Build configuration list for PBXNativeTarget "Cumber-Test" */;
+			buildPhases = (
+				0413B1F81879EE7600DE8676 /* Sources */,
+				0413B1F91879EE7600DE8676 /* Frameworks */,
+				0413B1FA1879EE7600DE8676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cumber-Test";
+			productName = "Cumber-Test";
+			productReference = 0413B1FC1879EE7600DE8676 /* Cumber-Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0413B2161879EE7600DE8676 /* Cumber-TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0413B22B1879EE7600DE8676 /* Build configuration list for PBXNativeTarget "Cumber-TestTests" */;
+			buildPhases = (
+				0413B2131879EE7600DE8676 /* Sources */,
+				0413B2141879EE7600DE8676 /* Frameworks */,
+				0413B2151879EE7600DE8676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0413B21D1879EE7600DE8676 /* PBXTargetDependency */,
+			);
+			name = "Cumber-TestTests";
+			productName = "Cumber-TestTests";
+			productReference = 0413B2171879EE7600DE8676 /* Cumber-TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0413B1F41879EE7600DE8676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EB;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Education;
+				TargetAttributes = {
+					0413B2161879EE7600DE8676 = {
+						TestTargetID = 0413B1FB1879EE7600DE8676;
+					};
+				};
+			};
+			buildConfigurationList = 0413B1F71879EE7600DE8676 /* Build configuration list for PBXProject "Cumber-Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0413B1F31879EE7600DE8676;
+			productRefGroup = 0413B1FD1879EE7600DE8676 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0413B1FB1879EE7600DE8676 /* Cumber-Test */,
+				0413B2161879EE7600DE8676 /* Cumber-TestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0413B1FA1879EE7600DE8676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0413B2331879EEF100DE8676 /* EBUIAElementViewController.xib in Resources */,
+				0413B20A1879EE7600DE8676 /* InfoPlist.strings in Resources */,
+				0413B2121879EE7600DE8676 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0413B2151879EE7600DE8676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0413B2231879EE7600DE8676 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0413B1F81879EE7600DE8676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */,
+				0413B20C1879EE7600DE8676 /* main.m in Sources */,
+				0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */,
+				0413B2101879EE7600DE8676 /* EBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0413B2131879EE7600DE8676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0413B2251879EE7600DE8676 /* Cumber_TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0413B21D1879EE7600DE8676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0413B1FB1879EE7600DE8676 /* Cumber-Test */;
+			targetProxy = 0413B21C1879EE7600DE8676 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0413B2081879EE7600DE8676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0413B2091879EE7600DE8676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0413B2211879EE7600DE8676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0413B2221879EE7600DE8676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0413B2261879EE7600DE8676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		0413B2271879EE7600DE8676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0413B2291879EE7600DE8676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cumber-Test/Cumber-Test-Prefix.pch";
+				INFOPLIST_FILE = "Cumber-Test/Cumber-Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0413B22A1879EE7600DE8676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cumber-Test/Cumber-Test-Prefix.pch";
+				INFOPLIST_FILE = "Cumber-Test/Cumber-Test-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0413B22C1879EE7600DE8676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cumber-Test.app/Cumber-Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cumber-Test/Cumber-Test-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Cumber-TestTests/Cumber-TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0413B22D1879EE7600DE8676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cumber-Test.app/Cumber-Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cumber-Test/Cumber-Test-Prefix.pch";
+				INFOPLIST_FILE = "Cumber-TestTests/Cumber-TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0413B1F71879EE7600DE8676 /* Build configuration list for PBXProject "Cumber-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0413B2261879EE7600DE8676 /* Debug */,
+				0413B2271879EE7600DE8676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0413B2281879EE7600DE8676 /* Build configuration list for PBXNativeTarget "Cumber-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0413B2291879EE7600DE8676 /* Debug */,
+				0413B22A1879EE7600DE8676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0413B22B1879EE7600DE8676 /* Build configuration list for PBXNativeTarget "Cumber-TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0413B22C1879EE7600DE8676 /* Debug */,
+				0413B22D1879EE7600DE8676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0413B1F41879EE7600DE8676 /* Project object */;
+}

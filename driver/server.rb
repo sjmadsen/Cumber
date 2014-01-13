@@ -3,8 +3,8 @@ require 'json'
 
 HOST = 'localhost'
 PORT = 8080
-@cmd = ""
-@rsp = ""
+@cmd = ''
+@rsp = ''
 
 def self.main
 
@@ -40,15 +40,15 @@ end
 
 def self.generate_response(client, message)
 
-  request = client.split(" ")[1]
+  request = client.split(' ')[1]
 
-  response = ""
+  response = ''
 
-  if request == "/cumber"
+  if request == '/cumber'
     self.set_command(message)
     response = '{"message":"' + self.wait_for_response + '"}'
 
-  elsif request == "/device"
+  elsif request == '/device'
     self.set_response(message)
     response = '{"message":"' + self.wait_for_command + '"}'
   end
@@ -58,14 +58,14 @@ end
 
 def self.set_command(message)
   message_json = JSON.parse(message)
-  @cmd = message_json["message"]
-  STDERR.puts "Retrieved Command: " + @cmd
+  @cmd = message_json['message']
+  STDERR.puts 'Received Command: ' + @cmd + "\n"
 end
 
 def self.set_response(message)
   message_json = JSON.parse(message)
-  @rsp = message_json["message"]
-  STDERR.puts "Retrieved Response: " + @rsp
+  @rsp = message_json['message']
+  STDERR.puts 'Received Response: ' + @rsp + "\n"
 end
 
 def self.wait_for_command
@@ -74,8 +74,8 @@ def self.wait_for_command
   end
 
   command = @cmd
-  STDERR.puts "Sending Command: " + command
-  @cmd = ""
+  STDERR.puts 'Sending Command: ' + command + "\n"
+  @cmd = ''
 
   command
 end
@@ -86,8 +86,8 @@ def self.wait_for_response
   end
 
   response = @rsp
-  STDERR.puts "Sending Response: " + response
-  @rsp = ""
+  STDERR.puts 'Sending Response: ' + response + "\n"
+  @rsp = ''
 
   response
 end

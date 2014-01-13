@@ -5,8 +5,10 @@ Gem::Specification.new do |gem|
   gem.email = ['chip.snyder3@gmail.com']
   gem.description = 'UIAutomation tool that bridges the gap between cucumber tests and XCode Instruments'
   gem.summary = 'UIAutomation tool that bridges the gap between cucumber tests and iOS XCode Instruments'
-  gem.homepage = 'https://github.com/chipsnyder/Cumbermation'
-  gem.files = ['lib/cumber.rb']
+  gem.homepage = 'https://github.com/chipsnyder/Cumber'
+
+  gem.files = ['lib/cumber.rb', 'lib/cumber/element.rb']
+
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'json'
   gem.add_development_dependency 'socket'

@@ -39,7 +39,8 @@ var convertSpecialChars = function(str)
 
 var requestCommand = function(response)
 {
-    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], 60);
+    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], 600);
+
     var commandJson = eval("(" + command.stdout + ")");
 
     return commandJson.message;

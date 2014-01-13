@@ -1,10 +1,12 @@
 require 'json'
 require 'uri'
 require 'net/http'
+require 'cumber/element'
 
-class Cumber
- @host = 'localhost'
- @port = '8080'
+module Cumber
+
+  @host = 'localhost'
+  @port = '8080'
 
   def self.execute_step(step)
     response = send_command(step)
@@ -22,7 +24,7 @@ class Cumber
 
   def self.send_command(command)
 
-    request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' =>'application/json'})
+    request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' => 'application/json'})
     request.body = format_command(command)
 
     response = Net::HTTP.start(@host, @port) do |http|

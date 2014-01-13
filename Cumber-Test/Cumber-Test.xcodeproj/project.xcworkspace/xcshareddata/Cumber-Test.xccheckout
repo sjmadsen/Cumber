@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AD3CD578-90AD-4D70-A35B-2C54822C3578</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cumber-Test</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2C2353AC-6B13-45A3-BF15-4B1F2840D66B</key>
+		<string>https://github.com/chipsnyder/Cumber.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cumber-Test/Cumber-Test.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2C2353AC-6B13-45A3-BF15-4B1F2840D66B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chipsnyder/Cumber.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2C2353AC-6B13-45A3-BF15-4B1F2840D66B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2C2353AC-6B13-45A3-BF15-4B1F2840D66B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cumber</string>
+		</dict>
+	</array>
+</dict>
+</plist>
