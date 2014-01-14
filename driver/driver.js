@@ -1,3 +1,5 @@
+#import "driver_helpers/helpers.js"
+
 //automation globals
 var target = UIATarget.localTarget();
 var frontApp = target.frontMostApp();

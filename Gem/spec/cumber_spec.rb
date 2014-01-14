@@ -96,14 +96,14 @@ describe Cumber do
 
     it 'should send the command and get a response' do
 
-      command = 'target.frontMostApp().keyboard().typeString("pas&word");'
+      command = 'target.frontMostApp().keyboard().typeString("pass&word");'
 
       http = double :http
       mock_request = double :mock_request
       mock_response = double :mock_response
 
       mock_request.stub(:body).and_return('')
-      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);"}')
+      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pass&38;word&34;);"}')
 
       Net::HTTP::Post.stub(:new).and_return(mock_request)
       Net::HTTP.stub(:start).and_yield http

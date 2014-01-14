@@ -1,6 +1,5 @@
 require 'yaml'
 require 'erb'
-require 'childprocess'
 
 desc 'build app'
 task :build do
@@ -34,16 +33,3 @@ task :rerun => [:uninstall, :install, :launch]
 
 desc 'Run Cukes'
 task :test => [:deploy]
-
-#desc 'Starting the appium server'
-#task :run do
-#  process = ChildProcess.build('rake', 'launch')
-#  process.duplex = true
-#  process.start
-#end
-
-#desc 'Stops the appium server for simulator'
-#task :stop_sim_server do
-#  config = YAML.load(ERB.new(File.read('./config.yml')).result)
-#  system("pkill -9 -f node /usr/local/bin/appium --app #{ENV['HOME']}/Library/Application Support/iPhone Simulator/#{config['version']}/Applications")
-#end

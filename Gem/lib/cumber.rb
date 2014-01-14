@@ -1,12 +1,26 @@
 require 'json'
 require 'uri'
 require 'net/http'
-require 'cumber/element'
+require 'cumber/imports'
 
+##
+# Cumber is an automated testing tool that bridges the gap between cucumber tests and the Apple automated testing tools
+# UI Automation provided with XCode and Instruments.
 module Cumber
 
   @host = 'localhost'
   @port = '8080'
+
+  ##
+  # Creates an instance of a Cumber Element to use as a base to query UI Automation.
+  #
+  # ==== Parameters
+  #
+  # * +step+ - A string that represents the javascript call to execute in UI Automation.
+  #
+  # ==== Examples
+  #
+  #   result = Cumber.execute_step('target.logElementTree()')
 
   def self.execute_step(step)
     response = send_command(step)
@@ -15,12 +29,33 @@ module Cumber
     return response
   end
 
+  ##
+  # Parses through the response from send_command and returns the portion of the resulting value of the executed ruby
+  # command.
+  #
+  # ==== Parameters
+  #
+  # * +response+ - The json response from UI Automation.
+  #
+  # ==== Examples
+  #
+  #   result = Cumber.parse_response('{"message":"test"}')
+
   def self.parse_response(response)
     response_json = JSON.parse(response)
     return response_json['message']
   end
 
-  private
+  ##
+  # Formats and sends the string query to UI Automation. and returns the response
+  #
+  # ==== Parameters
+  #
+  # * +command+ - The string query to send to UI Automation.
+  #
+  # ==== Examples
+  #
+  #   result = Cumber.send_command('frontApp.keyboard().typeString("password")')
 
   def self.send_command(command)
 
@@ -35,9 +70,32 @@ module Cumber
 
   end
 
+  ##
+  # Formats the string query that will be sent to UI Automation.
+  #
+  # ==== Parameters
+  #
+  # * +command+ - The string query to send to UI Automation.
+  #
+  # ==== Examples
+  #
+  #   result = Cumber.format_command('frontApp.keyboard().typeString("password")')
+
   def self.format_command(command)
     return '{"message":"' + strip_special_chars(command) + '"}'
   end
+
+  ##
+  # Replaces special characters in the string query with modified HTML codes for the characters '&', '[', ']', '"', ' ',
+  # '{', and '}'.
+  #
+  # ==== Parameters
+  #
+  # * +command+ - The string query to send to UI Automation.
+  #
+  # ==== Examples
+  #
+  #   result = Cumber.strip_special_chars('frontApp.keyboard().typeString("password")')
 
   def self.strip_special_chars(command)
     command.gsub!('&', '&38;')
