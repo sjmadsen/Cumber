@@ -46,26 +46,31 @@ def self.generate_response(client, message)
 
   if request == '/cumber'
     self.set_command(message)
-    response = '{"message":"' + self.wait_for_response + '"}'
+    response = self.wait_for_response
 
   elsif request == '/device'
     self.set_response(message)
-    response = '{"message":"' + self.wait_for_command + '"}'
+    response = self.wait_for_command
   end
 
   return response
 end
 
 def self.set_command(message)
-  message_json = JSON.parse(message)
-  @cmd = message_json['message']
+  #message_json = JSON.parse(message)
+  @cmd = message
   STDERR.puts 'Received Command: ' + @cmd + "\n"
 end
 
 def self.set_response(message)
   message_json = JSON.parse(message)
-  @rsp = message_json['message']
-  STDERR.puts 'Received Response: ' + @rsp + "\n"
+
+  STDERR.puts 'Received Response: ' + message + "\n"
+
+  if message_json['status'] != 'connecting'
+    @rsp = message
+  end
+
 end
 
 def self.wait_for_command

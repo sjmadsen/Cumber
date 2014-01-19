@@ -139,7 +139,8 @@ in UI Automation.</p>
 
 <h4 id="method-c-execute_step-label-Examples">Examples<span><a href="#method-c-execute_step-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
-<pre>result = Cumber.execute_step('target.logElementTree()')</pre>
+<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-string">'target.mainWindow.size()'</span>) <span class="ruby-comment">#=&gt; returns the result of the command</span>
+</pre>
           
           
 
@@ -184,7 +185,8 @@ in UI Automation.</p>
 
 <h4 id="method-c-format_command-label-Examples">Examples<span><a href="#method-c-format_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
-<pre>result = Cumber.format_command('frontApp.keyboard().typeString(&quot;password&quot;)')</pre>
+<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">format_command</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns '{&quot;message&quot;:&quot;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;);&quot;}'</span>
+</pre>
           
           
 
@@ -228,7 +230,8 @@ portion of the resulting value of the executed ruby command.</p>
 
 <h4 id="method-c-parse_response-label-Examples">Examples<span><a href="#method-c-parse_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
-<pre>result = Cumber.parse_response('{&quot;message&quot;:&quot;test&quot;}')</pre>
+<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-string">'{&quot;message&quot;:&quot;test&quot;}'</span>) <span class="ruby-comment">#=&gt; returns 'test'</span>
+</pre>
           
           
 
@@ -272,7 +275,8 @@ response</p>
 
 <h4 id="method-c-send_command-label-Examples">Examples<span><a href="#method-c-send_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
-<pre>result = Cumber.send_command('frontApp.keyboard().typeString(&quot;password&quot;)')</pre>
+<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">send_command</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns '{&quot;message&quot;:&quot;response&quot;}'</span>
+</pre>
           
           
 
@@ -324,7 +328,8 @@ for the characters ‘&amp;’, ‘[’, ‘]’, ‘“’, ‘ ’, ‘{’, a
 
 <h4 id="method-c-strip_special_chars-label-Examples">Examples<span><a href="#method-c-strip_special_chars-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
-<pre>result = Cumber.strip_special_chars('frontApp.keyboard().typeString(&quot;password&quot;)')</pre>
+<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns 'target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;)'</span>
+</pre>
           
           
 

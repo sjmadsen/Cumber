@@ -8,8 +8,8 @@ describe Cumber do
     it 'should send the command to server and return the response' do
 
       step = 'target.frontMostApp().keyboard().typeString("pas&word");'
-      Cumber.should_receive(:send_command).with(step).and_return('{"message":"result"}')
-      Cumber.execute_step(step).should eql('result')
+      Cumber.should_receive(:send_command).with(step).and_return('{"message":"result", "status":"success"}')
+      Cumber.execute_step(step).should eql('message' => 'result', 'status' => 'success')
     end
   end
 
@@ -110,9 +110,9 @@ describe Cumber do
 
       http.should_receive(:request).with(mock_request).and_return mock_response
 
-      mock_response.should_receive(:body).and_return('{"message":"test"}')
+      mock_response.should_receive(:body).and_return('{"message":"test", "status":"success"}')
 
-      Cumber.send_command(command).should eql '{"message":"test"}'
+      Cumber.send_command(command).should eql '{"message":"test", "status":"success"}'
     end
 
   end

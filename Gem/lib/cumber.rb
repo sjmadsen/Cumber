@@ -20,7 +20,7 @@ module Cumber
   #
   # ==== Examples
   #
-  #   result = Cumber.execute_step('target.logElementTree()')
+  #   Cumber.execute_step('target.mainWindow.size()') #=> returns the result of the command
 
   def self.execute_step(step)
     response = send_command(step)
@@ -39,11 +39,11 @@ module Cumber
   #
   # ==== Examples
   #
-  #   result = Cumber.parse_response('{"message":"test"}')
+  #   Cumber.parse_response('{"message":"test"}') #=> returns 'test'
 
   def self.parse_response(response)
     response_json = JSON.parse(response)
-    return response_json['message']
+    response_json
   end
 
   ##
@@ -55,14 +55,14 @@ module Cumber
   #
   # ==== Examples
   #
-  #   result = Cumber.send_command('frontApp.keyboard().typeString("password")')
+  #   Cumber.send_command('frontApp.keyboard().typeString("password")') #=> returns '{"message":"response"}'
 
   def self.send_command(command)
 
     request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' => 'application/json'})
     request.body = format_command(command)
 
-    response = Net::HTTP.start(@host, @port) do |http|
+    response = Net::HTTP.start(@host, @port, :read_timeout => 600) do |http|
       http.request(request)
     end
 
@@ -79,7 +79,7 @@ module Cumber
   #
   # ==== Examples
   #
-  #   result = Cumber.format_command('frontApp.keyboard().typeString("password")')
+  #   Cumber.format_command('frontApp.keyboard().typeString("password")') #=> returns '{"message":"target.frontMostApp().keyboard().typeString(&34;password&34;);"}'
 
   def self.format_command(command)
     return '{"message":"' + strip_special_chars(command) + '"}'
@@ -95,7 +95,7 @@ module Cumber
   #
   # ==== Examples
   #
-  #   result = Cumber.strip_special_chars('frontApp.keyboard().typeString("password")')
+  #   Cumber.strip_special_chars('frontApp.keyboard().typeString("password")') #=> returns 'target.frontMostApp().keyboard().typeString(&34;password&34;)'
 
   def self.strip_special_chars(command)
     command.gsub!('&', '&38;')

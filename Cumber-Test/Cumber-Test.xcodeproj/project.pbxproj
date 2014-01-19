@@ -18,9 +18,9 @@
 		0413B21A1879EE7600DE8676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B1FF1879EE7600DE8676 /* Foundation.framework */; };
 		0413B21B1879EE7600DE8676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413B2031879EE7600DE8676 /* UIKit.framework */; };
 		0413B2231879EE7600DE8676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2211879EE7600DE8676 /* InfoPlist.strings */; };
-		0413B2251879EE7600DE8676 /* Cumber_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B2241879EE7600DE8676 /* Cumber_TestTests.m */; };
 		0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */; };
 		0413B2331879EEF100DE8676 /* EBUIAElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */; };
+		04425C2D188C4030009478C2 /* EBUIAElementViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */; };
 		047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B31E31883744B0073D15A /* UILabel+CumberExtension.m */; };
 /* End PBXBuildFile section */
 
@@ -50,10 +50,10 @@
 		0413B2181879EE7600DE8676 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0413B2201879EE7600DE8676 /* Cumber-TestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cumber-TestTests-Info.plist"; sourceTree = "<group>"; };
 		0413B2221879EE7600DE8676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0413B2241879EE7600DE8676 /* Cumber_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cumber_TestTests.m; sourceTree = "<group>"; };
 		0413B22F1879EEF100DE8676 /* EBUIAElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAElementViewController.h; sourceTree = "<group>"; };
 		0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAElementViewController.m; sourceTree = "<group>"; };
 		0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAElementViewController.xib; sourceTree = "<group>"; };
+		04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAElementViewControllerTests.m; sourceTree = "<group>"; };
 		047B31E21883744B0073D15A /* UILabel+CumberExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CumberExtension.h"; sourceTree = "<group>"; };
 		047B31E31883744B0073D15A /* UILabel+CumberExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CumberExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +139,7 @@
 		0413B21E1879EE7600DE8676 /* Cumber-TestTests */ = {
 			isa = PBXGroup;
 			children = (
-				0413B2241879EE7600DE8676 /* Cumber_TestTests.m */,
+				04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */,
 				0413B21F1879EE7600DE8676 /* Supporting Files */,
 			);
 			path = "Cumber-TestTests";
@@ -281,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0413B2251879EE7600DE8676 /* Cumber_TestTests.m in Sources */,
+				04425C2D188C4030009478C2 /* EBUIAElementViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

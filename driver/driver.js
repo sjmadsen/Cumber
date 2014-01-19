@@ -50,7 +50,7 @@ var requestCommand = function(response)
 
 var requestFirstCommand = function()
 {
-    return requestCommand('{"message":""}');
+    return requestCommand('{"message":"", "status":"connecting"}');
 };
 
 var executeCommand = function(command)
@@ -63,19 +63,20 @@ var executeCommand = function(command)
     try
     {
        response = eval(cmd);
+       response = formatResponse(response, "success");
     }
     catch(err)
     {
-       response = "Error";
+       response = formatResponse("", "error");
     }
 
     return response;
 };
 
-var formatResponse = function(response)
+var formatResponse = function(response, status)
 {
     log("Response: "+ response);
-    return '{"message":"' + response + '"}';
+    return '{"message":"' + response + '", "status":"'+ status +'"}';
 };
 
 var main = function()
@@ -86,7 +87,6 @@ var main = function()
     while (true)
     {
         response = executeCommand(command);
-        response = formatResponse(response);
         command = requestCommand(response);
     }
 };
