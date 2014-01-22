@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CumberServer - RDoc Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-generate_response">::generate_response</a>
+    
+    <li ><a href="#method-c-log">::log</a>
+    
+    <li ><a href="#method-c-set_command">::set_command</a>
+    
+    <li ><a href="#method-c-set_response">::set_response</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-c-wait_for_command">::wait_for_command</a>
+    
+    <li ><a href="#method-c-wait_for_response">::wait_for_response</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CumberServer">
+  <h1 id="class-CumberServer" class="class">
+    class CumberServer
+  </h1>
+
+  <section class="description">
+    
+<p>Manages communication between UI Instruments and the <a
+href="Cumber.html">Cumber</a> Gem.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="HOST">HOST
+        
+        <dd>
+        
+      
+        <dt id="PORT">PORT
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-generate_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_response</span><span
+            class="method-args">(client, message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_response-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_response</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">message</span>)
+
+  <span class="ruby-identifier">request</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)[<span class="ruby-value">1</span>]
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-string">''</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span> <span class="ruby-operator">==</span> <span class="ruby-string">'/cumber'</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_command</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">response</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_response</span>
+
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">request</span> <span class="ruby-operator">==</span> <span class="ruby-string">'/device'</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_response</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">response</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_command</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-log" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">log</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="log-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">log</span> (<span class="ruby-identifier">message</span>)
+  <span class="ruby-comment">#puts message + &quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_command</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_command-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_command</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-ivar">@cmd</span> = <span class="ruby-identifier">message</span>
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">'Received Command: '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cmd</span>)
+
+  <span class="ruby-identifier">message_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">message</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">message_json</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'end'</span>
+    <span class="ruby-ivar">@cmd</span> = <span class="ruby-string">'break;'</span>
+    <span class="ruby-ivar">@rsp</span> = <span class="ruby-string">'{&quot;message&quot;:&quot;end&quot;, &quot;status&quot;:&quot;closing&quot;}'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_response</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_response-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_response</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">message_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">message</span>)
+
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">'Received Response: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">message</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">message_json</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">'connecting'</span>
+    <span class="ruby-ivar">@rsp</span> = <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-identifier">server</span> = <span class="ruby-constant">TCPServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'localhost'</span>, <span class="ruby-value">8080</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Server listening on: #{HOST}:#{PORT}&quot;</span>
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">accept</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">socket</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">request</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">user_agent</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">host</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">accept</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">content_type</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">content_size</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">line_break</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">gets</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">content_size</span>)
+      <span class="ruby-identifier">response</span> = <span class="ruby-identifier">generate_response</span>(<span class="ruby-identifier">request</span>, <span class="ruby-identifier">message</span>)
+
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot;HTTP/1.1 200 OK\r\n&quot;</span> <span class="ruby-operator">+</span>
+                       <span class="ruby-string">&quot;Content-Type: text/plain\r\n&quot;</span> <span class="ruby-operator">+</span>
+                       <span class="ruby-node">&quot;Content-Length: #{response.bytesize}\r\n&quot;</span> <span class="ruby-operator">+</span>
+                       <span class="ruby-string">&quot;Connection: close\r\n&quot;</span>
+
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot;\r\n&quot;</span>
+
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">response</span>
+      <span class="ruby-identifier">socket</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait_for_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_for_command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_command-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_command</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">command</span> = <span class="ruby-ivar">@cmd</span>
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">'Sending Command: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@cmd</span> = <span class="ruby-string">''</span>
+
+  <span class="ruby-identifier">command</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait_for_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_for_response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_response-source">
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_response</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@rsp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@rsp</span>
+  <span class="ruby-identifier">log</span>(<span class="ruby-string">'Sending Response: '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">response</span>)
+  <span class="ruby-ivar">@rsp</span> = <span class="ruby-string">''</span>
+
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

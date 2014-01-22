@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>driver.js - RDoc Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../lib/cumber/driver/driver_js.html">driver.js</a>
+  
+    <li><a href="../../../lib/cumber/driver/driver_helpers/element_js.html">element.js</a>
+  
+    <li><a href="../../../lib/cumber/driver/driver_helpers/helper_methods_js.html">helper_methods.js</a>
+  
+    <li><a href="../../../lib/cumber/driver/driver_helpers/helpers_js.html">helpers.js</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/cumber/driver/driver.js">
+
+<p>import “driver_helpers/helpers.js”</p>
+
+<p>//automation globals var target = UIATarget.localTarget(); var frontApp =
+target.frontMostApp(); var mainWindow = frontApp.mainWindow(); var system =
+target.host();</p>
+
+<p>UIATarget.onAlert = function(alert)  {</p>
+
+<pre>return true;</pre>
+
+<p>};</p>
+
+<p>var log = function(message)  {</p>
+
+<p>//    UIALogger.logDebug(message); };</p>
+
+<p>var escapeRegExp = function(str)  {</p>
+
+<pre>return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, &quot;\\$&amp;&quot;);</pre>
+
+<p>};</p>
+
+<p>var replaceAll = function(find, replace, str)  {</p>
+
+<pre>return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);</pre>
+
+<p>};</p>
+
+<p>var convertSpecialChars = function(str)  {</p>
+
+<pre>str = replaceAll(&quot;&amp;91;&quot;, &quot;[&quot;, str);
+str = replaceAll(&quot;&amp;93;&quot;, &quot;]&quot;, str);
+str = replaceAll(&quot;&amp;34;&quot;, &quot;\&quot;&quot;, str);
+str = replaceAll(&quot;&amp;32;&quot;, &quot; &quot;, str);
+str = replaceAll(&quot;&amp;123;&quot;, &quot;{&quot;, str);
+str = replaceAll(&quot;&amp;125;&quot;, &quot;}&quot;, str);
+str = replaceAll(&quot;&amp;38;&quot;, &quot;&amp;&quot;, str);
+
+return str;</pre>
+
+<p>};</p>
+
+<p>var requestCommand = function(response) {</p>
+
+<pre>var command = system.performTaskWithPathArgumentsTimeout(&quot;/usr/bin/curl&quot;, [&quot;-X&quot;, &quot;POST&quot;, &quot;-H&quot;, &quot;Content-Type: application/json&quot;, &quot;-d&quot;, response, &quot;http://localhost:8080/device&quot;], 600);
+
+var commandJson = eval(&quot;(&quot; + command.stdout + &quot;)&quot;);
+
+return commandJson.message;</pre>
+
+<p>};</p>
+
+<p>var requestFirstCommand = function() {</p>
+
+<pre>return requestCommand('{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;connecting&quot;}');</pre>
+
+<p>};</p>
+
+<p>var executeCommand = function(command) {</p>
+
+<pre>var cmd = convertSpecialChars(command);
+log(&quot;Executing Command: &quot;+ cmd);
+
+var response;
+
+try
+{
+   response = eval(cmd);
+   response = formatResponse(response, &quot;success&quot;);
+}
+catch(err)
+{
+   response = formatResponse(&quot;&quot;, &quot;error&quot;);
+}
+
+return response;</pre>
+
+<p>};</p>
+
+<p>var formatResponse = function(response, status) {</p>
+
+<pre>log(&quot;Response: &quot;+ response);
+return '{&quot;message&quot;:&quot;' + response + '&quot;, &quot;status&quot;:&quot;'+ status +'&quot;}';</pre>
+
+<p>};</p>
+
+<p>var main = function() {</p>
+
+<pre>var command = requestFirstCommand();
+var response;
+
+while (true)
+{
+    response = executeCommand(command);
+    command = requestCommand(response);
+}</pre>
+
+<p>};</p>
+
+<p>log(“Instruments listening”); main();</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
