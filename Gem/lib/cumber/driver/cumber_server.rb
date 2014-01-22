@@ -6,10 +6,23 @@ require 'json'
 #
 class CumberServer
 
+  ##
+  # The host socket to run the server on
   HOST = 'localhost'
+
+
+  ##
+  # The host port to run the server on
   PORT = 8080
   @cmd = ''
   @rsp = ''
+
+  ##
+  # Starts the running Cumber server on localhost:8080.
+  #
+  # ====Examples
+  #   CumberServer.start
+  #
 
   def self.start
 
@@ -44,6 +57,12 @@ class CumberServer
 
   end
 
+  ##
+  # Processes the Json data from the client request and returns the proper response.
+  #
+  # ====Examples
+  #   CumberServer.generate_response('/device', '{"message":"", "status":""}')
+  #
   def self.generate_response(client, message)
 
     request = client.split(' ')[1]
@@ -62,6 +81,12 @@ class CumberServer
     return response
   end
 
+  ##
+  # Processes the data response from the Cumber Gem client.
+  #
+  # ====Examples
+  #   CumberServer.set_command('{"message":"", "status":""}')
+  #
   def self.set_command(message)
     @cmd = message
     log('Received Command: ' + @cmd)
@@ -74,6 +99,12 @@ class CumberServer
     end
   end
 
+  ##
+  # Processes the data response from the instruments driver client.
+  #
+  # ====Examples
+  #   CumberServer.set_response('{"message":"", "status":""}')
+  #
   def self.set_response(message)
     message_json = JSON.parse(message)
 
@@ -85,6 +116,12 @@ class CumberServer
 
   end
 
+  ##
+  # Delays the response to the device until a command comes in.
+  #
+  # ====Examples
+  #   CumberServer.wait_for_command
+  #
   def self.wait_for_command
 
     while @cmd.length == 0
@@ -97,6 +134,12 @@ class CumberServer
     command
   end
 
+  ##
+  # Delays the response to the cumber gem client until a response comes in.
+  #
+  # ====Examples
+  #   CumberServer.wait_for_response
+  #
   def self.wait_for_response
 
     while @rsp.length == 0
@@ -109,6 +152,12 @@ class CumberServer
     response
   end
 
+  ##
+  # Logs information for debug mode. Commented out until verbose logging option is implemented
+  #
+  # ====Examples
+  #   CumberServer.log("")
+  #
   def self.log (message)
     #puts message + "\n"
   end
