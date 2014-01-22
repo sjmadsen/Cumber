@@ -8,7 +8,7 @@ describe Cumber do
     it 'should send the command to server and return the response' do
 
       step = 'target.frontMostApp().keyboard().typeString("pas&word");'
-      Cumber.should_receive(:send_command).with(step).and_return('{"message":"result", "status":"success"}')
+      Cumber.should_receive(:send_command).with(step, 'run').and_return('{"message":"result", "status":"success"}')
       Cumber.execute_step(step).should eql('message' => 'result', 'status' => 'success')
     end
   end
@@ -88,7 +88,7 @@ describe Cumber do
     it 'should convert the command to Json structure' do
       command = 'target.frontMostApp().keyboard().typeString("pas&word");'
 
-      Cumber.format_command(command).should eql('{"message":"target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);"}')
+      Cumber.format_command(command, 'run').should eql('{"message":"target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);", "status":"run"}')
     end
   end
 
@@ -103,7 +103,7 @@ describe Cumber do
       mock_response = double :mock_response
 
       mock_request.stub(:body).and_return('')
-      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pass&38;word&34;);"}')
+      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pass&38;word&34;);", "status":"run"}')
 
       Net::HTTP::Post.stub(:new).and_return(mock_request)
       Net::HTTP.stub(:start).and_yield http
@@ -112,7 +112,7 @@ describe Cumber do
 
       mock_response.should_receive(:body).and_return('{"message":"test", "status":"success"}')
 
-      Cumber.send_command(command).should eql '{"message":"test", "status":"success"}'
+      Cumber.send_command(command, 'run').should eql '{"message":"test", "status":"success"}'
     end
 
   end

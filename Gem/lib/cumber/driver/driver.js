@@ -13,7 +13,7 @@ UIATarget.onAlert = function(alert)
 
 var log = function(message) 
 {    
-    UIALogger.logMessage(message);
+//    UIALogger.logDebug(message);
 };
 
 var escapeRegExp = function(str) 

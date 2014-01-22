@@ -126,7 +126,7 @@ helper methods</p>
         <div class="method-description">
           
           <p>Converts the string value of “true” to a boolean true and all other strings
-to false (case sensitive)</p>
+to false (case insensitive)</p>
           
           
 
@@ -134,7 +134,7 @@ to false (case sensitive)</p>
           <div class="method-source-code" id="to_bool-source">
             <pre><span class="ruby-comment"># File lib/cumber/string.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_bool</span>
-  <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-string">'true'</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">'true'</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">casecmp</span>(<span class="ruby-string">'1'</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

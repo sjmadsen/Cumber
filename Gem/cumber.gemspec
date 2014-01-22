@@ -7,11 +7,12 @@ Gem::Specification.new do |gem|
   gem.summary = 'UIAutomation tool that bridges the gap between cucumber tests and iOS XCode Instruments'
   gem.homepage = 'https://github.com/chipsnyder/Cumber'
 
-  gem.files = Dir.glob('{lib,doc}/**/*')
+  gem.files = Dir.glob('{lib,doc}/**/**/*')
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'json'
   gem.add_development_dependency 'socket'
   gem.add_development_dependency 'uri'
   gem.add_development_dependency 'net/http'
+
 end

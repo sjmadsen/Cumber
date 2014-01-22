@@ -70,9 +70,19 @@
     
     <li ><a href="#method-c-format_command">::format_command</a>
     
+    <li ><a href="#method-c-new_run">::new_run</a>
+    
     <li ><a href="#method-c-parse_response">::parse_response</a>
     
+    <li ><a href="#method-c-path_to_driver">::path_to_driver</a>
+    
     <li ><a href="#method-c-send_command">::send_command</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-c-stop">::stop</a>
+    
+    <li ><a href="#method-c-stop_instruments">::stop_instruments</a>
     
     <li ><a href="#method-c-strip_special_chars">::strip_special_chars</a>
     
@@ -146,9 +156,9 @@ in UI Automation.</p>
 
           
           <div class="method-source-code" id="execute_step-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">step</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">step</span>, <span class="ruby-string">'run'</span>)
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
 
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
@@ -167,7 +177,7 @@ in UI Automation.</p>
         
         <div class="method-heading">
           <span class="method-name">format_command</span><span
-            class="method-args">(command)</span>
+            class="method-args">(command, status)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -192,9 +202,65 @@ in UI Automation.</p>
 
           
           <div class="method-source-code" id="format_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 84</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-string">'{&quot;message&quot;:&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-identifier">command</span>) <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;}'</span>
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">'{&quot;message&quot;:&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-identifier">command</span>) <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;, &quot;status&quot;:&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;}'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new_run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_run</span><span
+            class="method-args">(udid, target)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Closes the app and prepares the tablet for the next scenario. <br></p>
+
+<h4 id="method-c-new_run-label-Parameters">Parameters<span><a href="#method-c-new_run-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>udid</code> - The unique identifier of the iOS Device to run tests
+against.</p>
+</li><li>
+<p><code>target</code> - The name of the app to launch when cumber starts.</p>
+</li></ul>
+
+<h4 id="method-c-new_run-label-Examples">Examples<span><a href="#method-c-new_run-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>#Place in your hooks.rb file.
+
+Before() do
+  Cumber.new_run(23123sasd12321313..., Cumber-Test)
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new_run-source">
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_run</span>(<span class="ruby-identifier">udid</span>, <span class="ruby-identifier">target</span>)
+
+  <span class="ruby-identifier">stop_instruments</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">driver_path</span> = <span class="ruby-identifier">path_to_driver</span> <span class="ruby-operator">+</span> <span class="ruby-string">'/driver.js'</span>
+    <span class="ruby-identifier">system</span>(<span class="ruby-string">'instruments -w '</span><span class="ruby-operator">+</span> <span class="ruby-identifier">udid</span> <span class="ruby-operator">+</span><span class="ruby-string">' -D cumber_ins.trace -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '</span><span class="ruby-operator">+</span> <span class="ruby-identifier">target</span> <span class="ruby-operator">+</span><span class="ruby-string">' -e UIASCRIPT '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">driver_path</span>)
+  <span class="ruby-keyword">end</span>
+
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -237,10 +303,48 @@ portion of the resulting value of the executed ruby command.</p>
 
           
           <div class="method-source-code" id="parse_response-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 44</span>
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
   <span class="ruby-identifier">response_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">response</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response_json</span>[<span class="ruby-string">'message'</span>]
+  <span class="ruby-identifier">response_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path_to_driver" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path_to_driver</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the path to the <a href="Cumber.html">Cumber</a> instruments driver
+file. <br></p>
+
+<h4 id="method-c-path_to_driver-label-Examples">Examples<span><a href="#method-c-path_to_driver-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>Cumber.path_to_driver</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="path_to_driver-source">
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path_to_driver</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword">__FILE__</span>)), <span class="ruby-string">'cumber/driver'</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -256,7 +360,7 @@ portion of the resulting value of the executed ruby command.</p>
         
         <div class="method-heading">
           <span class="method-name">send_command</span><span
-            class="method-args">(command)</span>
+            class="method-args">(command, status)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -282,18 +386,142 @@ response</p>
 
           
           <div class="method-source-code" id="send_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 60</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">command</span>)
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
 
   <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'/cumber'</span>, <span class="ruby-identifier">initheader</span> = {<span class="ruby-string">'Content-Type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'application/json'</span>})
-  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
 
-  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-value">:read_timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">600</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">request</span>)
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Starts the <a href="Cumber.html">Cumber</a> Server. Needs to be called once
+at the begging of a Cucumber run. <br></p>
+
+<h4 id="method-c-start-label-Examples">Examples<span><a href="#method-c-start-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>#Place in your env.rb file.
+Cumber.start</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-ivar">@server_process</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">CumberServer</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stops the <a href="Cumber.html">Cumber</a> Server. Needs to be called at
+the end of a Cucumber run. <br></p>
+
+<h4 id="method-c-stop-label-Examples">Examples<span><a href="#method-c-stop-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>#Place in your env.rb file.
+
+at_exit do
+  Cumber.stop
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">stop_instruments</span>
+  <span class="ruby-ivar">@server_process</span>.<span class="ruby-identifier">exit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-stop_instruments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop_instruments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stops instruments before starting a new run. <br></p>
+
+<h4 id="method-c-stop_instruments-label-Examples">Examples<span><a href="#method-c-stop_instruments-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>Cumber.stop_instruments</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stop_instruments-source">
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stop_instruments</span>
+  <span class="ruby-identifier">send_command</span>(<span class="ruby-string">''</span>, <span class="ruby-string">'end'</span>)
+  <span class="ruby-identifier">system</span>(<span class="ruby-string">'pkill -9 -f instruments'</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -335,7 +563,7 @@ for the characters ‘&amp;’, ‘[’, ‘]’, ‘“’, ‘ ’, ‘{’, a
 
           
           <div class="method-source-code" id="strip_special_chars-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 100</span>
+            <pre><span class="ruby-comment"># File lib/cumber.rb, line 101</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-identifier">command</span>)
   <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'&amp;'</span>, <span class="ruby-string">'&amp;38;'</span>)
   <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'['</span>, <span class="ruby-string">'&amp;91;'</span>)

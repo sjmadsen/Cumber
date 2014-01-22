@@ -1,0 +1,5 @@
+//UIAElement.prototype["logDebug"] = function()
+//{
+//};
+
+

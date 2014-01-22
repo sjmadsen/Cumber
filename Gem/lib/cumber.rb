@@ -10,6 +10,7 @@ module Cumber
 
   @host = 'localhost'
   @port = '8080'
+  @server_process
 
   ##
   # Creates an instance of a Cumber Element to use as a base to query UI Automation.
@@ -23,7 +24,7 @@ module Cumber
   #   Cumber.execute_step('target.mainWindow.size()') #=> returns the result of the command
 
   def self.execute_step(step)
-    response = send_command(step)
+    response = send_command(step, 'run')
     response = parse_response(response)
 
     return response
@@ -57,10 +58,10 @@ module Cumber
   #
   #   Cumber.send_command('frontApp.keyboard().typeString("password")') #=> returns '{"message":"response"}'
 
-  def self.send_command(command)
+  def self.send_command(command, status)
 
     request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' => 'application/json'})
-    request.body = format_command(command)
+    request.body = format_command(command, status)
 
     response = Net::HTTP.start(@host, @port, :read_timeout => 600) do |http|
       http.request(request)
@@ -81,8 +82,8 @@ module Cumber
   #
   #   Cumber.format_command('frontApp.keyboard().typeString("password")') #=> returns '{"message":"target.frontMostApp().keyboard().typeString(&34;password&34;);"}'
 
-  def self.format_command(command)
-    return '{"message":"' + strip_special_chars(command) + '"}'
+  def self.format_command(command, status)
+    return '{"message":"' + strip_special_chars(command) + '", "status":"' + status + '"}'
   end
 
   ##
@@ -107,6 +108,88 @@ module Cumber
     command.gsub!('}', '&125;')
 
     return command
+  end
+
+  ##
+  # Starts the Cumber Server. Needs to be called once at the begging of a Cucumber run. <br>
+  #
+  # ==== Examples
+  #   #Place in your env.rb file.
+  #   Cumber.start
+
+  def self.start
+
+    @server_process = Thread.new do
+      CumberServer.start
+    end
+
+  end
+
+  ##
+  # Stops the Cumber Server. Needs to be called at the end of a Cucumber run. <br>
+  #
+  # ==== Examples
+  #   #Place in your env.rb file.
+  #
+  #   at_exit do
+  #     Cumber.stop
+  #   end
+  #
+
+  def self.stop
+    stop_instruments
+    @server_process.exit
+  end
+
+  ##
+  # Closes the app and prepares the tablet for the next scenario. <br>
+  #
+  # ==== Parameters
+  #
+  # * +udid+ - The unique identifier of the iOS Device to run tests against.
+  # * +target+ - The name of the app to launch when cumber starts.
+  #
+  # ==== Examples
+  #   #Place in your hooks.rb file.
+  #
+  #   Before() do
+  #     Cumber.new_run(23123sasd12321313..., Cumber-Test)
+  #   end
+  #
+
+  def self.new_run(udid, target)
+
+    stop_instruments
+
+    Thread.new do
+      driver_path = path_to_driver + '/driver.js'
+      system('instruments -w '+ udid +' -D cumber_ins.trace -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
+    end
+
+  end
+
+  ##
+  # Stops instruments before starting a new run. <br>
+  #
+  # ==== Examples
+  #
+  #   Cumber.stop_instruments
+  #
+  def self.stop_instruments
+    send_command('', 'end')
+    system('pkill -9 -f instruments')
+  end
+
+  ##
+  # Returns the path to the Cumber instruments driver file. <br>
+  #
+  # ==== Examples
+  #
+  #   Cumber.path_to_driver
+  #
+
+  def self.path_to_driver
+    File.join(File.dirname(File.expand_path(__FILE__)), 'cumber/driver')
   end
 
 end

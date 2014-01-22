@@ -86,11 +86,23 @@
     
     <li ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-find_by_name">#find_by_name</a>
+    <li ><a href="#method-i-enabled-3F">#enabled?</a>
     
-    <li ><a href="#method-i-label">#label</a>
+    <li ><a href="#method-i-exists-3F">#exists?</a>
+    
+    <li ><a href="#method-i-process_bool_response">#process_bool_response</a>
+    
+    <li ><a href="#method-i-process_string_response">#process_string_response</a>
+    
+    <li ><a href="#method-i-search_and_execute_command">#search_and_execute_command</a>
     
     <li ><a href="#method-i-search_description">#search_description</a>
+    
+    <li ><a href="#method-i-tap">#tap</a>
+    
+    <li ><a href="#method-i-value">#value</a>
+    
+    <li ><a href="#method-i-visible-3F">#visible?</a>
     
   </ul>
 </div>
@@ -126,6 +138,20 @@ class is the UIAutomation superclass for all user interface objects.</p>
         <h3>Attributes</h3>
       </header>
 
+      
+      <div id="attribute-i-label" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">label</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Represents the label attribute of the UIAElement. (often this is the same
+as the name attribute)</p>
+        
+        </div>
+      </div>
       
       <div id="attribute-i-name" class="method-detail">
         <div class="method-heading attribute-method-heading">
@@ -185,9 +211,10 @@ href="Element.html">Element</a> to use as a base to query UI Automation.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 28</span>
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">locator</span> = {})
   <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">locator</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-ivar">@label</span> = <span class="ruby-identifier">locator</span>[<span class="ruby-value">:label</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -207,10 +234,10 @@ href="Element.html">Element</a> to use as a base to query UI Automation.</p>
        </header>
 
     
-      <div id="method-i-find_by_name" class="method-detail ">
+      <div id="method-i-enabled-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">find_by_name</span><span
+          <span class="method-name">enabled?</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -220,27 +247,24 @@ href="Element.html">Element</a> to use as a base to query UI Automation.</p>
 
         <div class="method-description">
           
-          <p>Searches the main window for any UIAElement which has an accessibility
-label that matches the name on the <a href="../Cumber.html">Cumber</a> <a
-href="Element.html">Element</a>, and returns if the object exists or not.</p>
+          <p>Checks the enabled stated of the object. <br></p>
 
-<h4 id="method-i-find_by_name-label-Examples">Examples<span><a href="#method-i-find_by_name-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4 id="method-i-enabled-3F-label-Examples">Examples<span><a href="#method-i-enabled-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
 <pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">find_by_name</span> <span class="ruby-comment">#=&gt; returns true if object is found</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">enabled?</span> <span class="ruby-comment">#=&gt; returns true If the element is enabled</span>
 </pre>
           
           
 
           
-          <div class="method-source-code" id="find_by_name-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_name</span>
+          <div class="method-source-code" id="enabled-3F-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enabled?</span>
 
-  <span class="ruby-identifier">predicate</span> = <span class="ruby-node">&quot;name = '#{@name}'&quot;</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'isEnabled()'</span>)
 
-  <span class="ruby-identifier">command</span> = <span class="ruby-string">%q[searchWithPredicate(&quot;]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">predicate</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[&quot;, mainWindow).checkIsValid()]</span>
-  <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">command</span>).<span class="ruby-identifier">to_bool</span>
+  <span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -252,10 +276,10 @@ href="Element.html">Element</a>, and returns if the object exists or not.</p>
       </div>
 
     
-      <div id="method-i-label" class="method-detail ">
+      <div id="method-i-exists-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">label</span><span
+          <span class="method-name">exists?</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -265,25 +289,174 @@ href="Element.html">Element</a>, and returns if the object exists or not.</p>
 
         <div class="method-description">
           
-          <p>Returns the label value for the specified <a
-href="Element.html">Element</a>.</p>
+          <p>Checks the validity attribute and verifies the object exists. <br></p>
 
-<h4 id="method-i-label-label-Examples">Examples<span><a href="#method-i-label-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4 id="method-i-exists-3F-label-Examples">Examples<span><a href="#method-i-exists-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
 
 <pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">label</span> <span class="ruby-comment">#=&gt; returns the value of the label</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-comment">#=&gt; returns true If the element exists</span>
 </pre>
           
           
 
           
-          <div class="method-source-code" id="label-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 68</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">label</span>
+          <div class="method-source-code" id="exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exists?</span>
 
-  <span class="ruby-identifier">command</span> = <span class="ruby-string">'.label()'</span>
-  <span class="ruby-identifier">command</span> = <span class="ruby-identifier">search_description</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">command</span>
-  <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'checkIsValid()'</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">'message'</span>].<span class="ruby-identifier">to_bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_bool_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_bool_response</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Processes the result for a boolean return. Returns the boolean or nil if
+there was an error.</p>
+
+<h4 id="method-i-process_bool_response-label-Parameters">Parameters<span><a href="#method-i-process_bool_response-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>response</code> - The response from the executing a cumber command.</p>
+</li></ul>
+
+<h4 id="method-i-process_bool_response-label-Examples">Examples<span><a href="#method-i-process_bool_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">process_bool_response</span> {<span class="ruby-string">'message'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'true'</span>, <span class="ruby-string">'status'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'success'</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="process_bool_response-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">'message'</span>].<span class="ruby-identifier">to_bool</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_string_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_string_response</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Processes the result for a string return. Returns the string or nil if
+there was an error.</p>
+
+<h4 id="method-i-process_string_response-label-Parameters">Parameters<span><a href="#method-i-process_string_response-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>response</code> - The response from the executing a cumber command.</p>
+</li></ul>
+
+<h4 id="method-i-process_string_response-label-Examples">Examples<span><a href="#method-i-process_string_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">process_string_response</span> {<span class="ruby-string">'message'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'item located'</span>, <span class="ruby-string">'status'</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">'success'</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="process_string_response-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_string_response</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">'message'</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-search_and_execute_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_and_execute_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Appends the command to execute on the located object and returns the
+response.</p>
+
+<h4 id="method-i-search_and_execute_command-label-Parameters">Parameters<span><a href="#method-i-search_and_execute_command-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>command</code> - The additional step to execute on a UIAElement.</p>
+</li></ul>
+
+<h4 id="method-i-search_and_execute_command-label-Examples">Examples<span><a href="#method-i-search_and_execute_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">search_and_execute_command</span> <span class="ruby-string">&quot;label()&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="search_and_execute_command-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-identifier">command</span>)
+
+  <span class="ruby-identifier">step</span> = <span class="ruby-identifier">search_description</span> <span class="ruby-operator">+</span> <span class="ruby-string">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -315,13 +488,148 @@ locators.</p>
 
           
           <div class="method-source-code" id="search_description-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 52</span>
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search_description</span>
 
-  <span class="ruby-identifier">predicate</span> = <span class="ruby-node">&quot;name = '#{@name}'&quot;</span>
+  <span class="ruby-identifier">predicate</span> = []
 
-  <span class="ruby-string">%q[searchWithPredicate(&quot;]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">predicate</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[&quot;, mainWindow)]</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span>
+    <span class="ruby-identifier">predicate</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;name = '#{@name}'&quot;</span>
+  <span class="ruby-keyword">end</span>
 
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@label</span>
+    <span class="ruby-identifier">predicate</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;label = '#{@label}'&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-string">%q[searchWithPredicate(&quot;]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">predicate</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' AND '</span>) <span class="ruby-operator">+</span> <span class="ruby-string">%q[&quot;, mainWindow)]</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tap</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Simulate a user tapping on the UIAElement. <br></p>
+
+<h4 id="method-i-tap-label-Examples">Examples<span><a href="#method-i-tap-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">tap</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="tap-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tap</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'tap()'</span>)
+
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>].<span class="ruby-identifier">should_not</span> <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
+  <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">'error'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the value attribute for the specified <a
+href="Element.html">Element</a>. <br></p>
+
+<h4 id="method-i-value-label-Examples">Examples<span><a href="#method-i-value-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">value</span> <span class="ruby-comment">#=&gt; returns the value attribute &quot;Element Found&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="value-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">value</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'value()'</span>)
+  <span class="ruby-identifier">process_string_response</span>(<span class="ruby-identifier">response</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visible-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visible?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks the visibility stated of the object. <br></p>
+
+<h4 id="method-i-visible-3F-label-Examples">Examples<span><a href="#method-i-visible-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-identifier">element</span>.<span class="ruby-identifier">visible?</span> <span class="ruby-comment">#=&gt; returns true If the element is visible</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="visible-3F-source">
+            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible?</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'isVisible()'</span>)
+
+  <span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

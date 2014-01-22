@@ -8,4 +8,3 @@ RSpec::Core::RakeTask.new(:specs)
 
 desc 'Run all tests'
 task :test => [:specs]
-
