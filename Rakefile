@@ -8,17 +8,6 @@ task :build do
   system ('xcodebuild -project '+ config['project'] +' -target '+ config['target'] +' -sdk iphoneos -configuration Debug clean build')
 end
 
-desc 'launch app on device'
-task :launch do
-  config = YAML.load(ERB.new(File.read('config.yml')).result)
-  system ('instruments -w '+ config['udid'] +' -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ config['target'] +' -e UIASCRIPT ./Gem/lib/cumber/driver/driver.js')
-end
-
-desc 'Start the Server'
-task :server do
-  CumberServer.start
-end
-
 desc 'Install app to device'
 task :install do
   config = YAML.load(ERB.new(File.read('config.yml')).result)
@@ -32,10 +21,10 @@ task :uninstall do
 end
 
 desc 'Deploy app to device'
-task :deploy => [:uninstall, :build, :install, :launch]
+task :deploy => [:uninstall, :build, :install]
 
 desc 'ReDeploy the app to device with out building'
-task :rerun => [:uninstall, :install, :launch]
+task :rerun => [:uninstall, :install]
 
 desc 'Run Cukes'
 task :test => [:deploy]
@@ -48,5 +37,11 @@ end
 desc 'Turn verbose logging off'
 task :turn_off_verbose_logging do
   `defaults write com.apple.dt.InstrumentsCLI UIAVerboseLogging -int 4096`
+end
+
+desc 'Start Server'
+task :launch do
+  CumberServer.start
+  #Cumber.start
 end
 

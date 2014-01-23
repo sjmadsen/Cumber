@@ -122,12 +122,12 @@ href="Cumber.html">Cumber</a> Gem.</p>
       
         <dt id="HOST">HOST
         
-        <dd>
+        <dd><p>The host socket to run the server on</p>
         
       
         <dt id="PORT">PORT
         
-        <dd>
+        <dd><p>The host port to run the server on</p>
         
       
       </dl>
@@ -156,13 +156,18 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Processes the Json data from the client request and returns the proper
+response.</p>
+
+<h4 id="method-c-generate_response-label-Examples">Examples<span><a href="#method-c-generate_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.generate_response('/device', '{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}')</pre>
           
           
 
           
           <div class="method-source-code" id="generate_response-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 47</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_response</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">message</span>)
 
   <span class="ruby-identifier">request</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">' '</span>)[<span class="ruby-value">1</span>]
@@ -203,13 +208,18 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Logs information for debug mode. Commented out until verbose logging option
+is implemented</p>
+
+<h4 id="method-c-log-label-Examples">Examples<span><a href="#method-c-log-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.log(&quot;&quot;)</pre>
           
           
 
           
           <div class="method-source-code" id="log-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 112</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 161</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">log</span> (<span class="ruby-identifier">message</span>)
   <span class="ruby-comment">#puts message + &quot;\n&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -236,13 +246,18 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Processes the data response from the <a href="Cumber.html">Cumber</a> Gem
+client.</p>
+
+<h4 id="method-c-set_command-label-Examples">Examples<span><a href="#method-c-set_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.set_command('{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}')</pre>
           
           
 
           
           <div class="method-source-code" id="set_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 65</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_command</span>(<span class="ruby-identifier">message</span>)
   <span class="ruby-ivar">@cmd</span> = <span class="ruby-identifier">message</span>
   <span class="ruby-identifier">log</span>(<span class="ruby-string">'Received Command: '</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@cmd</span>)
@@ -277,13 +292,17 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Processes the data response from the instruments driver client.</p>
+
+<h4 id="method-c-set_response-label-Examples">Examples<span><a href="#method-c-set_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.set_response('{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}')</pre>
           
           
 
           
           <div class="method-source-code" id="set_response-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 77</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_response</span>(<span class="ruby-identifier">message</span>)
   <span class="ruby-identifier">message_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">message</span>)
 
@@ -317,13 +336,18 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Starts the running <a href="Cumber.html">Cumber</a> server on
+localhost:8080.</p>
+
+<h4 id="method-c-start-label-Examples">Examples<span><a href="#method-c-start-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.start</pre>
           
           
 
           
           <div class="method-source-code" id="start-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
 
   <span class="ruby-identifier">server</span> = <span class="ruby-constant">TCPServer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'localhost'</span>, <span class="ruby-value">8080</span>)
@@ -379,13 +403,17 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Delays the response to the device until a command comes in.</p>
+
+<h4 id="method-c-wait_for_command-label-Examples">Examples<span><a href="#method-c-wait_for_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.wait_for_command</pre>
           
           
 
           
           <div class="method-source-code" id="wait_for_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 88</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_command</span>
 
   <span class="ruby-keyword">while</span> <span class="ruby-ivar">@cmd</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
@@ -420,13 +448,17 @@ href="Cumber.html">Cumber</a> Gem.</p>
 
         <div class="method-description">
           
-          
+          <p>Delays the response to the cumber gem client until a response comes in.</p>
+
+<h4 id="method-c-wait_for_response-label-Examples">Examples<span><a href="#method-c-wait_for_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<pre>CumberServer.wait_for_response</pre>
           
           
 
           
           <div class="method-source-code" id="wait_for_response-source">
-            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 100</span>
+            <pre><span class="ruby-comment"># File lib/cumber/driver/cumber_server.rb, line 143</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">wait_for_response</span>
 
   <span class="ruby-keyword">while</span> <span class="ruby-ivar">@rsp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>

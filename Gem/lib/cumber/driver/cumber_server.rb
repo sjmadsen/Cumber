@@ -1,11 +1,11 @@
 require 'socket'
 require 'json'
 
+$0 ="CumberServer\0"
 ##
 # Manages communication between UI Instruments and the Cumber Gem.
 #
 class CumberServer
-
   ##
   # The host socket to run the server on
   HOST = 'localhost'

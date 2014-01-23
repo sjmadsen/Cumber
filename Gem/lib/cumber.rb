@@ -119,14 +119,16 @@ module Cumber
 
   def self.start
 
-    @server_process = Thread.new do
+    stop_server
+
+    @server_process = Process.fork do
       CumberServer.start
     end
 
   end
 
   ##
-  # Stops the Cumber Server. Needs to be called at the end of a Cucumber run. <br>
+  # Stops the Cumber Server and the current instruments run. Needs to be called at the end of a Cucumber run. <br>
   #
   # ==== Examples
   #   #Place in your env.rb file.
@@ -138,7 +140,25 @@ module Cumber
 
   def self.stop
     stop_instruments
-    @server_process.exit
+    stop_server
+  end
+
+  ##
+  # Stops the Cumber Server <br>
+  #
+  # ==== Examples
+  #
+  #     Cumber.stop_server
+  #
+
+  def self.stop_server
+    server_pid = %x[lsof -t -i TCP:8080]
+    pids = server_pid.split("\n")
+
+    pids.each do |pid|
+      system('kill -9 ' + pid)
+    end
+
   end
 
   ##
@@ -148,6 +168,7 @@ module Cumber
   #
   # * +udid+ - The unique identifier of the iOS Device to run tests against.
   # * +target+ - The name of the app to launch when cumber starts.
+  # * +trace_path+ - the full path to save the instruments trace results too.
   #
   # ==== Examples
   #   #Place in your hooks.rb file.
@@ -157,13 +178,13 @@ module Cumber
   #   end
   #
 
-  def self.new_run(udid, target)
+  def self.new_run(udid, target, trace_path)
 
     stop_instruments
 
     Thread.new do
       driver_path = path_to_driver + '/driver.js'
-      system('instruments -w '+ udid +' -D cumber_ins.trace -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
+      system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
     end
 
   end
