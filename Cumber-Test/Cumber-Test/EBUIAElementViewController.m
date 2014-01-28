@@ -10,7 +10,7 @@
 
 @implementation EBUIAElementViewController
 
-@synthesize redButton, blueButton, yellowButton, colorLabel;
+@synthesize redButton, blueButton, yellowButton, colorLabel, imageView, delayedExistance, delayedEnabled;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +22,18 @@
         [self setEdgesForExtendedLayout:UIRectEdgeNone];
     }
     return self;
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [imageView setImage:[UIImage imageNamed:@"BearImage"]];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self countDownToShowingLabel];
 }
 
 
@@ -65,6 +77,27 @@
     
     [blueButton setSelected:NO];
     [blueButton setEnabled:YES];
+}
+
+- (void)countDownToShowingLabel
+{
+    displayTimer = [NSTimer timerWithTimeInterval:20 target:self selector:@selector(showDelayedExistanceLabel) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop]addTimer:displayTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)showDelayedExistanceLabel
+{
+    [displayTimer invalidate];
+    displayTimer = nil;
+    
+    [delayedEnabled setEnabled:YES];
+    
+    CGRect frame = CGRectMake(imageView.frame.origin.x, imageView.frame.origin.y + imageView.frame.size.height + 20, imageView.frame.size.width, 50);
+    delayedExistance = [[UILabel alloc] initWithFrame:frame];
+    [delayedExistance setText:@"Delayed Existance Label"];
+    [delayedExistance setAccessibilityLabel:@"delayedExistance"];
+    
+    [[self view] addSubview:delayedExistance];
 }
 
 @end

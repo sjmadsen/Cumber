@@ -83,30 +83,66 @@
 {
     target.pushTimeout(0);
     var elements = startElement.elements();
-    var found = elements.firstWithPredicate(predicate); target.popTimeout();
+    var found = elements.firstWithPredicate(predicate);
+    target.popTimeout();
 
     if (found.isValid()) return found;
 
     for (var i = 0; i &lt; elements.length; i++)
     {
         var element = elements[i];
-        found = recursiveSearch(predicate, element); if (found) return found;
+        found = recursiveSearch(predicate, element);
+        if (found) return found;
     }
 
     return null;
 }
 
-var timeoutInMillis = target.timeout() * 1000; var start = new Date();
+var timeoutInMillis = target.timeout() * 1000;
+
+var start = new Date();
 
 do
 {
     var now = new Date();
-    var found = recursiveSearch(predicate, startElement); target.delay(0.1);
-
+    var found = recursiveSearch(predicate, startElement);
+    target.delay(0.1);
 }
 while(!found &amp;&amp; now - start &lt; timeoutInMillis);
 
 return found;</pre>
+
+<p>}</p>
+
+<p>function waitForCondition(element, condition, timeout) {</p>
+
+<pre>var start = new Date();
+var timeoutInMillis = timeout * 1000;
+var theElement = eval(element);
+
+do
+{
+  var now = new Date();
+
+} while(eval('!theElement.' + condition) &amp;&amp; now - start &lt; timeoutInMillis )
+
+return eval('theElement.' + condition);</pre>
+
+<p>}</p>
+
+<p>function waitForElementToExist(predicate, startElement, timeout) {</p>
+
+<pre>var timeoutInMillis = timeout * 1000;
+var start = new Date();
+
+do
+{
+    var now = new Date();
+    var theElement = searchWithPredicate(predicate, startElement);
+
+} while(!theElement &amp;&amp; now - start &lt; timeoutInMillis);
+
+return theElement;</pre>
 
 <p>}</p>
 </main>

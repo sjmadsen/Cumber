@@ -9,22 +9,22 @@ var system = target.host();
 UIATarget.onAlert = function(alert) 
 {    
     return true;
-};
+}
 
 var log = function(message) 
 {    
 //    UIALogger.logDebug(message);
-};
+}
 
 var escapeRegExp = function(str) 
 {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-};
+}
 
 var replaceAll = function(find, replace, str) 
 {
   return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
-};
+}
 
 var convertSpecialChars = function(str) 
 {
@@ -37,7 +37,7 @@ var convertSpecialChars = function(str)
     str = replaceAll("&38;", "&", str);
 
     return str;
-};
+}
 
 var requestCommand = function(response)
 {
@@ -46,12 +46,12 @@ var requestCommand = function(response)
     var commandJson = eval("(" + command.stdout + ")");
 
     return commandJson.message;
-};
+}
 
 var requestFirstCommand = function()
 {
     return requestCommand('{"message":"", "status":"connecting"}');
-};
+}
 
 var executeCommand = function(command)
 {
@@ -71,13 +71,13 @@ var executeCommand = function(command)
     }
 
     return response;
-};
+}
 
 var formatResponse = function(response, status)
 {
     log("Response: "+ response);
     return '{"message":"' + response + '", "status":"'+ status +'"}';
-};
+}
 
 var main = function()
 {
@@ -89,7 +89,7 @@ var main = function()
         response = executeCommand(command);
         command = requestCommand(response);
     }
-};
+}
 
 log("Instruments listening");
 main();

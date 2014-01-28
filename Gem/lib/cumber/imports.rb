@@ -1,3 +1,5 @@
 require 'cumber/element'
+require 'cumber/keyboard'
 require 'cumber/string'
+require 'cumber/response_helper'
 require 'cumber/driver/cumber_server'

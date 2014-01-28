@@ -8,8 +8,10 @@
             <connections>
                 <outlet property="blueButton" destination="Ic7-k3-DNN" id="pOg-KT-SlQ"/>
                 <outlet property="colorLabel" destination="Tnz-TH-uxg" id="Xk0-TK-6W7"/>
+                <outlet property="delayedEnabled" destination="hth-C8-f7O" id="ajU-dl-Pr3"/>
                 <outlet property="elementHidden" destination="eQ5-s0-ydo" id="r2M-a1-mYO"/>
                 <outlet property="elementSearch" destination="Dwu-L4-BoR" id="c6F-Zp-iOk"/>
+                <outlet property="imageView" destination="15G-lA-fSf" id="fnB-wq-u37"/>
                 <outlet property="redButton" destination="Hpl-eE-UZe" id="JHZ-Qu-rX2"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="yellowButton" destination="HYB-WB-Zra" id="Ncg-NX-8SX"/>
@@ -81,6 +83,28 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXW-vP-rD1">
+                    <rect key="frame" x="20" y="157" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="elementForTyping"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15G-lA-fSf">
+                    <rect key="frame" x="40" y="220" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="elementWithImage">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hth-C8-f7O">
+                    <rect key="frame" x="20" y="518" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration" label="delayedEnabled"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

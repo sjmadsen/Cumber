@@ -7,10 +7,10 @@ module Cumber
   class Element
     include Cumber
 
-    # Represents the accessibiltyLabel of the UIAElement.
+    # Represents the label attribute of the UIAElement. (often this is the same as the name attribute)
     attr_accessor :name
 
-    # Represents the label attribute of the UIAElement. (often this is the same as the name attribute)
+    # Represents the accessibiltyLabel of the UIAElement.
     attr_accessor :label
 
     ##
@@ -34,10 +34,9 @@ module Cumber
     end
 
     ##
-    # Returns the locator string to find the specified object based on the set locators.
+    # Returns the search predicate to use when locating objects
 
-    def search_description
-
+    def search_predicate
       predicate = []
 
       if @name
@@ -48,7 +47,16 @@ module Cumber
         predicate << "label = '#{@label}'"
       end
 
-      %q[searchWithPredicate("] + predicate.join(' AND ') + %q[", mainWindow)]
+      predicate.join(' AND ')
+
+    end
+
+    ##
+    # Returns the locator string to find the specified object based on the set locators.
+
+    def search_description
+
+      %q[searchWithPredicate("] + search_predicate + %q[", frontApp)]
 
     end
 
@@ -71,48 +79,70 @@ module Cumber
     end
 
     ##
-    # Processes the result for a string return. Returns the string or nil if there was an error.
+    # Waits until a particular condition is met in the provided time period. Returns if the condition is met or not after the provided timeout.
     #
     # ==== Parameters
     #
-    # * +response+ - The response from the executing a cumber command.
+    # * +condition+ - The condition to to verify the command must be the UIInstruments Command.
+    #
+    # ==== Optional Parameters
+    #
+    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
     #
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.process_string_response {'message'=>'item located', 'status'=>'success'}
+    #   element.wait_for_condition('isValid() == true', 300)
 
-    def process_string_response(response)
-      if response['status'] == 'error'
-        return nil
-      end
+    def wait_for_condition(condition, timeout = 300)
+      step = %q[waitForCondition(] + search_description + %q[, '] + condition + %q[', ] + timeout.to_s + %q[)]
+      response = Cumber.execute_step(step)
 
-      response['message']
+      response['status'].should_not == 'error'
+
+      ResponseHelper.process_bool_response(response)
     end
 
     ##
-    # Processes the result for a boolean return. Returns the boolean or nil if there was an error.
+    # Waits until the element exists over the given time period. Returns if element exists or not after the provided timeout.
     #
-    # ==== Parameters
+    # ==== Optional Parameters
     #
-    # * +response+ - The response from the executing a cumber command.
+    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
     #
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.process_bool_response {'message'=>'true', 'status'=>'success'}
+    #   element.wait_for_element_to_exist(300)
 
-    def process_bool_response(response)
+    def wait_for_element_to_exist(timeout = 300)
 
-      if response['status'] == 'error'
-        return nil
-      end
+      step = %q[waitForElementToExist("] + search_predicate + %q[", frontApp, ] + timeout.to_s + %q[).checkIsValid()]
+      response = Cumber.execute_step(step)
 
-      response['message'].to_bool
+      if ResponseHelper.process_bool_response(response) then true else false end
     end
 
     ##
-    # Returns the label value for the specified Element. <br>
+    # Waits until the element is enabled over the given time period. Returns if element is enabled or not after the provided timeout.
+    #
+    # ==== Optional Parameters
+    #
+    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   element.wait_for_element_to_be_enabled(300)
+
+    def wait_for_element_to_be_enabled(timeout = 300)
+
+      wait_for_condition('isEnabled() == 1', timeout)
+    end
+
+
+    ##
+    # Returns the accessibilityLabel value for the specified Element. <br>
     # See <a href = "https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's UIAElement Documentation</a> for more information on the differences between name and label.
     #
     # ==== Examples
@@ -127,11 +157,12 @@ module Cumber
       end
 
       response = self.search_and_execute_command('label()')
-      process_string_response(response)
+      ResponseHelper.process_string_response(response)
     end
 
     ##
-    # Returns the name value for the specified Element. <br>
+    # Returns the name value for the specified Element.<br>
+    # Often this is the same as the accessibilityLabel. One notable difference is when working with an Image View. The name will represent the file path to the image being displayed <br>
     # See <a href = "https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's UIAElement Documentation</a> for more information on the differences between name and label.
     #
     # ==== Examples
@@ -146,7 +177,7 @@ module Cumber
       end
 
       response = self.search_and_execute_command('name()')
-      process_string_response(response)
+      ResponseHelper.process_string_response(response)
     end
 
     ##
@@ -160,7 +191,7 @@ module Cumber
     def value
 
       response = search_and_execute_command('value()')
-      process_string_response(response)
+      ResponseHelper.process_string_response(response)
     end
 
     ##
@@ -194,7 +225,7 @@ module Cumber
 
       response = search_and_execute_command('isEnabled()')
 
-      process_bool_response(response)
+      ResponseHelper.process_bool_response(response)
     end
 
 
@@ -210,7 +241,7 @@ module Cumber
 
       response = search_and_execute_command('isVisible()')
 
-      process_bool_response(response)
+      ResponseHelper.process_bool_response(response)
     end
 
     ##
@@ -228,6 +259,70 @@ module Cumber
       response['status'].should_not == 'error'
       response['status'] != 'error'
     end
+
+    ##
+    # Returns the position :x, :y touched by the UIAElement Tap method <br>
+    #
+    # ==== Returned Hash Variables
+    #
+    # * +:x+ - The x coordinate tapped by the tap command.
+    # * +:y+ - The y coordinate tapped by the tap command.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   point = element.hit_point
+    #   point[:x] #=> "22"
+    #   point[:y] #=> "123"
+
+    def hit_point
+
+      response = search_and_execute_command('hit_point()')
+      ResponseHelper.process_hash_response(response)
+    end
+
+    ##
+    # Returns the frame origin :x, :y and size :width, :height of the UIAElement. <br>
+    #
+    # ==== Origin
+    #
+    # * +:x+ - The left most x coordinate of the UIAElement.
+    # * +:y+ - The top most y coordinate of the UIAElement.
+    #
+    # ==== size
+    #
+    # * +:width+ - The left most x coordinate of the UIAElement.
+    # * +:height+ - The top most y coordinate of the UIAElement.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   frame = element.frame
+    #   frame[:origin][:x] #=> "22"
+    #   frame[:origin][:y] #=> "123"
+    #   frame[:size][:width] #=> "200"
+    #   frame[:size][:height] #=> "50"
+
+    def frame
+
+      response = search_and_execute_command('frame()')
+      ResponseHelper.process_hash_response(response)
+    end
+
+    ##
+    # Returns if the selected element has the focus of the keyboard. <br>
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   element.has_keyboard_focus? #=> true or false
+
+    def has_keyboard_focus?
+
+      response = search_and_execute_command('hasKeyboardFocus()')
+      ResponseHelper.process_bool_response(response)
+    end
+
 
   end
 

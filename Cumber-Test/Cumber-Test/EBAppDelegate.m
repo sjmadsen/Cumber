@@ -7,7 +7,7 @@
 //
 
 #import "EBAppDelegate.h"
-#import "EBUIAElementViewController.h"
+#import "EBMenuTableViewController.h"
 
 @implementation EBAppDelegate
 
@@ -16,9 +16,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    EBUIAElementViewController *elementVC = [[EBUIAElementViewController alloc] init];
+    EBMenuTableViewController *menuTableView = [[EBMenuTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
-    UINavigationController *masterNavigation = [[UINavigationController alloc] initWithRootViewController:elementVC];
+    UINavigationController *masterNavigation = [[UINavigationController alloc] initWithRootViewController:menuTableView];
     
     [[self window] setRootViewController:masterNavigation];
     

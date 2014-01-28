@@ -87,23 +87,23 @@ target.host();</p>
 
 <pre>return true;</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var log = function(message)  {</p>
 
-<p>//    UIALogger.logDebug(message); };</p>
+<p>//    UIALogger.logDebug(message); }</p>
 
 <p>var escapeRegExp = function(str)  {</p>
 
 <pre>return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, &quot;\\$&amp;&quot;);</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var replaceAll = function(find, replace, str)  {</p>
 
 <pre>return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var convertSpecialChars = function(str)  {</p>
 
@@ -117,7 +117,7 @@ str = replaceAll(&quot;&amp;38;&quot;, &quot;&amp;&quot;, str);
 
 return str;</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var requestCommand = function(response) {</p>
 
@@ -127,13 +127,13 @@ var commandJson = eval(&quot;(&quot; + command.stdout + &quot;)&quot;);
 
 return commandJson.message;</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var requestFirstCommand = function() {</p>
 
 <pre>return requestCommand('{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;connecting&quot;}');</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var executeCommand = function(command) {</p>
 
@@ -154,14 +154,14 @@ catch(err)
 
 return response;</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var formatResponse = function(response, status) {</p>
 
 <pre>log(&quot;Response: &quot;+ response);
 return '{&quot;message&quot;:&quot;' + response + '&quot;, &quot;status&quot;:&quot;'+ status +'&quot;}';</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>var main = function() {</p>
 
@@ -174,7 +174,7 @@ while (true)
     command = requestCommand(response);
 }</pre>
 
-<p>};</p>
+<p>}</p>
 
 <p>log(“Instruments listening”); main();</p>
 </main>

@@ -156,7 +156,7 @@ module Cumber
     pids = server_pid.split("\n")
 
     pids.each do |pid|
-      system('kill -9 ' + pid)
+      system('kill -3 ' + pid)
     end
 
   end
@@ -178,7 +178,7 @@ module Cumber
   #   end
   #
 
-  def self.new_run(udid, target, trace_path)
+  def self.new_run(udid, target)
 
     stop_instruments
 

@@ -42,6 +42,10 @@ end
 desc 'Start Server'
 task :launch do
   CumberServer.start
-  #Cumber.start
+end
+
+desc 'Start instruments'
+task :instruments do
+  Cumber.new_run('%x[appdeploy get_udid]', 'Cumber-Test')
 end
 
