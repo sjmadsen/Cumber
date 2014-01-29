@@ -31,7 +31,7 @@
 /bin
 /features
 config.yml
-Cumber-Test/build/*
+/Cumber-Test/build/*
 cumber_ins.trace
 Cumber-Test/Cumber-Test.xcodeproj/xcuserdata/*
 .idea
