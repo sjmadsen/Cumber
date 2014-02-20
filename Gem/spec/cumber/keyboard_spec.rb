@@ -6,7 +6,7 @@ describe 'UIAKeyboard Wrapper' do
 
     it 'should return the path to the keyboard' do
       expected = %q[frontApp.keyboard()]
-      Cumber::Keyboard.search_description.should eql expected
+      Cumber::Keyboard.new().search_description.should eql expected
     end
   end
 
@@ -17,56 +17,34 @@ describe 'UIAKeyboard Wrapper' do
       command = %q[frontApp.keyboard().typeString('Hello')]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
-      Cumber::Keyboard.type_string('Hello')
+      Cumber::Keyboard.new().type_string('Hello')
 
     end
 
-    context 'Element was located' do
+    it 'should be able to type apostrophes' do
+      command = %q[frontApp.keyboard().typeString('Hello\\\\'s')]
 
-      it 'should return true if successful' do
-
-        Cumber.should_receive(:execute_step).and_return('message' => 'undefined', 'status' => 'success')
-        Cumber::Keyboard.type_string('Hello').should == true
-      end
-
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      Cumber::Keyboard.new().type_string("Hello's")
     end
 
-    context 'Element was not located' do
+    it 'should be able to type quotes' do
+      command = %q[frontApp.keyboard().typeString('Then he said "Hello"')]
 
-      it 'should fail the step' do
-
-        Cumber.should_receive(:execute_step).and_return('message' => '', 'status' => 'error')
-        lambda{ Cumber::Keyboard.type_string('Hello')}.should raise_error
-      end
-
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      Cumber::Keyboard.new().type_string('Then he said "Hello"')
     end
 
   end
 
   context 'Search for the keyboard and perform command' do
 
-    context 'Element was found' do
-
       it 'should return the result' do
         command = %q[frontApp.keyboard().doStuff()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'Did Stuff', 'status' => 'success')
-        Cumber::Keyboard.search_and_execute_command('doStuff()').should == {'message'=>'Did Stuff', 'status'=>'success'}
+        Cumber::Keyboard.new().search_and_execute_command('doStuff()')
       end
-
-    end
-
-    context 'Element was not located' do
-
-      it 'should return nil if the element is not found' do
-        command = %q[frontApp.keyboard().doStuff()]
-
-        Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
-        Cumber::Keyboard.search_and_execute_command('doStuff()').should == {'message'=>'', 'status'=>'error'}
-      end
-
-    end
-
   end
 
 

@@ -11,7 +11,9 @@
 
 enum TestScreens {
     UIAElementTests = 0,
-    UIAKeyboardTests = 1
-    };
+    UIAKeyboardTests = 1,
+    UIAAlertTests = 2,
+    UIAPickerTests = 3
+};
 
 #endif

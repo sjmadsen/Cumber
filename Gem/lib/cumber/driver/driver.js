@@ -5,15 +5,19 @@ var target = UIATarget.localTarget();
 var frontApp = target.frontMostApp();
 var mainWindow = frontApp.mainWindow();
 var system = target.host();
+var verboseLogging = system.performTaskWithPathArgumentsTimeout("/usr/bin/defaults", ["read", "com.apple.dt.InstrumentsCLI", "UIAVerboseLogging"], 600).stdout;
 
 UIATarget.onAlert = function(alert) 
 {    
     return true;
 }
 
-var log = function(message) 
-{    
-//    UIALogger.logDebug(message);
+var log = function(message)
+{
+    if (verboseLogging == '')
+    {
+        UIALogger.logDebug(message);
+    }
 }
 
 var escapeRegExp = function(str) 
@@ -26,22 +30,9 @@ var replaceAll = function(find, replace, str)
   return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
 
-var convertSpecialChars = function(str) 
-{
-    str = replaceAll("&91;", "[", str);
-    str = replaceAll("&93;", "]", str);
-    str = replaceAll("&34;", "\"", str);
-    str = replaceAll("&32;", " ", str);
-    str = replaceAll("&123;", "{", str);
-    str = replaceAll("&125;", "}", str);
-    str = replaceAll("&38;", "&", str);
-
-    return str;
-}
-
 var requestCommand = function(response)
 {
-    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], 600);
+    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], Number.MAX_VALUE);
 
     var commandJson = eval("(" + command.stdout + ")");
 
@@ -55,14 +46,13 @@ var requestFirstCommand = function()
 
 var executeCommand = function(command)
 {
-    var cmd = convertSpecialChars(command);
-    log("Executing Command: "+ cmd);
+    log("Executing Command: "+ command);
 
     var response;
 
     try
     {
-       response = eval(cmd);
+       response = eval(command);
        response = formatResponse(response, "success");
     }
     catch(err)
@@ -75,8 +65,10 @@ var executeCommand = function(command)
 
 var formatResponse = function(response, status)
 {
-    log("Response: "+ response);
-    return '{"message":"' + response + '", "status":"'+ status +'"}';
+    var res = replaceAll("'", "\\'", ""+response);
+    res = replaceAll('"', '\\"', res);
+    log("Response: "+ res);
+    return '{"message":"' + res + '", "status":"'+ status +'"}';
 }
 
 var main = function()

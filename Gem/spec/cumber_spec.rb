@@ -15,70 +15,20 @@ describe Cumber do
 
   context 'Strip Special Characters' do
 
-    context 'Strip &' do
-
-      it 'should replace & with &38;' do
-        Cumber.strip_special_chars('&&').should eql('&38;&38;')
-      end
-
-    end
-
-    context 'Strip [' do
-
-      it 'should replace [ with &91;' do
-        Cumber.strip_special_chars('[[').should eql('&91;&91;')
-      end
-
-    end
-
-    context 'Strip ]' do
-
-      it 'should replace ] with &93;' do
-        Cumber.strip_special_chars(']]').should eql('&93;&93;')
-      end
-
-    end
-
     context 'Strip "' do
 
-      it 'should replace " with &34;' do
-        Cumber.strip_special_chars('"Test"').should eql('&34;Test&34;')
+      it 'should replace " with \"' do
+        Cumber.strip_special_chars('"Test"').should eql('\"Test\"')
       end
 
     end
 
-    context 'Strip blank space' do
+    context 'Strip \'' do
 
-      it 'should replace the empty space with &32;' do
-        Cumber.strip_special_chars('Test A').should eql('Test&32;A')
+      it 'should replace \' with \' ' do
+        Cumber.strip_special_chars("'Test'").should eql("\\'Test\\'")
       end
 
-    end
-
-    context 'Strip {' do
-
-      it 'should replace { with &123;' do
-        Cumber.strip_special_chars('{{').should eql('&123;&123;')
-      end
-
-    end
-
-    context 'Strip }' do
-
-      it 'should replace } with &125;' do
-        Cumber.strip_special_chars('}}').should eql('&125;&125;')
-      end
-
-    end
-
-    context 'Strip Multiple characters' do
-
-      it 'should replace all instance of the special characters' do
-
-        input_string = 'target.frontMostApp().mainWindow().scrollViews()[0].webViews()[0].secureTextFields()["Password"].tap(); while(target.frontMostApp().keyboard().checkIsValid() == false) {}; target.frontMostApp().keyboard().typeString("pas&word");'
-        expected = 'target.frontMostApp().mainWindow().scrollViews()&91;0&93;.webViews()&91;0&93;.secureTextFields()&91;&34;Password&34;&93;.tap();&32;while(target.frontMostApp().keyboard().checkIsValid()&32;==&32;false)&32;&123;&125;;&32;target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);'
-        Cumber.strip_special_chars(input_string).should eql(expected)
-      end
     end
 
   end
@@ -88,7 +38,7 @@ describe Cumber do
     it 'should convert the command to Json structure' do
       command = 'target.frontMostApp().keyboard().typeString("pas&word");'
 
-      Cumber.format_command(command, 'run').should eql('{"message":"target.frontMostApp().keyboard().typeString(&34;pas&38;word&34;);", "status":"run"}')
+      Cumber.format_command(command, 'run').should eql('{"message":"target.frontMostApp().keyboard().typeString(\"pas&word\");", "status":"run"}')
     end
   end
 
@@ -103,7 +53,7 @@ describe Cumber do
       mock_response = double :mock_response
 
       mock_request.stub(:body).and_return('')
-      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(&34;pass&38;word&34;);", "status":"run"}')
+      mock_request.should_receive(:body=).with('{"message":"target.frontMostApp().keyboard().typeString(\"pass&word\");", "status":"run"}')
 
       Net::HTTP::Post.stub(:new).and_return(mock_request)
       Net::HTTP.stub(:start).and_yield http

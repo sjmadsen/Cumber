@@ -57,7 +57,7 @@ function waitForElementToExist(predicate, startElement, timeout)
     do
     {
         var now = new Date();
-        var theElement = searchWithPredicate(predicate, startElement);
+        var theElement = searchWithPredicate(predicate, eval(startElement));
 
     } while(!theElement && now - start < timeoutInMillis);
 

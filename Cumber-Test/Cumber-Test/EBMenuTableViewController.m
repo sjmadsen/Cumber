@@ -10,6 +10,8 @@
 #import "EBConstants.h"
 #import "EBUIAElementViewController.h"
 #import "EBUIAKeyboardViewController.h"
+#import "EBUIAAlertViewController.h"
+#import "EBUIAPickerViewController.h"
 
 @implementation EBMenuTableViewController
 
@@ -25,6 +27,12 @@
 
 #pragma mark - Table view data source
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[self tableView] setAccessibilityLabel:@"testViews"];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -32,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,6 +63,14 @@
             cell = [self setCellForUIAKeyboardTests:cell];
             break;
             
+        case UIAAlertTests:
+            cell = [self setCellForUIAAlertTests:cell];
+            break;
+            
+        case UIAPickerTests:
+            cell = [self setCellForUIAPickerTests:cell];
+            break;
+            
         default:
             break;
     }
@@ -73,6 +89,14 @@
             
         case UIAKeyboardTests:
             [self pushUIAKeyboardTestScreen];
+            break;
+            
+        case UIAAlertTests:
+            [self pushUIAAlertTestScreen];
+            break;
+            
+        case UIAPickerTests:
+            [self pushUIAPickerTestScreen];
             break;
             
         default:
@@ -108,6 +132,36 @@
 {
     EBUIAKeyboardViewController *keyboardTests = [[EBUIAKeyboardViewController alloc] init];
     [[self navigationController] pushViewController:keyboardTests animated:YES];
+}
+
+#pragma mark UIAAlert Tests
+
+- (UITableViewCell *)setCellForUIAAlertTests:(UITableViewCell *)cell
+{
+    [[cell textLabel] setText:@"UIAAlert Tests"];
+    [cell setAccessibilityLabel:@"UIAAlert Tests"];
+    return cell;
+}
+
+- (void)pushUIAAlertTestScreen
+{
+    EBUIAAlertViewController *alertTests = [[EBUIAAlertViewController alloc] init];
+    [[self navigationController] pushViewController:alertTests animated:YES];
+}
+
+#pragma mark UIAPicker Tests
+
+- (UITableViewCell *)setCellForUIAPickerTests:(UITableViewCell *)cell
+{
+    [[cell textLabel] setText:@"UIAPicker Tests"];
+    [cell setAccessibilityLabel:@"UIAPicker Tests"];
+    return cell;
+}
+
+- (void)pushUIAPickerTestScreen
+{
+    EBUIAPickerViewController *pickerTests = [[EBUIAPickerViewController alloc] init];
+    [[self navigationController] pushViewController:pickerTests animated:YES];
 }
 
 @end

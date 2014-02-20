@@ -40,11 +40,11 @@ module Cumber
       predicate = []
 
       if @name
-        predicate << "name = '#{@name}'"
+        predicate << "name = '#{escape_single_quotes(@name)}'"
       end
 
       if @label
-        predicate << "label = '#{@label}'"
+        predicate << "label = '#{escape_single_quotes(@label)}'"
       end
 
       predicate.join(' AND ')
@@ -56,7 +56,7 @@ module Cumber
 
     def search_description
 
-      %q[searchWithPredicate("] + search_predicate + %q[", frontApp)]
+      %q[searchWithPredicate("] + search_predicate + %q[", target)]
 
     end
 
@@ -117,7 +117,7 @@ module Cumber
 
     def wait_for_element_to_exist(timeout = 300)
 
-      step = %q[waitForElementToExist("] + search_predicate + %q[", frontApp, ] + timeout.to_s + %q[).checkIsValid()]
+      step = %q[waitForElementToExist("] + search_predicate + %q[", target, ] + timeout.to_s + %q[).checkIsValid()]
       response = Cumber.execute_step(step)
 
       if ResponseHelper.process_bool_response(response) then true else false end
@@ -256,8 +256,7 @@ module Cumber
 
       response = search_and_execute_command('tap()')
 
-      response['status'].should_not == 'error'
-      response['status'] != 'error'
+      ResponseHelper.process_operation_response(response)
     end
 
     ##
@@ -323,6 +322,62 @@ module Cumber
       ResponseHelper.process_bool_response(response)
     end
 
+    ##
+    # Returns the class of the specified object <br>
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   element.type #=> UIAStaticText
+
+    def type
+
+      response = search_and_execute_command('type()')
+      ResponseHelper.process_string_response(response)
+    end
+
+    ##
+    # Returns the description of the element.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   description = element.description
+    #   description[:type] #=> UIAStaticText
+    #   description[:label] #=> ElementSearchLabel
+    #   description[:name] #=> ElementSearch
+    #   description[:frame][:origin][:x] #=> "22"
+    #   description[:frame][:origin][:y] #=> "123"
+    #   description[:frame][:size][:width] #=> "200"
+    #   description[:frame][:size][:height] #=> "50"
+    #   description[:value] #=> "The label is here"
+
+    def description
+
+      response = search_and_execute_command('description()')
+      ResponseHelper.process_hash_response(response)
+    end
+
+    ##
+    # Returns an array of descriptions about each element that is a direct subview of the listed element.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   descriptions = element.elements
+
+    def elements
+
+      response = search_and_execute_command('elements().description()')
+      ResponseHelper.process_hash_response(response)
+    end
+
+    ##
+    # Escapes single quotes for sending commands
+
+    def escape_single_quotes(value)
+      value.gsub("'","\\\\\\\\\\\\'")
+    end
 
   end
 

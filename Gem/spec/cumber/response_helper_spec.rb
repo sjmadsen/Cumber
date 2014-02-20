@@ -62,4 +62,22 @@ describe 'Process Response Types from CumberServer' do
 
   end
 
+  context 'Process operation response' do
+
+    context 'Status success' do
+      it 'should return the boolean true' do
+        result = Cumber::ResponseHelper.process_operation_response({'message'=>'', 'status'=>'success'})
+        result.should == true
+      end
+    end
+
+    context 'Status error' do
+      it 'should throw an error' do
+        lambda{ Cumber::ResponseHelper.process_operation_response({'message'=>'', 'status'=>'error'})}.should raise_error
+
+      end
+    end
+
+  end
+
 end

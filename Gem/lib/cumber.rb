@@ -63,7 +63,7 @@ module Cumber
     request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' => 'application/json'})
     request.body = format_command(command, status)
 
-    response = Net::HTTP.start(@host, @port, :read_timeout => 600) do |http|
+    response = Net::HTTP.start(@host, @port, :read_timeout => 2000000) do |http|
       http.request(request)
     end
 
@@ -99,13 +99,8 @@ module Cumber
   #   Cumber.strip_special_chars('frontApp.keyboard().typeString("password")') #=> returns 'target.frontMostApp().keyboard().typeString(&34;password&34;)'
 
   def self.strip_special_chars(command)
-    command.gsub!('&', '&38;')
-    command.gsub!('[', '&91;')
-    command.gsub!(']', '&93;')
-    command.gsub!('"', '&34;')
-    command.gsub!(' ', '&32;')
-    command.gsub!('{', '&123;')
-    command.gsub!('}', '&125;')
+    command.gsub!("'", "\\\\'")
+    command.gsub!('"', '\"')
 
     return command
   end
@@ -162,13 +157,12 @@ module Cumber
   end
 
   ##
-  # Closes the app and prepares the tablet for the next scenario. <br>
+  # Closes the app and prepares the tablet for the next scenario. Stops instruments, cleans up the trace file and reloads instruments in a new thread.
   #
   # ==== Parameters
   #
   # * +udid+ - The unique identifier of the iOS Device to run tests against.
   # * +target+ - The name of the app to launch when cumber starts.
-  # * +trace_path+ - the full path to save the instruments trace results too.
   #
   # ==== Examples
   #   #Place in your hooks.rb file.
@@ -181,12 +175,30 @@ module Cumber
   def self.new_run(udid, target)
 
     stop_instruments
+    system('rm -rf ./bin/ins.trace')
 
     Thread.new do
-      driver_path = path_to_driver + '/driver.js'
-      system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
+      start_instruments(udid, target)
     end
 
+  end
+
+  ##
+  # Starts instruments
+  #
+  # ==== Parameters
+  #
+  # * +udid+ - The unique identifier of the iOS Device to run tests against.
+  # * +target+ - The name of the app to launch when cumber starts.
+  #
+  # ==== Examples
+  #
+  #     Cumber.start_instruments(23123sasd12321313..., Cumber-Test)
+  #
+
+  def self.start_instruments(udid, target)
+    driver_path = path_to_driver + '/driver.js'
+    system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
   end
 
   ##

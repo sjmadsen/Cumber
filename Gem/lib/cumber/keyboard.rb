@@ -2,39 +2,23 @@ module Cumber
 
   ##
   # This class is the wrapper for the UIAKeyboard class.
-  # The UIAKeyboard class allows users to interact with the keyboard object.
+  # The UIAKeyboard class allows users to interact with the keyboard object. UIAKeyboard is a subclass of UIAElement
 
-  class Keyboard
-
-    ##
-    # Appends the command to execute on the located keyboard and returns the response.
-    #
-    # ==== Parameters
-    #
-    # * +command+ - The additional step to execute on a UIAElement.
-    #
-    # ==== Examples
-    #
-    #   Cumber::Keyboard.search_and_execute_command("label()")
-
-    def self.search_and_execute_command(command)
-
-      step = search_description + '.' + command
-      Cumber.execute_step(step)
-    end
+  class Keyboard < Element
 
     ##
     # Returns the locator string to find the keyboard.
 
-    def self.search_description
+    def search_description
       %q[frontApp.keyboard()]
     end
 
     ##
     # Types the provided keys into the keyboard
-    def self.type_string(value)
+    def type_string(value)
 
-      response = search_and_execute_command("typeString('#{value}')")
+      text = value.gsub("'","\\\\\\\\'")
+      response = search_and_execute_command("typeString('#{text}')")
       response['status'].should_not == 'error'
       response['status'] != 'error'
     end

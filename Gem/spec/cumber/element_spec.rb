@@ -43,19 +43,19 @@ describe 'UIAElement Wrapper' do
   context 'Providing the search description' do
 
     it 'should return the search command with the name predicate for the object' do
-      expected = %q[searchWithPredicate("name = 'ItemName'", frontApp)]
+      expected = %q[searchWithPredicate("name = 'ItemName'", target)]
       element = Cumber::Element.new(:name => 'ItemName')
       element.search_description.should eql expected
     end
 
     it 'should return the search command with the label predicate for the object' do
-      expected = %q[searchWithPredicate("label = 'ItemLabel'", frontApp)]
+      expected = %q[searchWithPredicate("label = 'ItemLabel'", target)]
       element = Cumber::Element.new(:label => 'ItemLabel')
       element.search_description.should eql expected
     end
 
     it 'should return the search command with the name & label predicate for the object' do
-      expected = %q[searchWithPredicate("name = 'ItemName' AND label = 'ItemLabel'", frontApp)]
+      expected = %q[searchWithPredicate("name = 'ItemName' AND label = 'ItemLabel'", target)]
       element = Cumber::Element.new(:name => 'ItemName', :label => 'ItemLabel')
       element.search_description.should eql expected
     end
@@ -67,7 +67,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result' do
-        command = %q[searchWithPredicate("name = 'ItemName'", frontApp).doStuff()]
+        command = %q[searchWithPredicate("name = 'ItemName'", target).doStuff()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'Did Stuff', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -79,7 +79,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was not located' do
 
       it 'should return nil if the element is not found' do
-        command = %q[searchWithPredicate("name = 'ItemNotThere'", frontApp).doStuff()]
+        command = %q[searchWithPredicate("name = 'ItemNotThere'", target).doStuff()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
@@ -95,7 +95,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result of the condition' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", frontApp), 'doStuff()', 300)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'doStuff()', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -107,7 +107,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was not located' do
 
       it 'should raise an error if the command errors out' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", frontApp), 'doStuff()', 200)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", target), 'doStuff()', 200)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
@@ -124,7 +124,7 @@ describe 'UIAElement Wrapper' do
     context 'No error when searching for the element' do
 
       it 'should return the result of the element search' do
-        command = %q[waitForElementToExist("name = 'ItemName'", frontApp, 300).checkIsValid()]
+        command = %q[waitForElementToExist("name = 'ItemName'", target, 300).checkIsValid()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -136,7 +136,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was not located' do
 
       it 'should return false' do
-        command = %q[waitForElementToExist("name = 'ItemNotThere'", frontApp, 200).checkIsValid()]
+        command = %q[waitForElementToExist("name = 'ItemNotThere'", target, 200).checkIsValid()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
@@ -153,7 +153,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result if the element was enabled after the timeout' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", frontApp), 'isEnabled() == 1', 300)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isEnabled() == 1', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -165,7 +165,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was not located' do
 
       it 'should raise an error if the command errors out' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", frontApp), 'isEnabled() == 1', 200)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", target), 'isEnabled() == 1', 200)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
@@ -187,7 +187,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return the label' do
 
-      command = %q[searchWithPredicate("name = 'ItemName'", frontApp).label()]
+      command = %q[searchWithPredicate("name = 'ItemName'", target).label()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'ItemLabel', 'status' => 'success')
       element = Cumber::Element.new(:name => 'ItemName')
@@ -229,7 +229,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return the name' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).name()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).name()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'ItemName', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -265,7 +265,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return the value' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).value()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).value()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'Item Found', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -301,7 +301,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it exists' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).checkIsValid()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).checkIsValid()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -344,7 +344,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it is enabled' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).isEnabled()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).isEnabled()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -387,7 +387,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it is visible' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).isVisible()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).isVisible()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -430,7 +430,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it is visible' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).tap()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tap()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -466,7 +466,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it\'s hit point' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).hit_point()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).hit_point()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => '{:x => "12", :y => "23"}', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -504,7 +504,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it is visible' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).frame()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).frame()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => '{:origin => {:x => "12", :y => "23"}, :size => {:width => "120", :height => "33"}}', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -544,7 +544,7 @@ describe 'UIAElement Wrapper' do
 
     it 'should attempt to locate the element and return if it is enabled' do
 
-      command = %q[searchWithPredicate("label = 'ItemLabel'", frontApp).hasKeyboardFocus()]
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).hasKeyboardFocus()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => '1', 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
@@ -578,6 +578,70 @@ describe 'UIAElement Wrapper' do
         element = Cumber::Element.new(:label => 'ItemNotThere')
         element.has_keyboard_focus?.should == nil
       end
+
+    end
+
+  end
+
+  context 'Get the type of the element' do
+
+    it 'should attempt to locate the element and return its type' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).type()]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'UIAButton', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.type
+
+    end
+
+    context 'Element was found' do
+
+      it 'should return the type as a string' do
+
+        Cumber.should_receive(:execute_step).and_return('message' => 'UIAButton', 'status' => 'success')
+        element = Cumber::Element.new(:label => 'ItemLabel')
+        element.type.should == 'UIAButton'
+      end
+
+    end
+
+    context 'Element was not located' do
+
+      it 'should return nil if the element is not found' do
+
+        Cumber.should_receive(:execute_step).and_return('message' => '', 'status' => 'error')
+        element = Cumber::Element.new(:label => 'ItemNotThere')
+        element.type.should == nil
+      end
+
+    end
+
+  end
+
+  context 'Get the decription of an element' do
+
+    it 'should attempt to locate the element and return its type' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).description()]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => "{:type => 'UIAStaticText', :label => 'ItemLabel', :name => 'ItemName', :value => 'Item Value', :frame => {:origin => {:x => '12', :y => '23'}, :size => {:width => '120', :height => '33'}} }", 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.description
+
+    end
+
+  end
+
+  context 'Get the list of elements in the object' do
+
+    it 'should attempt to locate the element and return its children' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).elements().description()]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => "[[:name => 'hello'], [:name => 'hello2']]", 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.elements
 
     end
 

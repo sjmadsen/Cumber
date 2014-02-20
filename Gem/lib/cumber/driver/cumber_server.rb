@@ -16,16 +16,22 @@ class CumberServer
   PORT = 8080
   @cmd = ''
   @rsp = ''
+  @debug = false
 
   ##
   # Starts the running Cumber server on localhost:8080.
+  #
+  # ==== Optional Parameters
+  #
+  # * +debug+ - Turns on logging for the server. Defaults to false.
   #
   # ====Examples
   #   CumberServer.start
   #
 
-  def self.start
+  def self.start (debug = false)
 
+    @debug = debug
     server = TCPServer.new('localhost', 8080)
     puts "Server listening on: #{HOST}:#{PORT}"
 
@@ -153,13 +159,16 @@ class CumberServer
   end
 
   ##
-  # Logs information for debug mode. Commented out until verbose logging option is implemented
+  # Logs information for debug mode. Pass in true when starting the server for debug mode.
   #
   # ====Examples
   #   CumberServer.log("")
   #
   def self.log (message)
-    #puts message + "\n"
+
+    if @debug
+      puts message + "\n"
+    end
   end
 
 end
