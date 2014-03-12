@@ -112,12 +112,12 @@ module Cumber
   #   #Place in your env.rb file.
   #   Cumber.start
 
-  def self.start
+  def self.start(debug = false)
 
     stop_server
 
     @server_process = Process.fork do
-      CumberServer.start
+      CumberServer.start(debug)
     end
 
   end

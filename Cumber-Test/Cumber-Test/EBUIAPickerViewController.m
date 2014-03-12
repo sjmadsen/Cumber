@@ -7,10 +7,11 @@
 //
 
 #import "EBUIAPickerViewController.h"
+#import "EBPickerViewController.h"
 
 @implementation EBUIAPickerViewController
 
-@synthesize datePickerButton;
+@synthesize datePickerButton, showPickerButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,8 +24,10 @@
     return self;
 }
 
-- (IBAction)showPicker:(id)sender
+- (IBAction)showDatePicker:(id)sender
 {
+    [pickerPopover dismissPopoverAnimated:YES];
+    
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     
@@ -39,19 +42,41 @@
     
     [[datePickerController navigationItem] setRightBarButtonItem:acceptButton];
     
-    datePickerPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNav];
-    [datePickerPopover setDelegate:self];
+    pickerPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNav];
+    [pickerPopover setDelegate:self];
     
     CGSize size = CGSizeMake(320, (5 * 44) + 20);
     
-    [datePickerPopover setPopoverContentSize:size];
+    [pickerPopover setPopoverContentSize:size];
     
-    [datePickerPopover presentPopoverFromRect:[datePickerButton frame] inView:datePickerButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [pickerPopover presentPopoverFromRect:[datePickerButton frame] inView:datePickerButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)selectDone:(id)sender
 {
-    [datePickerPopover dismissPopoverAnimated:YES];
+    [pickerPopover dismissPopoverAnimated:YES];
 }
 
+- (IBAction)showPicker:(id)sender
+{
+    [pickerPopover dismissPopoverAnimated:YES];
+    
+    EBPickerViewController *pickerController = [[EBPickerViewController alloc] init];
+    
+    UINavigationController *popoverNav = [[UINavigationController alloc] initWithRootViewController:pickerController];
+    
+    UIBarButtonItem *acceptButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(selectDone:)];
+    [acceptButton setAccessibilityLabel:@"AcceptButton"];
+    
+    [[pickerController navigationItem] setRightBarButtonItem:acceptButton];
+    
+    pickerPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNav];
+    [pickerPopover setDelegate:self];
+    
+    CGSize size = CGSizeMake(350, (5 * 44) + 20);
+    
+    [pickerPopover setPopoverContentSize:size];
+    
+    [pickerPopover presentPopoverFromRect:[datePickerButton frame] inView:datePickerButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
 @end

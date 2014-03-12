@@ -12,6 +12,7 @@
 #import "EBUIAKeyboardViewController.h"
 #import "EBUIAAlertViewController.h"
 #import "EBUIAPickerViewController.h"
+#import "EBUIATableTestsViewController.h"
 
 @implementation EBMenuTableViewController
 
@@ -30,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self tableView] setAccessibilityLabel:@"testViews"];
+    [[self tableView] setAccessibilityLabel:@"testTable"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -40,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,6 +72,10 @@
             cell = [self setCellForUIAPickerTests:cell];
             break;
             
+        case UIATableTests:
+            cell = [self setCellForUIATableTests:cell];
+            break;
+            
         default:
             break;
     }
@@ -98,6 +103,11 @@
         case UIAPickerTests:
             [self pushUIAPickerTestScreen];
             break;
+            
+        case UIATableTests:
+            [self pushUIATableTestScreen];
+            break;
+            
             
         default:
             break;
@@ -162,6 +172,21 @@
 {
     EBUIAPickerViewController *pickerTests = [[EBUIAPickerViewController alloc] init];
     [[self navigationController] pushViewController:pickerTests animated:YES];
+}
+
+#pragma mark UIAPicker Tests
+
+- (UITableViewCell *)setCellForUIATableTests:(UITableViewCell *)cell
+{
+    [[cell textLabel] setText:@"UIATable Tests"];
+    [cell setAccessibilityLabel:@"UIATable Tests"];
+    return cell;
+}
+
+- (void)pushUIATableTestScreen
+{
+    EBUIATableTestsViewController *tableTests = [[EBUIATableTestsViewController alloc] init];
+    [[self navigationController] pushViewController:tableTests animated:YES];
 }
 
 @end

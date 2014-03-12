@@ -10,10 +10,12 @@
 
 @interface EBUIAPickerViewController : UIViewController <UIPopoverControllerDelegate>
 {
-    UIPopoverController *datePickerPopover;
+    UIPopoverController *pickerPopover;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *datePickerButton;
+@property (weak, nonatomic) IBOutlet UIButton *showPickerButton;
 
+- (IBAction)showDatePicker:(id)sender;
 - (IBAction)showPicker:(id)sender;
 @end

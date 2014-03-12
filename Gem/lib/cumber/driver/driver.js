@@ -10,9 +10,9 @@ var verboseLogging = system.performTaskWithPathArgumentsTimeout("/usr/bin/defaul
 UIATarget.onAlert = function(alert) 
 {    
     return true;
-}
+};
 
-var log = function(message)
+function log(message)
 {
     if (verboseLogging == '')
     {
@@ -20,17 +20,17 @@ var log = function(message)
     }
 }
 
-var escapeRegExp = function(str) 
+function escapeRegExp(str)
 {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 
-var replaceAll = function(find, replace, str) 
+function replaceAll(find, replace, str)
 {
   return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
 
-var requestCommand = function(response)
+function requestCommand(response)
 {
     var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], Number.MAX_VALUE);
 
@@ -39,12 +39,12 @@ var requestCommand = function(response)
     return commandJson.message;
 }
 
-var requestFirstCommand = function()
+function requestFirstCommand()
 {
     return requestCommand('{"message":"", "status":"connecting"}');
 }
 
-var executeCommand = function(command)
+function executeCommand(command)
 {
     log("Executing Command: "+ command);
 
@@ -63,15 +63,17 @@ var executeCommand = function(command)
     return response;
 }
 
-var formatResponse = function(response, status)
+function formatResponse(response, status)
 {
     var res = replaceAll("'", "\\'", ""+response);
     res = replaceAll('"', '\\"', res);
+
+    res = '{"message":"' + res + '", "status":"'+ status +'"}           ';
     log("Response: "+ res);
-    return '{"message":"' + res + '", "status":"'+ status +'"}';
+    return res;
 }
 
-var main = function()
+function main()
 {
     var command = requestFirstCommand();
     var response;

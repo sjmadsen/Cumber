@@ -13,6 +13,9 @@ module Cumber
     # Represents the accessibiltyLabel of the UIAElement.
     attr_accessor :label
 
+    # Represents the ancestry path of the UIAElement
+    attr_accessor :ancestry
+
     ##
     # Creates an instance of a Cumber Element to use as a base to query UI Automation.
     #
@@ -31,6 +34,7 @@ module Cumber
     def initialize(locator = {})
       @name = locator[:name]
       @label = locator[:label]
+      @ancestry = locator[:ancestry]
     end
 
     ##

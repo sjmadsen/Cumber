@@ -23,6 +23,8 @@
 		0432BE5218A14FFD00A671D2 /* EBUIAPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0432BE5018A14FFD00A671D2 /* EBUIAPickerViewController.m */; };
 		0432BE5318A14FFD00A671D2 /* EBUIAPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0432BE5118A14FFD00A671D2 /* EBUIAPickerViewController.xib */; };
 		04425C2D188C4030009478C2 /* EBUIAElementViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */; };
+		046F388718BBAE5D00DC44C8 /* EBPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F388618BBAE5D00DC44C8 /* EBPickerViewController.m */; };
+		046F389418BBBF0F00DC44C8 /* EBUIATableTestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F389318BBBF0F00DC44C8 /* EBUIATableTestsViewController.m */; };
 		047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B31E31883744B0073D15A /* UILabel+CumberExtension.m */; };
 		04A95EC9189C330200884FC5 /* EBUIAAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A95EC7189C330200884FC5 /* EBUIAAlertViewController.m */; };
 		04A95ECA189C330200884FC5 /* EBUIAAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A95EC8189C330200884FC5 /* EBUIAAlertViewController.xib */; };
@@ -65,6 +67,10 @@
 		0432BE5018A14FFD00A671D2 /* EBUIAPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAPickerViewController.m; sourceTree = "<group>"; };
 		0432BE5118A14FFD00A671D2 /* EBUIAPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAPickerViewController.xib; sourceTree = "<group>"; };
 		04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAElementViewControllerTests.m; sourceTree = "<group>"; };
+		046F388518BBAE5D00DC44C8 /* EBPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBPickerViewController.h; sourceTree = "<group>"; };
+		046F388618BBAE5D00DC44C8 /* EBPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBPickerViewController.m; sourceTree = "<group>"; };
+		046F389218BBBF0F00DC44C8 /* EBUIATableTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIATableTestsViewController.h; sourceTree = "<group>"; };
+		046F389318BBBF0F00DC44C8 /* EBUIATableTestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIATableTestsViewController.m; sourceTree = "<group>"; };
 		047B31E21883744B0073D15A /* UILabel+CumberExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CumberExtension.h"; sourceTree = "<group>"; };
 		047B31E31883744B0073D15A /* UILabel+CumberExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CumberExtension.m"; sourceTree = "<group>"; };
 		04A95EC6189C330200884FC5 /* EBUIAAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAAlertViewController.h; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 				0413B22E1879EE8E00DE8676 /* UIAElement */,
 				04F93F7118930E4400062345 /* UIAKeyboard */,
 				0432BE4E18A14FDE00A671D2 /* UIAPicker */,
+				046F389518BBC55D00DC44C8 /* UIATable */,
 			);
 			path = "Cumber-Test";
 			sourceTree = "<group>";
@@ -198,8 +205,19 @@
 				0432BE4F18A14FFD00A671D2 /* EBUIAPickerViewController.h */,
 				0432BE5018A14FFD00A671D2 /* EBUIAPickerViewController.m */,
 				0432BE5118A14FFD00A671D2 /* EBUIAPickerViewController.xib */,
+				046F388518BBAE5D00DC44C8 /* EBPickerViewController.h */,
+				046F388618BBAE5D00DC44C8 /* EBPickerViewController.m */,
 			);
 			name = UIAPicker;
+			sourceTree = "<group>";
+		};
+		046F389518BBC55D00DC44C8 /* UIATable */ = {
+			isa = PBXGroup;
+			children = (
+				046F389218BBBF0F00DC44C8 /* EBUIATableTestsViewController.h */,
+				046F389318BBBF0F00DC44C8 /* EBUIATableTestsViewController.m */,
+			);
+			name = UIATable;
 			sourceTree = "<group>";
 		};
 		047B31DE188371E00073D15A /* CumberExtensions */ = {
@@ -338,8 +356,10 @@
 				0432BE5218A14FFD00A671D2 /* EBUIAPickerViewController.m in Sources */,
 				04F93F7518930E6800062345 /* EBUIAKeyboardViewController.m in Sources */,
 				047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */,
+				046F388718BBAE5D00DC44C8 /* EBPickerViewController.m in Sources */,
 				0413B20C1879EE7600DE8676 /* main.m in Sources */,
 				0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */,
+				046F389418BBBF0F00DC44C8 /* EBUIATableTestsViewController.m in Sources */,
 				04F93F651892EBFF00062345 /* EBMenuTableViewController.m in Sources */,
 				0413B2101879EE7600DE8676 /* EBAppDelegate.m in Sources */,
 			);
