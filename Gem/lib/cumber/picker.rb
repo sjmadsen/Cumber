@@ -18,8 +18,7 @@ module Cumber
     #   date_picker.values_for_wheel(0) #=> ["value1", "value2"]
 
     def values_for_wheel(index)
-      #response = search_and_execute_command("wheels()[#{index}].values()")
-      response = Cumber.execute_step('mainWindow.popover().pickers()[0].wheels()[0].values()')
+      response = search_and_execute_command("wheels()[#{index}].values()")
       response = ResponseHelper.process_string_response(response)
 
       if response

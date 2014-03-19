@@ -1,11 +1,11 @@
 UIAElement.prototype["hit_point"] = function()
 {
-    return "{:x => '" + this.hitpoint().x + "', :y => '" + this.hitpoint().y + "'}";
+    return '{:x => "' + this.hitpoint().x + '", :y => "' + this.hitpoint().y + '"}';
 };
 
 UIAElement.prototype["frame"] = function()
 {
-    return "{:origin => {:x => '" + this.rect().origin.x + "', :y => '" + this.rect().origin.y + "'}, :size => {:width => '" + this.rect().size.width + "', :height => '" + this.rect().size.height + "'}}";
+    return '{:origin => {:x => "' + this.rect().origin.x + '", :y => "' + this.rect().origin.y + '"}, :size => {:width => "' + this.rect().size.width + '", :height => "' + this.rect().size.height + '"}}';
 };
 
 UIAElement.prototype["type"] = function()
@@ -17,7 +17,7 @@ UIAElement.prototype["type"] = function()
 
 UIAElement.prototype["description"] = function()
 {
-    return "{:type => '" + this.type() + "', :label => '" + this.label() + "', :name => '" + this.name() + "', :value => '" + this.value() + "', :frame => " + this.frame() + "}";
+    return '{:type => "' + this.type() + '", :label => "' + this.label() + '", :name => "' + this.name() + '", :value => "' + this.value() + '", :frame => ' + this.frame() + '}';
 };
 
 

@@ -1,649 +1,1119 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Cumber
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
 
-<html>
-<head>
-<meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-<title>module Cumber - RDoc Documentation</title>
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
-<link href="./fonts.css" rel="stylesheet">
-<link href="./rdoc.css" rel="stylesheet">
-
-<script type="text/javascript">
-  var rdoc_rel_prefix = "./";
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
 
-<script src="./js/jquery.js"></script>
-<script src="./js/navigation.js"></script>
-<script src="./js/search_index.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/searcher.js"></script>
-<script src="./js/darkfish.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 
 
-<body id="top" role="document" class="module">
-<nav role="navigation">
-  <div id="project-navigation">
-    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
-  <h2>
-    <a href="./index.html" rel="home">Home</a>
-  </h2>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (C)</a> &raquo;
+    
+    
+    <span class="title">Cumber</span>
+  
 
-  <div id="table-of-contents-navigation">
-    <a href="./table_of_contents.html#pages">Pages</a>
-    <a href="./table_of_contents.html#classes">Classes</a>
-    <a href="./table_of_contents.html#methods">Methods</a>
-  </div>
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-    <div id="search-section" role="search" class="project-section initially-hidden">
-  <form action="#" method="get" accept-charset="utf-8">
-    <div id="search-field-wrapper">
-      <input id="search-field" role="combobox" aria-label="Search"
-             aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
-             title="Type to search, Up and Down to navigate, Enter to load">
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
     </div>
 
-    <ul id="search-results" aria-label="Search Results"
-        aria-busy="false" aria-expanded="false"
-        aria-atomic="false" class="initially-hidden"></ul>
-  </form>
-</div>
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Cumber
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Cumber/Device.html" title="Cumber::Device (class)">Device</a></span>, <span class='object_link'><a href="Cumber/Element.html" title="Cumber::Element (class)">Element</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/cumber.rb<span class="defines">,<br />
+  lib/cumber/table.rb,<br /> lib/cumber/alert.rb,<br /> lib/cumber/picker.rb,<br /> lib/cumber/button.rb,<br /> lib/cumber/device.rb,<br /> lib/cumber/element.rb,<br /> lib/cumber/keyboard.rb,<br /> lib/cumber/text_field.rb,<br /> lib/cumber/table_cell.rb,<br /> lib/cumber/response_helper.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Cumber is an automated testing tool that bridges the gap between cucumber
+tests and the Apple automated testing tools UI Automation provided with
+XCode and Instruments.</p>
+
 
   </div>
-
-  
-
-  <div id="class-metadata">
-    
-    
-    
-    
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
-    
-    <li ><a href="#method-c-execute_step">::execute_step</a>
-    
-    <li ><a href="#method-c-format_command">::format_command</a>
-    
-    <li ><a href="#method-c-new_run">::new_run</a>
-    
-    <li ><a href="#method-c-parse_response">::parse_response</a>
-    
-    <li ><a href="#method-c-path_to_driver">::path_to_driver</a>
-    
-    <li ><a href="#method-c-send_command">::send_command</a>
-    
-    <li ><a href="#method-c-start">::start</a>
-    
-    <li ><a href="#method-c-stop">::stop</a>
-    
-    <li ><a href="#method-c-stop_instruments">::stop_instruments</a>
-    
-    <li ><a href="#method-c-stop_server">::stop_server</a>
-    
-    <li ><a href="#method-c-strip_special_chars">::strip_special_chars</a>
-    
-  </ul>
 </div>
+<div class="tags">
+  
 
-  </div>
-</nav>
-
-<main role="main" aria-labelledby="module-Cumber">
-  <h1 id="module-Cumber" class="module">
-    module Cumber
-  </h1>
-
-  <section class="description">
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
     
-<p><a href="Cumber.html">Cumber</a> is an automated testing tool that bridges
-the gap between cucumber tests and the Apple automated testing tools UI
-Automation provided with XCode and Instruments.</p>
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Cumber/Alert.html" title="Cumber::Alert (class)">Alert</a></span>, <span class='object_link'><a href="Cumber/Button.html" title="Cumber::Button (class)">Button</a></span>, <span class='object_link'><a href="Cumber/Device.html" title="Cumber::Device (class)">Device</a></span>, <span class='object_link'><a href="Cumber/Element.html" title="Cumber::Element (class)">Element</a></span>, <span class='object_link'><a href="Cumber/Keyboard.html" title="Cumber::Keyboard (class)">Keyboard</a></span>, <span class='object_link'><a href="Cumber/Picker.html" title="Cumber::Picker (class)">Picker</a></span>, <span class='object_link'><a href="Cumber/ResponseHelper.html" title="Cumber::ResponseHelper (class)">ResponseHelper</a></span>, <span class='object_link'><a href="Cumber/Table.html" title="Cumber::Table (class)">Table</a></span>, <span class='object_link'><a href="Cumber/TableCell.html" title="Cumber::TableCell (class)">TableCell</a></span>, <span class='object_link'><a href="Cumber/TextField.html" title="Cumber::TextField (class)">TextField</a></span>
+    
+  
+</p>
 
-  </section>
 
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_step-class_method" title="execute_step (class method)">+ (Object) <strong>execute_step</strong>(step) </a>
+    
+
+    
+  </span>
   
   
   
-  <section id="5Buntitled-5D" class="documentation-section">
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates an instance of a Cumber Element to use as a base to query UI
+Automation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_command-class_method" title="format_command (class method)">+ (Object) <strong>format_command</strong>(command, status) </a>
     
 
     
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats the string query that will be sent to UI Automation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_run-class_method" title="new_run (class method)">+ (Object) <strong>new_run</strong>(udid, target) </a>
     
 
     
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closes the app and prepares the tablet for the next scenario.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parse_response-class_method" title="parse_response (class method)">+ (Object) <strong>parse_response</strong>(response) </a>
+    
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parses through the response from send_command and returns the portion of
+the resulting value of the executed ruby command.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path_to_driver-class_method" title="path_to_driver (class method)">+ (Object) <strong>path_to_driver</strong> </a>
+    
 
     
-      <div id="method-c-execute_step" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">execute_step</span><span
-            class="method-args">(step)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
-        <div class="method-description">
-          
-          <p>Creates an instance of a <a href="Cumber.html">Cumber</a> <a
-href="Cumber/Element.html">Element</a> to use as a base to query UI
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the path to the Cumber instruments driver file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#send_command-class_method" title="send_command (class method)">+ (Object) <strong>send_command</strong>(command, status) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats and sends the string query to UI Automation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-class_method" title="start (class method)">+ (Object) <strong>start</strong>(debug = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts the Cumber Server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_instruments-class_method" title="start_instruments (class method)">+ (Object) <strong>start_instruments</strong>(udid, target) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Starts instruments.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop-class_method" title="stop (class method)">+ (Object) <strong>stop</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stops the Cumber Server and the current instruments run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop_instruments-class_method" title="stop_instruments (class method)">+ (Object) <strong>stop_instruments</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stops instruments before starting a new run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stop_server-class_method" title="stop_server (class method)">+ (Object) <strong>stop_server</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stops the Cumber Server .</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#strip_special_chars-class_method" title="strip_special_chars (class method)">+ (Object) <strong>strip_special_chars</strong>(command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Replaces special characters in the string query with modified HTML codes
+for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="execute_step-class_method">
+  
+    + (<tt>Object</tt>) <strong>execute_step</strong>(step) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates an instance of a Cumber Element to use as a base to query UI
 Automation.</p>
 
-<h4 id="method-c-execute_step-label-Parameters">Parameters<span><a href="#method-c-execute_step-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Parameters</h4>
 <ul><li>
-<p><code>step</code> - A string that represents the javascript call to execute
-in UI Automation.</p>
+<p><tt>step</tt> - A string that represents the javascript call to execute in
+UI Automation.</p>
 </li></ul>
 
-<h4 id="method-c-execute_step-label-Examples">Examples<span><a href="#method-c-execute_step-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-string">'target.mainWindow.size()'</span>) <span class="ruby-comment">#=&gt; returns the result of the command</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>target.mainWindow.size()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns the result of the command</span></code></pre>
 
-          
-          <div class="method-source-code" id="execute_step-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">step</span>, <span class="ruby-string">'run'</span>)
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
 
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+  </div>
+</div>
+<div class="tags">
+  
 
-        
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
-      </div>
 
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>run</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-c-format_command" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">format_command</span><span
-            class="method-args">(command, status)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="format_command-class_method">
+  
+    + (<tt>Object</tt>) <strong>format_command</strong>(command, status) 
+  
 
-        <div class="method-description">
-          
-          <p>Formats the string query that will be sent to UI Automation.</p>
+  
 
-<h4 id="method-c-format_command-label-Parameters">Parameters<span><a href="#method-c-format_command-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats the string query that will be sent to UI Automation.</p>
+
+<h4>Parameters</h4>
 <ul><li>
-<p><code>command</code> - The string query to send to UI Automation.</p>
+<p><tt>command</tt> - The string query to send to UI Automation.</p>
 </li></ul>
 
-<h4 id="method-c-format_command-label-Examples">Examples<span><a href="#method-c-format_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">format_command</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns '{&quot;message&quot;:&quot;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;);&quot;}'</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns '{&quot;message&quot;:&quot;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;);&quot;}'</span></code></pre>
 
-          
-          <div class="method-source-code" id="format_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 85</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
-  <span class="ruby-keyword">return</span> <span class="ruby-string">'{&quot;message&quot;:&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-identifier">command</span>) <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;, &quot;status&quot;:&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">+</span> <span class="ruby-string">'&quot;}'</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
 
-        
+  </div>
+</div>
+<div class="tags">
+  
 
-        
-      </div>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;, &quot;status&quot;:&quot;</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;}</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-c-new_run" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new_run</span><span
-            class="method-args">(udid, target)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="new_run-class_method">
+  
+    + (<tt>Object</tt>) <strong>new_run</strong>(udid, target) 
+  
 
-        <div class="method-description">
-          
-          <p>Closes the app and prepares the tablet for the next scenario. <br></p>
+  
 
-<h4 id="method-c-new_run-label-Parameters">Parameters<span><a href="#method-c-new_run-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Closes the app and prepares the tablet for the next scenario. Stops
+instruments, cleans up the trace file and reloads instruments in a new
+thread.</p>
+
+<h4>Parameters</h4>
 <ul><li>
-<p><code>udid</code> - The unique identifier of the iOS Device to run tests
+<p><tt>udid</tt> - The unique identifier of the iOS Device to run tests
 against.</p>
 </li><li>
-<p><code>target</code> - The name of the app to launch when cumber starts.</p>
-</li><li>
-<p><code>trace_path</code> - the full path to save the instruments trace
-results too.</p>
+<p><tt>target</tt> - The name of the app to launch when cumber starts.</p>
 </li></ul>
 
-<h4 id="method-c-new_run-label-Examples">Examples<span><a href="#method-c-new_run-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre>#Place in your hooks.rb file.
+<pre class="code ruby"><code class="ruby">#Place in your hooks.rb file.
 
 Before() do
   Cumber.new_run(23123sasd12321313..., Cumber-Test)
-end</pre>
-          
-          
+end</code></pre>
 
-          
-          <div class="method-source-code" id="new_run-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 181</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_run</span>(<span class="ruby-identifier">udid</span>, <span class="ruby-identifier">target</span>)
 
-  <span class="ruby-identifier">stop_instruments</span>
+  </div>
+</div>
+<div class="tags">
+  
 
-  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">driver_path</span> = <span class="ruby-identifier">path_to_driver</span> <span class="ruby-operator">+</span> <span class="ruby-string">'/driver.js'</span>
-    <span class="ruby-identifier">system</span>(<span class="ruby-string">'instruments -w '</span><span class="ruby-operator">+</span> <span class="ruby-identifier">udid</span> <span class="ruby-operator">+</span><span class="ruby-string">' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '</span><span class="ruby-operator">+</span> <span class="ruby-identifier">target</span> <span class="ruby-operator">+</span><span class="ruby-string">' -e UIASCRIPT '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">driver_path</span>)
-  <span class="ruby-keyword">end</span>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
 
-        
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 175</span>
 
-        
-      </div>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new_run'>new_run</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
 
+  <span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rm -rf ./bin/ins.trace</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_start_instruments'>start_instruments</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-c-parse_response" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">parse_response</span><span
-            class="method-args">(response)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="parse_response-class_method">
+  
+    + (<tt>Object</tt>) <strong>parse_response</strong>(response) 
+  
 
-        <div class="method-description">
-          
-          <p>Parses through the response from <a
-href="Cumber.html#method-c-send_command">::send_command</a> and returns the
-portion of the resulting value of the executed ruby command.</p>
+  
 
-<h4 id="method-c-parse_response-label-Parameters">Parameters<span><a href="#method-c-parse_response-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Parses through the response from send_command and returns the portion of
+the resulting value of the executed ruby command.</p>
+
+<h4>Parameters</h4>
 <ul><li>
-<p><code>response</code> - The json response from UI Automation.</p>
+<p><tt>response</tt> - The json response from UI Automation.</p>
 </li></ul>
 
-<h4 id="method-c-parse_response-label-Examples">Examples<span><a href="#method-c-parse_response-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-string">'{&quot;message&quot;:&quot;test&quot;}'</span>) <span class="ruby-comment">#=&gt; returns 'test'</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;test&quot;}</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns 'test'</span></code></pre>
 
-          
-          <div class="method-source-code" id="parse_response-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 45</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_response</span>(<span class="ruby-identifier">response</span>)
-  <span class="ruby-identifier">response_json</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">response</span>)
-  <span class="ruby-identifier">response_json</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
 
-        
+  </div>
+</div>
+<div class="tags">
+  
 
-        
-      </div>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
+
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response_json'>response_json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response_json'>response_json</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-c-path_to_driver" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">path_to_driver</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="path_to_driver-class_method">
+  
+    + (<tt>Object</tt>) <strong>path_to_driver</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Returns the path to the <a href="Cumber.html">Cumber</a> instruments driver
-file. <br></p>
+  
 
-<h4 id="method-c-path_to_driver-label-Examples">Examples<span><a href="#method-c-path_to_driver-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre>Cumber.path_to_driver</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="path_to_driver-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 212</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path_to_driver</span>
-  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword">__FILE__</span>)), <span class="ruby-string">'cumber/driver'</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
-      <div id="method-c-send_command" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">send_command</span><span
-            class="method-args">(command, status)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+<p>Returns the path to the Cumber instruments driver file. &lt;br&gt;</p>
 
-        <div class="method-description">
-          
-          <p>Formats and sends the string query to UI Automation. and returns the
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_path_to_driver'>path_to_driver</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_path_to_driver'>path_to_driver</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cumber/driver</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="send_command-class_method">
+  
+    + (<tt>Object</tt>) <strong>send_command</strong>(command, status) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats and sends the string query to UI Automation. and returns the
 response</p>
 
-<h4 id="method-c-send_command-label-Parameters">Parameters<span><a href="#method-c-send_command-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Parameters</h4>
 <ul><li>
-<p><code>command</code> - The string query to send to UI Automation.</p>
+<p><tt>command</tt> - The string query to send to UI Automation.</p>
 </li></ul>
 
-<h4 id="method-c-send_command-label-Examples">Examples<span><a href="#method-c-send_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">send_command</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns '{&quot;message&quot;:&quot;response&quot;}'</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns '{&quot;message&quot;:&quot;response&quot;}'</span></code></pre>
 
-          
-          <div class="method-source-code" id="send_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
 
-  <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'/cumber'</span>, <span class="ruby-identifier">initheader</span> = {<span class="ruby-string">'Content-Type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'application/json'</span>})
-  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">format_command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">status</span>)
-
-  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-value">:read_timeout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">600</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">request</span>)
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-start" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">start</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Starts the <a href="Cumber.html">Cumber</a> Server. Needs to be called once
-at the begging of a Cucumber run. <br></p>
-
-<h4 id="method-c-start-label-Examples">Examples<span><a href="#method-c-start-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre>#Place in your env.rb file.
-Cumber.start</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="start-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 120</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>
-
-  <span class="ruby-identifier">stop_server</span>
-
-  <span class="ruby-ivar">@server_process</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">fork</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-constant">CumberServer</span>.<span class="ruby-identifier">start</span>
-  <span class="ruby-keyword">end</span>
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-stop" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">stop</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stops the <a href="Cumber.html">Cumber</a> Server and the current
-instruments run. Needs to be called at the end of a Cucumber run. <br></p>
-
-<h4 id="method-c-stop-label-Examples">Examples<span><a href="#method-c-stop-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre>#Place in your env.rb file.
-
-at_exit do
-  Cumber.stop
-end</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="stop-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 141</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stop</span>
-  <span class="ruby-identifier">stop_instruments</span>
-  <span class="ruby-identifier">stop_server</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-stop_instruments" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">stop_instruments</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stops instruments before starting a new run. <br></p>
-
-<h4 id="method-c-stop_instruments-label-Examples">Examples<span><a href="#method-c-stop_instruments-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre>Cumber.stop_instruments</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="stop_instruments-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 199</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stop_instruments</span>
-  <span class="ruby-identifier">send_command</span>(<span class="ruby-string">''</span>, <span class="ruby-string">'end'</span>)
-  <span class="ruby-identifier">system</span>(<span class="ruby-string">'pkill -9 -f instruments'</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-stop_server" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">stop_server</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stops the <a href="Cumber.html">Cumber</a> Server <br></p>
-
-<h4 id="method-c-stop_server-label-Examples">Examples<span><a href="#method-c-stop_server-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre>Cumber.stop_server</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="stop_server-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 154</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stop_server</span>
-  <span class="ruby-identifier">server_pid</span> = <span class="ruby-value">%x[lsof -t -i TCP:8080]</span>
-  <span class="ruby-identifier">pids</span> = <span class="ruby-identifier">server_pid</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
-
-  <span class="ruby-identifier">pids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pid</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">system</span>(<span class="ruby-string">'kill -3 '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">pid</span>)
-  <span class="ruby-keyword">end</span>
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-strip_special_chars" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">strip_special_chars</span><span
-            class="method-args">(command)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Replaces special characters in the string query with modified HTML codes
-for the characters ‘&amp;’, ‘[’, ‘]’, ‘“’, ‘ ’, ‘{’, and ‘}’.</p>
-
-<h4 id="method-c-strip_special_chars-label-Parameters">Parameters<span><a href="#method-c-strip_special_chars-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-<ul><li>
-<p><code>command</code> - The string query to send to UI Automation.</p>
-</li></ul>
-
-<h4 id="method-c-strip_special_chars-label-Examples">Examples<span><a href="#method-c-strip_special_chars-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-string">'frontApp.keyboard().typeString(&quot;password&quot;)'</span>) <span class="ruby-comment">#=&gt; returns 'target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;)'</span>
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="strip_special_chars-source">
-            <pre><span class="ruby-comment"># File lib/cumber.rb, line 101</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip_special_chars</span>(<span class="ruby-identifier">command</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'&amp;'</span>, <span class="ruby-string">'&amp;38;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'['</span>, <span class="ruby-string">'&amp;91;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">']'</span>, <span class="ruby-string">'&amp;93;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'&quot;'</span>, <span class="ruby-string">'&amp;34;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">' '</span>, <span class="ruby-string">'&amp;32;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'{'</span>, <span class="ruby-string">'&amp;123;'</span>)
-  <span class="ruby-identifier">command</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">'}'</span>, <span class="ruby-string">'&amp;125;'</span>)
-
-  <span class="ruby-keyword">return</span> <span class="ruby-identifier">command</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
+  </div>
+</div>
+<div class="tags">
   
-  </section>
-</main>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
 
-<footer id="validator-badges" role="contentinfo">
-  <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
-</footer>
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 61</span>
 
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/cumber</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_initheader'>initheader</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>application/json</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='ivar'>@host</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='symbol'>:read_timeout</span> <span class='op'>=&gt;</span> <span class='int'>2000000</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_http'>http</span><span class='op'>|</span>
+    <span class='id identifier rubyid_http'>http</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start-class_method">
+  
+    + (<tt>Object</tt>) <strong>start</strong>(debug = false) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts the Cumber Server. Needs to be called once at the begging of a
+Cucumber run. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'>#Place in your env.rb file.
+</span><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_debug'>debug</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_stop_server'>stop_server</span>
+
+  <span class='ivar'>@server_process</span> <span class='op'>=</span> <span class='const'>Process</span><span class='period'>.</span><span class='id identifier rubyid_fork'>fork</span> <span class='kw'>do</span>
+    <span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_debug'>debug</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start_instruments-class_method">
+  
+    + (<tt>Object</tt>) <strong>start_instruments</strong>(udid, target) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Starts instruments</p>
+
+<h4>Parameters</h4>
+<ul><li>
+<p><tt>udid</tt> - The unique identifier of the iOS Device to run tests
+against.</p>
+</li><li>
+<p><tt>target</tt> - The name of the app to launch when cumber starts.</p>
+</li></ul>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby">Cumber.start_instruments(Cumber-Test, 23123sasd12321313...)</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_start_instruments'>start_instruments</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_driver_path'>driver_path</span> <span class='op'>=</span> <span class='id identifier rubyid_path_to_driver'>path_to_driver</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/driver.js</span><span class='tstring_end'>'</span></span>
+
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>instruments -w </span><span class='tstring_end'>'</span></span><span class='op'>+</span> <span class='id identifier rubyid_udid'>udid</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate </span><span class='tstring_end'>'</span></span><span class='op'>+</span> <span class='id identifier rubyid_target'>target</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> -e UIASCRIPT </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_driver_path'>driver_path</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop-class_method">
+  
+    + (<tt>Object</tt>) <strong>stop</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stops the Cumber Server and the current instruments run. Needs to be called
+at the end of a Cucumber run. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'>#Place in your env.rb file.
+</span>
+<span class='id identifier rubyid_at_exit'>at_exit</span> <span class='kw'>do</span>
+  <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span>
+<span class='kw'>end</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span>
+  <span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
+  <span class='id identifier rubyid_stop_server'>stop_server</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop_instruments-class_method">
+  
+    + (<tt>Object</tt>) <strong>stop_instruments</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stops instruments before starting a new run. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_stop_instruments'>stop_instruments</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
+  <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>end</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pkill -9 -f instruments</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stop_server-class_method">
+  
+    + (<tt>Object</tt>) <strong>stop_server</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stops the Cumber Server &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_stop_server'>stop_server</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop_server'>stop_server</span>
+  <span class='id identifier rubyid_server_pid'>server_pid</span> <span class='op'>=</span> <span class='backtick'>%x[</span><span class='tstring_content'>lsof -t -i TCP:8080</span><span class='tstring_end'>]</span></span>
+  <span class='id identifier rubyid_pids'>pids</span> <span class='op'>=</span> <span class='id identifier rubyid_server_pid'>server_pid</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_pids'>pids</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pid'>pid</span><span class='op'>|</span>
+    <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>kill -3 </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="strip_special_chars-class_method">
+  
+    + (<tt>Object</tt>) <strong>strip_special_chars</strong>(command) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Replaces special characters in the string query with modified HTML codes
+for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
+
+<h4>Parameters</h4>
+<ul><li>
+<p><tt>command</tt> - The string query to send to UI Automation.</p>
+</li></ul>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns 'target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;)'</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_command'>command</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Mar 17 12:04:14 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

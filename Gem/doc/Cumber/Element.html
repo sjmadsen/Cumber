@@ -1,905 +1,1994 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Cumber::Element
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
 
-<html>
-<head>
-<meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-<title>class Cumber::Element - RDoc Documentation</title>
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
-<link href="../fonts.css" rel="stylesheet">
-<link href="../rdoc.css" rel="stylesheet">
-
-<script type="text/javascript">
-  var rdoc_rel_prefix = "../";
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/navigation.js"></script>
-<script src="../js/search_index.js"></script>
-<script src="../js/search.js"></script>
-<script src="../js/searcher.js"></script>
-<script src="../js/darkfish.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
 
 
-<body id="top" role="document" class="class">
-<nav role="navigation">
-  <div id="project-navigation">
-    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
-  <h2>
-    <a href="../index.html" rel="home">Home</a>
-  </h2>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Cumber.html" title="Cumber (module)">Cumber</a></span></span>
+     &raquo; 
+    <span class="title">Element</span>
+  
 
-  <div id="table-of-contents-navigation">
-    <a href="../table_of_contents.html#pages">Pages</a>
-    <a href="../table_of_contents.html#classes">Classes</a>
-    <a href="../table_of_contents.html#methods">Methods</a>
-  </div>
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-    <div id="search-section" role="search" class="project-section initially-hidden">
-  <form action="#" method="get" accept-charset="utf-8">
-    <div id="search-field-wrapper">
-      <input id="search-field" role="combobox" aria-label="Search"
-             aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
-             title="Type to search, Up and Down to navigate, Enter to load">
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
     </div>
 
-    <ul id="search-results" aria-label="Search Results"
-        aria-busy="false" aria-expanded="false"
-        aria-atomic="false" class="initially-hidden"></ul>
-  </form>
-</div>
+    <iframe id="search_frame"></iframe>
 
-  </div>
-
-  
-
-  <div id="class-metadata">
-    
-    <div id="parent-class-section" class="nav-section">
-  <h3>Parent</h3>
-
-  
-  <p class="link">Object
-  
-</div>
-
-    <div id="includes-section" class="nav-section">
-  <h3>Included Modules</h3>
-
-  <ul class="link-list">
+    <div id="content"><h1>Class: Cumber::Element
   
   
-    <li><a class="include" href="../Cumber.html">Cumber</a>
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Cumber::Element</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
   
   
-  </ul>
-</div>
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../Cumber.html" title="Cumber (module)">Cumber</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/cumber/element.rb</dd>
+  
+</dl>
+<div class="clear"></div>
 
-    
-    <!-- Method Quickref -->
-<div id="method-list-section" class="nav-section">
-  <h3>Methods</h3>
-
-  <ul class="link-list" role="directory">
-    
-    <li ><a href="#method-c-new">::new</a>
-    
-    <li ><a href="#method-i-enabled-3F">#enabled?</a>
-    
-    <li ><a href="#method-i-exists-3F">#exists?</a>
-    
-    <li ><a href="#method-i-frame">#frame</a>
-    
-    <li ><a href="#method-i-has_keyboard_focus-3F">#has_keyboard_focus?</a>
-    
-    <li ><a href="#method-i-hit_point">#hit_point</a>
-    
-    <li ><a href="#method-i-search_and_execute_command">#search_and_execute_command</a>
-    
-    <li ><a href="#method-i-search_description">#search_description</a>
-    
-    <li ><a href="#method-i-search_predicate">#search_predicate</a>
-    
-    <li ><a href="#method-i-tap">#tap</a>
-    
-    <li ><a href="#method-i-value">#value</a>
-    
-    <li ><a href="#method-i-visible-3F">#visible?</a>
-    
-    <li ><a href="#method-i-wait_for_condition">#wait_for_condition</a>
-    
-    <li ><a href="#method-i-wait_for_element_to_be_enabled">#wait_for_element_to_be_enabled</a>
-    
-    <li ><a href="#method-i-wait_for_element_to_exist">#wait_for_element_to_exist</a>
-    
-  </ul>
-</div>
-
-  </div>
-</nav>
-
-<main role="main" aria-labelledby="class-Cumber::Element">
-  <h1 id="class-Cumber::Element" class="class">
-    class Cumber::Element
-  </h1>
-
-  <section class="description">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
     
 <p>This class is the wrapper for the generic UIAElement class. The UIAElement
 class is the UIAutomation superclass for all user interface objects.</p>
 
-  </section>
 
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Alert.html" title="Cumber::Alert (class)">Alert</a></span>, <span class='object_link'><a href="Button.html" title="Cumber::Button (class)">Button</a></span>, <span class='object_link'><a href="Keyboard.html" title="Cumber::Keyboard (class)">Keyboard</a></span>, <span class='object_link'><a href="Picker.html" title="Cumber::Picker (class)">Picker</a></span>, <span class='object_link'><a href="Table.html" title="Cumber::Table (class)">Table</a></span>, <span class='object_link'><a href="TableCell.html" title="Cumber::TableCell (class)">TableCell</a></span>, <span class='object_link'><a href="TextField.html" title="Cumber::TextField (class)">TextField</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ancestry-instance_method" title="#ancestry (instance method)">- (Object) <strong>ancestry</strong> </a>
+    
+
+    
+  </span>
   
   
   
-  <section id="5Buntitled-5D" class="documentation-section">
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Represents the ancestry path of the UIAElement.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#label-instance_method" title="#label (instance method)">- (Object) <strong>label</strong> </a>
     
 
     
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
 
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the accessibilityLabel value for the specified Element.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
     
 
     
-    <section class="attribute-method-details" class="method-section">
-      <header>
-        <h3>Attributes</h3>
-      </header>
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the name value for the specified Element.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-instance_method" title="#description (instance method)">- (Object) <strong>description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the description of the element.</p>
+</div></span>
+  
+</li>
 
       
-      <div id="attribute-i-label" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">label</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        <p>Represents the accessibiltyLabel of the UIAElement.</p>
-        
-        </div>
-      </div>
-      
-      <div id="attribute-i-name" class="method-detail">
-        <div class="method-heading attribute-method-heading">
-          <span class="method-name">name</span><span
-            class="attribute-access-type">[RW]</span>
-        </div>
-
-        <div class="method-description">
-        
-        <p>Represents the label attribute of the UIAElement. (often this is the same
-as the name attribute)</p>
-        
-        </div>
-      </div>
-      
-    </section>
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#elements-instance_method" title="#elements (instance method)">- (Object) <strong>elements</strong> </a>
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(locator = {})</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Creates an instance of a <a href="../Cumber.html">Cumber</a> <a
-href="Element.html">Element</a> to use as a base to query UI Automation.</p>
-
-<h4 id="method-c-new-label-Parameters">Parameters<span><a href="#method-c-new-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-<ul><li>
-<p><code>locator</code> - A hash of values used to locate a UIAElement.</p>
-</li></ul>
-
-<h4 id="method-c-new-label-Locators">Locators<span><a href="#method-c-new-label-Locators">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-<ul><li>
-<p><code>:name</code> - Represents the accessibiltyLabel of the UIAElement.</p>
-</li></ul>
-
-<h4 id="method-c-new-label-Examples">Examples<span><a href="#method-c-new-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>)
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">locator</span> = {})
-  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">locator</span>[<span class="ruby-value">:name</span>]
-  <span class="ruby-ivar">@label</span> = <span class="ruby-identifier">locator</span>[<span class="ruby-value">:label</span>]
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
+  </span>
   
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of descriptions about each element that is a direct
+subview of the listed element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enabled%3F-instance_method" title="#enabled? (instance method)">- (Boolean) <strong>enabled?</strong> </a>
+    
 
     
-      <div id="method-i-enabled-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">enabled?</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
-        <div class="method-description">
-          
-          <p>Checks the enabled stated of the object. <br></p>
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks the enabled stated of the object.</p>
+</div></span>
+  
+</li>
 
-<h4 id="method-i-enabled-3F-label-Examples">Examples<span><a href="#method-i-enabled-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">enabled?</span> <span class="ruby-comment">#=&gt; returns true If the element is enabled</span>
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="enabled-3F-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 224</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">enabled?</span>
-
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'isEnabled()'</span>)
-
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#escape_single_quotes-instance_method" title="#escape_single_quotes (instance method)">- (Object) <strong>escape_single_quotes</strong>(value) </a>
+    
 
     
-      <div id="method-i-exists-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">exists?</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
-        <div class="method-description">
-          
-          <p>Checks the validity attribute and verifies the object exists. <br></p>
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Escapes single quotes for sending commands.</p>
+</div></span>
+  
+</li>
 
-<h4 id="method-i-exists-3F-label-Examples">Examples<span><a href="#method-i-exists-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-comment">#=&gt; returns true If the element exists</span>
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="exists-3F-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 205</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">exists?</span>
-
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'checkIsValid()'</span>)
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">response</span>[<span class="ruby-string">'message'</span>].<span class="ruby-identifier">to_bool</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exists%3F-instance_method" title="#exists? (instance method)">- (Boolean) <strong>exists?</strong> </a>
+    
 
     
-      <div id="method-i-frame" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">frame</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
-        <div class="method-description">
-          
-          <p>Returns the frame origin :x, :y and size :width, :height of the UIAElement.
-<br></p>
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks the validity attribute and verifies the object exists.</p>
+</div></span>
+  
+</li>
 
-<h4 id="method-i-frame-label-Origin">Origin<span><a href="#method-i-frame-label-Origin">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#frame-instance_method" title="#frame (instance method)">- (Object) <strong>frame</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the frame origin :x, :y and size :width, :height of the UIAElement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_keyboard_focus%3F-instance_method" title="#has_keyboard_focus? (instance method)">- (Boolean) <strong>has_keyboard_focus?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns if the selected element has the focus of the keyboard.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hit_point-instance_method" title="#hit_point (instance method)">- (Object) <strong>hit_point</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the position :x, :y touched by the UIAElement Tap method .</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Element) <strong>initialize</strong>(locator = {}) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Creates an instance of a Cumber Element to use as a base to query UI
+Automation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search_and_execute_command-instance_method" title="#search_and_execute_command (instance method)">- (Object) <strong>search_and_execute_command</strong>(command) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Appends the command to execute on the located object and returns the
+response.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search_description-instance_method" title="#search_description (instance method)">- (Object) <strong>search_description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the locator string to find the specified object based on the set
+locators.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#search_predicate-instance_method" title="#search_predicate (instance method)">- (Object) <strong>search_predicate</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the search predicate to use when locating objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tap-instance_method" title="#tap (instance method)">- (Object) <strong>tap</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Simulate a user tapping on the UIAElement.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-instance_method" title="#type (instance method)">- (Object) <strong>type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the class of the specified object .</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value attribute for the specified Element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#visible%3F-instance_method" title="#visible? (instance method)">- (Boolean) <strong>visible?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Checks the visibility stated of the object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_for_condition-instance_method" title="#wait_for_condition (instance method)">- (Object) <strong>wait_for_condition</strong>(condition, timeout = 300) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Waits until a particular condition is met in the provided time period.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_for_element_to_be_enabled-instance_method" title="#wait_for_element_to_be_enabled (instance method)">- (Object) <strong>wait_for_element_to_be_enabled</strong>(timeout = 300) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Waits until the element is enabled over the given time period.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_for_element_to_exist-instance_method" title="#wait_for_element_to_exist (instance method)">- (Object) <strong>wait_for_element_to_exist</strong>(timeout = 300) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Waits until the element exists over the given time period.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Cumber.html" title="Cumber (module)">Cumber</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Cumber.html#execute_step-class_method" title="Cumber.execute_step (method)">execute_step</a></span>, <span class='object_link'><a href="../Cumber.html#format_command-class_method" title="Cumber.format_command (method)">format_command</a></span>, <span class='object_link'><a href="../Cumber.html#new_run-class_method" title="Cumber.new_run (method)">new_run</a></span>, <span class='object_link'><a href="../Cumber.html#parse_response-class_method" title="Cumber.parse_response (method)">parse_response</a></span>, <span class='object_link'><a href="../Cumber.html#path_to_driver-class_method" title="Cumber.path_to_driver (method)">path_to_driver</a></span>, <span class='object_link'><a href="../Cumber.html#send_command-class_method" title="Cumber.send_command (method)">send_command</a></span>, <span class='object_link'><a href="../Cumber.html#start-class_method" title="Cumber.start (method)">start</a></span>, <span class='object_link'><a href="../Cumber.html#start_instruments-class_method" title="Cumber.start_instruments (method)">start_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop-class_method" title="Cumber.stop (method)">stop</a></span>, <span class='object_link'><a href="../Cumber.html#stop_instruments-class_method" title="Cumber.stop_instruments (method)">stop_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop_server-class_method" title="Cumber.stop_server (method)">stop_server</a></span>, <span class='object_link'><a href="../Cumber.html#strip_special_chars-class_method" title="Cumber.strip_special_chars (method)">strip_special_chars</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Cumber::Element (class)">Element</a></span></tt>) <strong>initialize</strong>(locator = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates an instance of a Cumber Element to use as a base to query UI
+Automation.</p>
+
+<h4>Parameters</h4>
 <ul><li>
-<p><code>:x</code> - The left most x coordinate of the UIAElement.</p>
-</li><li>
-<p><code>:y</code> - The top most y coordinate of the UIAElement.</p>
+<p><tt>locator</tt> - A hash of values used to locate a UIAElement.</p>
 </li></ul>
 
-<h4 id="method-i-frame-label-size">size<span><a href="#method-i-frame-label-size">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Locators</h4>
 <ul><li>
-<p><code>:width</code> - The left most x coordinate of the UIAElement.</p>
-</li><li>
-<p><code>:height</code> - The top most y coordinate of the UIAElement.</p>
+<p><tt>:name</tt> - Represents the accessibiltyLabel of the UIAElement.</p>
 </li></ul>
 
-<h4 id="method-i-frame-label-Examples">Examples<span><a href="#method-i-frame-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">frame</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">frame</span>
-<span class="ruby-identifier">frame</span>[:<span class="ruby-identifier">origin</span>][:<span class="ruby-identifier">x</span>] <span class="ruby-comment">#=&gt; &quot;22&quot;</span>
-<span class="ruby-identifier">frame</span>[:<span class="ruby-identifier">origin</span>][:<span class="ruby-identifier">y</span>] <span class="ruby-comment">#=&gt; &quot;123&quot;</span>
-<span class="ruby-identifier">frame</span>[:<span class="ruby-identifier">size</span>][:<span class="ruby-identifier">width</span>] <span class="ruby-comment">#=&gt; &quot;200&quot;</span>
-<span class="ruby-identifier">frame</span>[:<span class="ruby-identifier">size</span>][:<span class="ruby-identifier">height</span>] <span class="ruby-comment">#=&gt; &quot;50&quot;</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
 
-          
-          <div class="method-source-code" id="frame-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 306</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">frame</span>
 
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'frame()'</span>)
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_hash_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+  </div>
+</div>
+<div class="tags">
+  
 
-        
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
-      </div>
+
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_locator'>locator</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_locator'>locator</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span>
+  <span class='ivar'>@label</span> <span class='op'>=</span> <span class='id identifier rubyid_locator'>locator</span><span class='lbracket'>[</span><span class='symbol'>:label</span><span class='rbracket'>]</span>
+  <span class='ivar'>@ancestry</span> <span class='op'>=</span> <span class='id identifier rubyid_locator'>locator</span><span class='lbracket'>[</span><span class='symbol'>:ancestry</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="ancestry=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="ancestry-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ancestry</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Represents the ancestry path of the UIAElement</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ancestry'>ancestry</span>
+  <span class='ivar'>@ancestry</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="label=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="label-instance_method">
+  
+    - (<tt>Object</tt>) <strong>label</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the accessibilityLabel value for the specified Element. &lt;br&gt;
+See &lt;a href = "<a
+href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's">developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's</a>
+UIAElement Documentation&lt;/a&gt; for more information on the differences
+between name and label.</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span> <span class='comment'>#=&gt; returns the value of the label</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span>
+  <span class='ivar'>@label</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the name value for the specified Element.&lt;br&gt; Often this is
+the same as the accessibilityLabel. One notable difference is when working
+with an Image View. The name will represent the file path to the image
+being displayed &lt;br&gt; See &lt;a href = "<a
+href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's">developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's</a>
+UIAElement Documentation&lt;/a&gt; for more information on the differences
+between name and label.</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:label</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='comment'>#=&gt; returns the value of the accessibilityLabel</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
 
     
-      <div id="method-i-has_keyboard_focus-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">has_keyboard_focus?</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details first">
+  <h3 class="signature first" id="description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>description</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Returns if the selected element has the focus of the keyboard. <br></p>
+  
 
-<h4 id="method-i-has_keyboard_focus-3F-label-Examples">Examples<span><a href="#method-i-has_keyboard_focus-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">has_keyboard_focus?</span> <span class="ruby-comment">#=&gt; true or false</span>
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="has_keyboard_focus-3F-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 320</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_keyboard_focus?</span>
-
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'hasKeyboardFocus()'</span>)
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
-      <div id="method-i-hit_point" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">hit_point</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+<p>Returns the description of the element.</p>
 
-        <div class="method-description">
-          
-          <p>Returns the position :x, :y touched by the UIAElement Tap method <br></p>
+<h4>Examples</h4>
 
-<h4 id="method-i-hit_point-label-Returned+Hash+Variables">Returned Hash Variables<span><a href="#method-i-hit_point-label-Returned+Hash+Variables">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_description'>description</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span>
+<span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; UIAStaticText
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:label</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; ElementSearchLabel
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; ElementSearch
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;200&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;The label is here&quot;</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+366
+367
+368
+369
+370</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 366</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>description()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="elements-instance_method">
+  
+    - (<tt>Object</tt>) <strong>elements</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array of descriptions about each element that is a direct
+subview of the listed element.</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_descriptions'>descriptions</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_elements'>elements</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+380
+381
+382
+383
+384</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 380</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_elements'>elements</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>elements().description()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enabled?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>enabled?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks the enabled stated of the object. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_enabled?'>enabled?</span> <span class='comment'>#=&gt; returns true If the element is enabled</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+235
+236
+237
+238
+239
+240</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 235</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enabled?'>enabled?</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isEnabled()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="escape_single_quotes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>escape_single_quotes</strong>(value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Escapes single quotes for sending commands</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+389
+390
+391</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 389</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\\\\\\\\\'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exists?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>exists?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks the validity attribute and verifies the object exists. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span> <span class='comment'>#=&gt; returns true If the element exists</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 216</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>checkIsValid()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="frame-instance_method">
+  
+    - (<tt>Object</tt>) <strong>frame</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the frame origin :x, :y and size :width, :height of the UIAElement.
+&lt;br&gt;</p>
+
+<h4>Origin</h4>
 <ul><li>
-<p><code>:x</code> - The x coordinate tapped by the tap command.</p>
+<p><tt>:x</tt> - The left most x coordinate of the UIAElement.</p>
 </li><li>
-<p><code>:y</code> - The y coordinate tapped by the tap command.</p>
+<p><tt>:y</tt> - The top most y coordinate of the UIAElement.</p>
 </li></ul>
 
-<h4 id="method-i-hit_point-label-Examples">Examples<span><a href="#method-i-hit_point-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>size</h4>
+<ul><li>
+<p><tt>:width</tt> - The left most x coordinate of the UIAElement.</p>
+</li><li>
+<p><tt>:height</tt> - The top most y coordinate of the UIAElement.</p>
+</li></ul>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">point</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">hit_point</span>
-<span class="ruby-identifier">point</span>[:<span class="ruby-identifier">x</span>] <span class="ruby-comment">#=&gt; &quot;22&quot;</span>
-<span class="ruby-identifier">point</span>[:<span class="ruby-identifier">y</span>] <span class="ruby-comment">#=&gt; &quot;123&quot;</span>
-</pre>
-          
-          
+<h4>Examples</h4>
 
-          
-          <div class="method-source-code" id="hit_point-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 278</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">hit_point</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_frame'>frame</span>
+<span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
+</span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
+</span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;200&quot;
+</span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;</span></code></pre>
 
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'hit_point()'</span>)
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_hash_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
 
-        
+  </div>
+</div>
+<div class="tags">
+  
 
-        
-      </div>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
+
+316
+317
+318
+319
+320</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 316</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_frame'>frame</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frame()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-search_and_execute_command" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">search_and_execute_command</span><span
-            class="method-args">(command)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="has_keyboard_focus?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_keyboard_focus?</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Appends the command to execute on the located object and returns the
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns if the selected element has the focus of the keyboard. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_has_keyboard_focus?'>has_keyboard_focus?</span> <span class='comment'>#=&gt; true or false</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+330
+331
+332
+333
+334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 330</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_keyboard_focus?'>has_keyboard_focus?</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hasKeyboardFocus()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hit_point-instance_method">
+  
+    - (<tt>Object</tt>) <strong>hit_point</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the position :x, :y touched by the UIAElement Tap method &lt;br&gt;</p>
+
+<h4>Returned Hash Variables</h4>
+<ul><li>
+<p><tt>:x</tt> - The x coordinate tapped by the tap command.</p>
+</li><li>
+<p><tt>:y</tt> - The y coordinate tapped by the tap command.</p>
+</li></ul>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_point'>point</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_hit_point'>hit_point</span>
+<span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
+</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+288
+289
+290
+291
+292</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 288</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hit_point'>hit_point</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hit_point()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="search_and_execute_command-instance_method">
+  
+    - (<tt>Object</tt>) <strong>search_and_execute_command</strong>(command) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Appends the command to execute on the located object and returns the
 response.</p>
 
-<h4 id="method-i-search_and_execute_command-label-Parameters">Parameters<span><a href="#method-i-search_and_execute_command-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Parameters</h4>
 <ul><li>
-<p><code>command</code> - The additional step to execute on a UIAElement.</p>
+<p><tt>command</tt> - The additional step to execute on a UIAElement.</p>
 </li></ul>
 
-<h4 id="method-i-search_and_execute_command-label-Examples">Examples<span><a href="#method-i-search_and_execute_command-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">search_and_execute_command</span> <span class="ruby-string">&quot;label()&quot;</span>
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby">element = Cumber::Element.new(:name =&gt; &quot;ElementSearch&quot;) &lt;br&gt;
+element.search_and_execute_command &quot;label()&quot;</code></pre>
 
-          
-          <div class="method-source-code" id="search_and_execute_command-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 75</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-identifier">command</span>)
 
-  <span class="ruby-identifier">step</span> = <span class="ruby-identifier">search_description</span> <span class="ruby-operator">+</span> <span class="ruby-string">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">command</span>
-  <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+  </div>
+</div>
+<div class="tags">
+  
 
-        
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
-      </div>
 
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_command'>command</span>
+  <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-search_description" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">search_description</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="search_description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>search_description</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Returns the locator string to find the specified object based on the set
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the locator string to find the specified object based on the set
 locators.</p>
-          
-          
 
-          
-          <div class="method-source-code" id="search_description-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 57</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_description</span>
 
-  <span class="ruby-string">%q[searchWithPredicate(&quot;]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">search_predicate</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[&quot;, frontApp)]</span>
+  </div>
+</div>
+<div class="tags">
+  
 
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
 
-        
-      </div>
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 61</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_search_description'>search_description</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@ancestry</span>
+    <span class='ivar'>@ancestry</span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>searchWithPredicate(&quot;</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_predicate'>search_predicate</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>&quot;, target)</span><span class='tstring_end'>]</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-search_predicate" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">search_predicate</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="search_predicate-instance_method">
+  
+    - (<tt>Object</tt>) <strong>search_predicate</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Returns the search predicate to use when locating objects</p>
-          
-          
+  
 
-          
-          <div class="method-source-code" id="search_predicate-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 39</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_predicate</span>
-  <span class="ruby-identifier">predicate</span> = []
-
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span>
-    <span class="ruby-identifier">predicate</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;name = '#{@name}'&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@label</span>
-    <span class="ruby-identifier">predicate</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;label = '#{@label}'&quot;</span>
-  <span class="ruby-keyword">end</span>
-
-  <span class="ruby-identifier">predicate</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">' AND '</span>)
-
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
-      <div id="method-i-tap" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">tap</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+<p>Returns the search predicate to use when locating objects</p>
 
-        <div class="method-description">
-          
-          <p>Simulate a user tapping on the UIAElement. <br></p>
 
-<h4 id="method-i-tap-label-Examples">Examples<span><a href="#method-i-tap-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+  </div>
+</div>
+<div class="tags">
+  
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">tap</span>
-</pre>
-          
-          
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-          
-          <div class="method-source-code" id="tap-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 255</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">tap</span>
 
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'tap()'</span>)
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 43</span>
 
-  <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>].<span class="ruby-identifier">should_not</span> <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
-  <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">'error'</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+<span class='kw'>def</span> <span class='id identifier rubyid_search_predicate'>search_predicate</span>
+  <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
-        
+  <span class='kw'>if</span> <span class='ivar'>@name</span>
+    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name = '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
 
-        
-      </div>
+  <span class='kw'>if</span> <span class='ivar'>@label</span>
+    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label = '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@label</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
 
+  <span class='id identifier rubyid_predicate'>predicate</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> AND </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-value" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">value</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="tap-instance_method">
+  
+    - (<tt>Object</tt>) <strong>tap</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Returns the value attribute for the specified <a
-href="Element.html">Element</a>. <br></p>
+  
 
-<h4 id="method-i-value-label-Examples">Examples<span><a href="#method-i-value-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
-
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">value</span> <span class="ruby-comment">#=&gt; returns the value attribute &quot;Element Found&quot;</span>
-</pre>
-          
-          
-
-          
-          <div class="method-source-code" id="value-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 191</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">value</span>
-
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'value()'</span>)
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_string_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
+  
+</h3><div class="docstring">
+  <div class="discussion">
     
-      <div id="method-i-visible-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">visible?</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+<p>Simulate a user tapping on the UIAElement. &lt;br&gt;</p>
 
-        <div class="method-description">
-          
-          <p>Checks the visibility stated of the object. <br></p>
+<h4>Examples</h4>
 
-<h4 id="method-i-visible-3F-label-Examples">Examples<span><a href="#method-i-visible-3F-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span></code></pre>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">visible?</span> <span class="ruby-comment">#=&gt; returns true If the element is visible</span>
-</pre>
-          
-          
 
-          
-          <div class="method-source-code" id="visible-3F-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 240</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible?</span>
+  </div>
+</div>
+<div class="tags">
+  
 
-  <span class="ruby-identifier">response</span> = <span class="ruby-identifier">search_and_execute_command</span>(<span class="ruby-string">'isVisible()'</span>)
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
 
-        
+266
+267
+268
+269
+270
+271</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 266</span>
 
-        
-      </div>
+<span class='kw'>def</span> <span class='id identifier rubyid_tap'>tap</span>
 
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tap()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-wait_for_condition" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">wait_for_condition</span><span
-            class="method-args">(condition, timeout = 300)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>type</strong> 
+  
 
-        <div class="method-description">
-          
-          <p>Waits until a particular condition is met in the provided time period.
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the class of the specified object &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='comment'>#=&gt; UIAStaticText</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+344
+345
+346
+347
+348</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 344</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>type()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_string_response'>process_string_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>value</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value attribute for the specified Element. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='comment'>#=&gt; returns the value attribute &quot;Element Found&quot;</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+202
+203
+204
+205
+206</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 202</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>value()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_string_response'>process_string_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="visible?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>visible?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Checks the visibility stated of the object. &lt;br&gt;</p>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_visible?'>visible?</span> <span class='comment'>#=&gt; returns true If the element is visible</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255
+256</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_visible?'>visible?</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isVisible()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wait_for_condition-instance_method">
+  
+    - (<tt>Object</tt>) <strong>wait_for_condition</strong>(condition, timeout = 300) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Waits until a particular condition is met in the provided time period.
 Returns if the condition is met or not after the provided timeout.</p>
 
-<h4 id="method-i-wait_for_condition-label-Parameters">Parameters<span><a href="#method-i-wait_for_condition-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Parameters</h4>
 <ul><li>
-<p><code>condition</code> - The condition to to verify the command must be the
+<p><tt>condition</tt> - The condition to to verify the command must be the
 UIInstruments Command.</p>
 </li></ul>
 
-<h4 id="method-i-wait_for_condition-label-Optional+Parameters">Optional Parameters<span><a href="#method-i-wait_for_condition-label-Optional+Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Optional Parameters</h4>
 <ul><li>
-<p><code>timeout</code> - The amount of time to wait before giving up. The
-default is 5 mins.</p>
+<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
+is 5 mins.</p>
 </li></ul>
 
-<h4 id="method-i-wait_for_condition-label-Examples">Examples<span><a href="#method-i-wait_for_condition-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">wait_for_condition</span>(<span class="ruby-string">'isValid() == true'</span>, <span class="ruby-value">300</span>)
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isValid() == true</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>300</span><span class='rparen'>)</span></code></pre>
 
-          
-          <div class="method-source-code" id="wait_for_condition-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 97</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_for_condition</span>(<span class="ruby-identifier">condition</span>, <span class="ruby-identifier">timeout</span> = <span class="ruby-value">300</span>)
-  <span class="ruby-identifier">step</span> = <span class="ruby-string">%q[waitForCondition(]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">search_description</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[, ']</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">condition</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[', ]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">timeout</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[)]</span>
-  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
 
-  <span class="ruby-identifier">response</span>[<span class="ruby-string">'status'</span>].<span class="ruby-identifier">should_not</span> <span class="ruby-operator">==</span> <span class="ruby-string">'error'</span>
+  </div>
+</div>
+<div class="tags">
+  
 
-  <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
 
-        
-      </div>
+104
+105
+106
+107
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 104</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='id identifier rubyid_condition'>condition</span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>waitForCondition(</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>, '</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_condition'>condition</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>', </span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>)</span><span class='tstring_end'>]</span></span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-wait_for_element_to_be_enabled" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">wait_for_element_to_be_enabled</span><span
-            class="method-args">(timeout = 300)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="wait_for_element_to_be_enabled-instance_method">
+  
+    - (<tt>Object</tt>) <strong>wait_for_element_to_be_enabled</strong>(timeout = 300) 
+  
 
-        <div class="method-description">
-          
-          <p>Waits until the element is enabled over the given time period. Returns if
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Waits until the element is enabled over the given time period. Returns if
 element is enabled or not after the provided timeout.</p>
 
-<h4 id="method-i-wait_for_element_to_be_enabled-label-Optional+Parameters">Optional Parameters<span><a href="#method-i-wait_for_element_to_be_enabled-label-Optional+Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Optional Parameters</h4>
 <ul><li>
-<p><code>timeout</code> - The amount of time to wait before giving up. The
-default is 5 mins.</p>
+<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
+is 5 mins.</p>
 </li></ul>
 
-<h4 id="method-i-wait_for_element_to_be_enabled-label-Examples">Examples<span><a href="#method-i-wait_for_element_to_be_enabled-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">wait_for_element_to_be_enabled</span>(<span class="ruby-value">300</span>)
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='int'>300</span><span class='rparen'>)</span></code></pre>
 
-          
-          <div class="method-source-code" id="wait_for_element_to_be_enabled-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 138</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_for_element_to_be_enabled</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-value">300</span>)
 
-  <span class="ruby-identifier">wait_for_condition</span>(<span class="ruby-string">'isEnabled() == 1'</span>, <span class="ruby-identifier">timeout</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
+  </div>
+</div>
+<div class="tags">
+  
 
-        
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-        
-      </div>
 
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isEnabled() == 1</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-      <div id="method-i-wait_for_element_to_exist" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">wait_for_element_to_exist</span><span
-            class="method-args">(timeout = 300)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
+      <div class="method_details ">
+  <h3 class="signature " id="wait_for_element_to_exist-instance_method">
+  
+    - (<tt>Object</tt>) <strong>wait_for_element_to_exist</strong>(timeout = 300) 
+  
 
-        <div class="method-description">
-          
-          <p>Waits until the element exists over the given time period. Returns if
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Waits until the element exists over the given time period. Returns if
 element exists or not after the provided timeout.</p>
 
-<h4 id="method-i-wait_for_element_to_exist-label-Optional+Parameters">Optional Parameters<span><a href="#method-i-wait_for_element_to_exist-label-Optional+Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Optional Parameters</h4>
 <ul><li>
-<p><code>timeout</code> - The amount of time to wait before giving up. The
-default is 5 mins.</p>
+<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
+is 5 mins.</p>
 </li></ul>
 
-<h4 id="method-i-wait_for_element_to_exist-label-Examples">Examples<span><a href="#method-i-wait_for_element_to_exist-label-Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<h4>Examples</h4>
 
-<pre class="ruby"><span class="ruby-identifier">element</span> = <span class="ruby-constant">Cumber</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ElementSearch&quot;</span>) <span class="ruby-operator">&lt;</span><span class="ruby-identifier">br</span><span class="ruby-operator">&gt;</span>
-<span class="ruby-identifier">element</span>.<span class="ruby-identifier">wait_for_element_to_exist</span>(<span class="ruby-value">300</span>)
-</pre>
-          
-          
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='int'>300</span><span class='rparen'>)</span></code></pre>
 
-          
-          <div class="method-source-code" id="wait_for_element_to_exist-source">
-            <pre><span class="ruby-comment"># File lib/cumber/element.rb, line 118</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_for_element_to_exist</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-value">300</span>)
 
-  <span class="ruby-identifier">step</span> = <span class="ruby-string">%q[waitForElementToExist(&quot;]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">search_predicate</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[&quot;, frontApp, ]</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">timeout</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">%q[).checkIsValid()]</span>
-  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Cumber</span>.<span class="ruby-identifier">execute_step</span>(<span class="ruby-identifier">step</span>)
-
-  <span class="ruby-keyword">if</span> <span class="ruby-constant">ResponseHelper</span>.<span class="ruby-identifier">process_bool_response</span>(<span class="ruby-identifier">response</span>) <span class="ruby-keyword">then</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">else</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
+  </div>
+</div>
+<div class="tags">
   
-  </section>
-</main>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
 
-<footer id="validator-badges" role="contentinfo">
-  <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
-</footer>
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 125</span>
 
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>waitForElementToExist(&quot;</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_predicate'>search_predicate</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>&quot;, target, </span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>).checkIsValid()</span><span class='tstring_end'>]</span></span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span> <span class='kw'>then</span>
+    <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Mar 17 12:04:14 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

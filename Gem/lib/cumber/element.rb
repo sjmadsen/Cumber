@@ -60,8 +60,11 @@ module Cumber
 
     def search_description
 
-      %q[searchWithPredicate("] + search_predicate + %q[", target)]
-
+      if @ancestry
+        @ancestry
+      else
+        %q[searchWithPredicate("] + search_predicate + %q[", target)]
+      end
     end
 
     ##
@@ -124,7 +127,11 @@ module Cumber
       step = %q[waitForElementToExist("] + search_predicate + %q[", target, ] + timeout.to_s + %q[).checkIsValid()]
       response = Cumber.execute_step(step)
 
-      if ResponseHelper.process_bool_response(response) then true else false end
+      if ResponseHelper.process_bool_response(response) then
+        true
+      else
+        false
+      end
     end
 
     ##
@@ -380,7 +387,7 @@ module Cumber
     # Escapes single quotes for sending commands
 
     def escape_single_quotes(value)
-      value.gsub("'","\\\\\\\\\\\\'")
+      value.gsub("'", "\\\\\\\\\\\\'")
     end
 
   end

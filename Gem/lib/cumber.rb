@@ -193,11 +193,12 @@ module Cumber
   #
   # ==== Examples
   #
-  #     Cumber.start_instruments(23123sasd12321313..., Cumber-Test)
+  #     Cumber.start_instruments(Cumber-Test, 23123sasd12321313...)
   #
 
   def self.start_instruments(udid, target)
     driver_path = path_to_driver + '/driver.js'
+
     system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
   end
 

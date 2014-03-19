@@ -60,6 +60,12 @@ describe 'UIAElement Wrapper' do
       element.search_description.should eql expected
     end
 
+    it 'should return the search description when provided the element ancestry' do
+      expected = %q[mainWindow.popover[0]]
+      element = Cumber::Element.new(:ancestry => 'mainWindow.popover[0]')
+      element.search_description.should eql expected
+    end
+
   end
 
   context 'Search For an object and perform command' do
