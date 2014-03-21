@@ -6,6 +6,8 @@ require 'cumber/imports'
 ##
 # Cumber is an automated testing tool that bridges the gap between cucumber tests and the Apple automated testing tools
 # UI Automation provided with XCode and Instruments.
+#
+
 module Cumber
 
   @host = 'localhost'

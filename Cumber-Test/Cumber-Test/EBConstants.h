@@ -14,7 +14,8 @@ enum TestScreens {
     UIAKeyboardTests = 1,
     UIAAlertTests = 2,
     UIAPickerTests = 3,
-    UIATableTests = 4
+    UIATableTests = 4,
+    UIAPopoverTests = 5
 };
 
 #endif

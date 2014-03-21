@@ -30,6 +30,7 @@
     
     UIDatePicker *datePicker = [[UIDatePicker alloc] init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
+    [datePicker setDate:[NSDate dateWithTimeIntervalSince1970:1395364172.180692]];
     
     UIViewController *datePickerController = [[UIViewController alloc] init];
     [[datePickerController view] addSubview:datePicker];

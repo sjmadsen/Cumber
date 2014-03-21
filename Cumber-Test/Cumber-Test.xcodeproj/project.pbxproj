@@ -20,6 +20,8 @@
 		0413B2231879EE7600DE8676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2211879EE7600DE8676 /* InfoPlist.strings */; };
 		0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */; };
 		0413B2331879EEF100DE8676 /* EBUIAElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */; };
+		0421CD1518DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0421CD1318DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.m */; };
+		0421CD1618DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0421CD1418DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.xib */; };
 		0432BE5218A14FFD00A671D2 /* EBUIAPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0432BE5018A14FFD00A671D2 /* EBUIAPickerViewController.m */; };
 		0432BE5318A14FFD00A671D2 /* EBUIAPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0432BE5118A14FFD00A671D2 /* EBUIAPickerViewController.xib */; };
 		04425C2D188C4030009478C2 /* EBUIAElementViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04425C2C188C4030009478C2 /* EBUIAElementViewControllerTests.m */; };
@@ -63,6 +65,9 @@
 		0413B22F1879EEF100DE8676 /* EBUIAElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAElementViewController.h; sourceTree = "<group>"; };
 		0413B2301879EEF100DE8676 /* EBUIAElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAElementViewController.m; sourceTree = "<group>"; };
 		0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAElementViewController.xib; sourceTree = "<group>"; };
+		0421CD1218DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAPopoverTestsViewController.h; sourceTree = "<group>"; };
+		0421CD1318DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAPopoverTestsViewController.m; sourceTree = "<group>"; };
+		0421CD1418DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAPopoverTestsViewController.xib; sourceTree = "<group>"; };
 		0432BE4F18A14FFD00A671D2 /* EBUIAPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBUIAPickerViewController.h; sourceTree = "<group>"; };
 		0432BE5018A14FFD00A671D2 /* EBUIAPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBUIAPickerViewController.m; sourceTree = "<group>"; };
 		0432BE5118A14FFD00A671D2 /* EBUIAPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBUIAPickerViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +160,7 @@
 				0413B22E1879EE8E00DE8676 /* UIAElement */,
 				04F93F7118930E4400062345 /* UIAKeyboard */,
 				0432BE4E18A14FDE00A671D2 /* UIAPicker */,
+				0421CD0E18DB7D0900AE3EA8 /* UIAPopover */,
 				046F389518BBC55D00DC44C8 /* UIATable */,
 			);
 			path = "Cumber-Test";
@@ -197,6 +203,16 @@
 				0413B2311879EEF100DE8676 /* EBUIAElementViewController.xib */,
 			);
 			name = UIAElement;
+			sourceTree = "<group>";
+		};
+		0421CD0E18DB7D0900AE3EA8 /* UIAPopover */ = {
+			isa = PBXGroup;
+			children = (
+				0421CD1218DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.h */,
+				0421CD1318DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.m */,
+				0421CD1418DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.xib */,
+			);
+			name = UIAPopover;
 			sourceTree = "<group>";
 		};
 		0432BE4E18A14FDE00A671D2 /* UIAPicker */ = {
@@ -296,7 +312,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EB;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Education;
 				TargetAttributes = {
 					0413B2161879EE7600DE8676 = {
@@ -333,6 +349,7 @@
 				0432BE5318A14FFD00A671D2 /* EBUIAPickerViewController.xib in Resources */,
 				0413B2121879EE7600DE8676 /* Images.xcassets in Resources */,
 				04A95ECA189C330200884FC5 /* EBUIAAlertViewController.xib in Resources */,
+				0421CD1618DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +373,7 @@
 				0432BE5218A14FFD00A671D2 /* EBUIAPickerViewController.m in Sources */,
 				04F93F7518930E6800062345 /* EBUIAKeyboardViewController.m in Sources */,
 				047B31E41883744B0073D15A /* UILabel+CumberExtension.m in Sources */,
+				0421CD1518DB7D8100AE3EA8 /* EBUIAPopoverTestsViewController.m in Sources */,
 				046F388718BBAE5D00DC44C8 /* EBPickerViewController.m in Sources */,
 				0413B20C1879EE7600DE8676 /* main.m in Sources */,
 				0413B2321879EEF100DE8676 /* EBUIAElementViewController.m in Sources */,
@@ -407,7 +425,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -447,7 +464,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -508,7 +524,6 @@
 		0413B22C1879EE7600DE8676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cumber-Test.app/Cumber-Test";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -531,7 +546,6 @@
 		0413B22D1879EE7600DE8676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cumber-Test.app/Cumber-Test";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

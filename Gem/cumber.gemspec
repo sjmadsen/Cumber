@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name = 'cumber'
-  gem.version = '0.0.1'
+  gem.version = '0.0.2'
   gem.authors = ['Chip Snyder']
   gem.email = ['chip.snyder3@gmail.com']
   gem.description = 'UIAutomation tool that bridges the gap between cucumber tests and XCode Instruments'

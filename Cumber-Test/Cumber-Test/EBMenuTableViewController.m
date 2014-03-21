@@ -13,6 +13,7 @@
 #import "EBUIAAlertViewController.h"
 #import "EBUIAPickerViewController.h"
 #import "EBUIATableTestsViewController.h"
+#import "EBUIAPopoverTestsViewController.h"
 
 @implementation EBMenuTableViewController
 
@@ -41,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,6 +77,10 @@
             cell = [self setCellForUIATableTests:cell];
             break;
             
+        case UIAPopoverTests:
+            cell = [self setCellForUIAPopoverTests:cell];
+            break;
+            
         default:
             break;
     }
@@ -108,6 +113,9 @@
             [self pushUIATableTestScreen];
             break;
             
+        case UIAPopoverTests:
+            [self pushUIAPopoverTestScreen];
+            break;
             
         default:
             break;
@@ -187,6 +195,21 @@
 {
     EBUIATableTestsViewController *tableTests = [[EBUIATableTestsViewController alloc] init];
     [[self navigationController] pushViewController:tableTests animated:YES];
+}
+
+#pragma mark UIAPopover Tests
+
+- (UITableViewCell *)setCellForUIAPopoverTests:(UITableViewCell *)cell
+{
+    [[cell textLabel] setText:@"UIAPopover Tests"];
+    [cell setAccessibilityLabel:@"UIAPopover Tests"];
+    return cell;
+}
+
+- (void)pushUIAPopoverTestScreen
+{
+    EBUIAPopoverTestsViewController *popoverTests = [[EBUIAPopoverTestsViewController alloc] init];
+    [[self navigationController] pushViewController:popoverTests animated:YES];
 }
 
 @end
