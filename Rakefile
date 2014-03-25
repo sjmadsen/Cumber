@@ -4,20 +4,19 @@ require 'cumber'
 
 desc 'build app'
 task :build do
-  config = YAML.load(ERB.new(File.read('config.yml')).result)
-  system ('xcodebuild -project '+ config['project'] +' -target '+ config['target'] +' -sdk iphoneos -configuration Debug clean build')
+  project = File.expand_path('./Cumber-Test/Cumber-Test.xcodeproj')
+  system ('xcodebuild -project '+ project +' -target Cumber-Test -sdk iphoneos -configuration Debug clean build')
 end
 
 desc 'Install app to device'
 task :install do
-  config = YAML.load(ERB.new(File.read('config.yml')).result)
-  system('appdeploy install -p ' + config['app'])
+  app = File.expand_path('./Cumber-Test/build/Debug-iphoneos/Cumber-Test.app')
+  system('appdeploy install -p ' + app)
 end
 
 desc 'Uninstall app to device'
 task :uninstall do
-  config = YAML.load(ERB.new(File.read('config.yml')).result)
-  system('appdeploy uninstall -b ' + config['bundle'])
+  system('appdeploy uninstall -b edu.self.Cumber-Test')
 end
 
 desc 'Deploy app to device'
