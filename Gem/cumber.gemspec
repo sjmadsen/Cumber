@@ -1,6 +1,7 @@
 Gem::Specification.new do |gem|
   gem.name = 'cumber'
-  gem.version = '0.0.2'
+  gem.version = '0.0.4'
+  gem.licenses    = ['MIT']
   gem.authors = ['Chip Snyder']
   gem.email = ['chip.snyder3@gmail.com']
   gem.description = 'UIAutomation tool that bridges the gap between cucumber tests and XCode Instruments'
@@ -9,10 +10,7 @@ Gem::Specification.new do |gem|
 
   gem.files = Dir.glob('{lib,doc}/**/**/*')
 
-  gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'json'
-  gem.add_development_dependency 'socket'
-  gem.add_development_dependency 'uri'
-  gem.add_development_dependency 'net/http'
+  gem.add_development_dependency 'rspec', '~> 2.14'
+  gem.add_development_dependency 'yard', '~> 0.8'
 
 end

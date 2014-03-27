@@ -104,4 +104,5 @@ describe 'UIATarget Wrapper' do
     end
 
   end
+
 end

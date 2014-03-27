@@ -46,6 +46,6 @@ end
 
 desc 'Start instruments'
 task :instruments do
-  Cumber.start_instruments(%x[appdeploy get_udid], 'Cumber-Test')
+  Cumber.start_instruments(%x[appdeploy get_udid].strip, 'Cumber-Test')
 end
 

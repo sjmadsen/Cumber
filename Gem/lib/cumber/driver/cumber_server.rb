@@ -38,13 +38,17 @@ class CumberServer
     loop do
 
       Thread.start(server.accept) do |socket|
+        content_size  = 0
         request = socket.gets
-        user_agent = socket.gets
-        host = socket.gets
-        accept = socket.gets
-        content_type = socket.gets
-        content_size = socket.gets.split(" ")[1].to_i
-        line_break = socket.gets
+
+        while line = socket.gets
+          if line =~ /^Content-Length:\s+(\d+)/i
+            content_size = $1.to_i
+          end
+
+          break if line == "\r\n"
+        end
+
         message = socket.read(content_size)
         response = generate_response(request, message)
 
