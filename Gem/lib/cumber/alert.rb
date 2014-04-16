@@ -49,8 +49,7 @@ module Cumber
 
     def confirm
       response = self.search_and_execute_command('defaultButton().tap()')
-      response['status'].should_not == 'error'
-      response['status'] != 'error'
+      ResponseHelper.process_operation_response(response)
     end
 
     ##
@@ -63,8 +62,8 @@ module Cumber
 
     def cancel
       response = self.search_and_execute_command('cancelButton().tap()')
-      response['status'].should_not == 'error'
-      response['status'] != 'error'
+
+      ResponseHelper.process_operation_response(response)
     end
 
     ##
@@ -72,14 +71,14 @@ module Cumber
     #
     # ==== Optional Parameters
     #
-    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
+    # * +timeout+ - The amount of time to wait before giving up.
     #
     # ==== Examples
     #
     #   alert = Cumber::Alert.new <br>
-    #   alert.wait_for_element_to_exist(300)
+    #   alert.wait_for_element_to_exist(3000)
 
-    def wait_for_element_to_exist(timeout = 300)
+    def wait_for_element_to_exist(timeout = 3000)
 
       step = %q[waitForCondition("] + search_description + %q[", 'checkIsValid() == 1', ] + timeout.to_s + %q[)]
       response = Cumber.execute_step(step)

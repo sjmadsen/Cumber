@@ -49,3 +49,10 @@ task :instruments do
   Cumber.start_instruments(%x[appdeploy get_udid].strip, 'Cumber-Test')
 end
 
+desc 'Start screen inspect'
+task :inspect do
+  Cumber.start
+  Cumber.new_run(%x[appdeploy get_udid].strip, 'Cumber-Test')
+  Cumber.inspect
+end
+

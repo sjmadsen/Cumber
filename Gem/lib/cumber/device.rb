@@ -53,5 +53,21 @@ module Cumber
       @orientation_strings[response['message'].to_i]
     end
 
+    ##
+    # Takes a screen shot of the app and saves the file as a PNG to the designate location. The file will be saved to the path ./bin/MM-DD-YYYY_##h##m:##s/screenshot.png
+    # Returns the full file path of the file
+
+    def screenshot
+      time = DateTime.now.strftime('%m-%d-%Y_%Hh%Mm%Ss')
+      response = Cumber.execute_step('target.captureScreenWithName("screenshot")')
+      ResponseHelper.process_operation_response(response)
+      sleep(5)
+      source = Dir.glob(File.expand_path('./bin')+'/logs/**/screenshot.png')[0]
+      FileUtils.mkdir_p(File.expand_path('./bin')+"/#{time}")
+      destination = File.expand_path("./bin/#{time}/screenshot.png")
+      FileUtils.mv(source, destination)
+      destination
+    end
+
   end
 end

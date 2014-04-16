@@ -19,8 +19,7 @@ module Cumber
 
       text = value.gsub("'","\\\\\\\\'")
       response = search_and_execute_command("typeString('#{text}')")
-      response['status'].should_not == 'error'
-      response['status'] != 'error'
+      ResponseHelper.process_operation_response(response)
     end
 
   end

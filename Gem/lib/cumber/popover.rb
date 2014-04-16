@@ -14,8 +14,7 @@ module Cumber
 
     def dismiss
       response = self.search_and_execute_command('dismiss()')
-      response['status'].should_not == 'error'
-      response['status'] != 'error'
+      ResponseHelper.process_operation_response(response)
     end
   end
 end

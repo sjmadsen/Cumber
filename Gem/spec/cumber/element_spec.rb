@@ -101,7 +101,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result of the condition' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'doStuff()', 300)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'doStuff()', 3000)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -130,7 +130,7 @@ describe 'UIAElement Wrapper' do
     context 'No error when searching for the element' do
 
       it 'should return the result of the element search' do
-        command = %q[waitForElementToExist("name = 'ItemName'", target, 300).checkIsValid()]
+        command = %q[waitForElementToExist("name = 'ItemName'", target, 3000).checkIsValid()]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -159,7 +159,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result if the element was enabled after the timeout' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isEnabled() == 1', 300)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isEnabled() == 1', 3000)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -177,6 +177,35 @@ describe 'UIAElement Wrapper' do
         element = Cumber::Element.new(:name => 'ItemNotThere')
 
         lambda{ element.wait_for_element_to_be_enabled(200)}.should raise_error
+      end
+
+    end
+
+  end
+
+  context 'Wait for element to be visible' do
+
+    context 'Element was found' do
+
+      it 'should return the result if the element was visible after the timeout' do
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isVisible() == true', 3000)]
+
+        Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
+        element = Cumber::Element.new(:name => 'ItemName')
+        element.wait_for_element_to_be_visible().should == true
+      end
+
+    end
+
+    context 'Element was not located' do
+
+      it 'should raise an error if the command errors out' do
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", target), 'isVisible() == true', 200)]
+
+        Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
+        element = Cumber::Element.new(:name => 'ItemNotThere')
+
+        lambda{ element.wait_for_element_to_be_visible(200)}.should raise_error
       end
 
     end
@@ -625,15 +654,29 @@ describe 'UIAElement Wrapper' do
 
   end
 
-  context 'Get the decription of an element' do
+  context 'Get the description of an element' do
 
-    it 'should attempt to locate the element and return its type' do
+    it 'should attempt to locate the element and return its description' do
 
       command = %q[searchWithPredicate("label = 'ItemLabel'", target).description()]
 
       Cumber.should_receive(:execute_step).with(command).and_return('message' => "{:type => 'UIAStaticText', :label => 'ItemLabel', :name => 'ItemName', :value => 'Item Value', :frame => {:origin => {:x => '12', :y => '23'}, :size => {:width => '120', :height => '33'}} }", 'status' => 'success')
       element = Cumber::Element.new(:label => 'ItemLabel')
       element.description
+
+    end
+
+  end
+
+  context 'Get the description of an element and all of its sub elements' do
+
+    it 'should attempt to locate the element and return the element tree from that point on' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).element_tree()]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => "{:type => 'UIAStaticText', :label => 'ItemLabel', :name => 'ItemName', :value => 'Item Value', :frame => {:origin => {:x => '12', :y => '23'}, :size => {:width => '120', :height => '33'}} }", 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.element_tree
 
     end
 

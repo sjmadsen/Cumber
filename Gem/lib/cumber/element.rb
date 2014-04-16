@@ -94,18 +94,16 @@ module Cumber
     #
     # ==== Optional Parameters
     #
-    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
+    # * +timeout+ - The amount of time to wait before giving up.
     #
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_condition('isValid() == true', 300)
+    #   element.wait_for_condition('isValid() == true', 3000)
 
-    def wait_for_condition(condition, timeout = 300)
+    def wait_for_condition(condition, timeout = 3000)
       step = %q[waitForCondition(] + search_description + %q[, '] + condition + %q[', ] + timeout.to_s + %q[)]
       response = Cumber.execute_step(step)
-
-      response['status'].should_not == 'error'
 
       ResponseHelper.process_bool_response(response)
     end
@@ -115,14 +113,14 @@ module Cumber
     #
     # ==== Optional Parameters
     #
-    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
+    # * +timeout+ - The amount of time to wait before giving up.
     #
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_exist(300)
+    #   element.wait_for_element_to_exist(3000)
 
-    def wait_for_element_to_exist(timeout = 300)
+    def wait_for_element_to_exist(timeout = 3000)
 
       step = %q[waitForElementToExist("] + search_predicate + %q[", target, ] + timeout.to_s + %q[).checkIsValid()]
       response = Cumber.execute_step(step)
@@ -135,18 +133,35 @@ module Cumber
     end
 
     ##
-    # Waits until the element is enabled over the given time period. Returns if element is enabled or not after the provided timeout.
+    # Waits until the element is visible over the given time period. Returns if element is visible or not after the provided timeout.
     #
     # ==== Optional Parameters
     #
-    # * +timeout+ - The amount of time to wait before giving up. The default is 5 mins.
+    # * +timeout+ - The amount of time to wait before giving up.
     #
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_be_enabled(300)
+    #   element.wait_for_element_to_be_visible(3000)
 
-    def wait_for_element_to_be_enabled(timeout = 300)
+    def wait_for_element_to_be_visible(timeout = 3000)
+
+      wait_for_condition('isVisible() == true', timeout)
+    end
+
+    ##
+    # Waits until the element is enabled over the given time period. Returns if element is enabled or not after the provided timeout.
+    #
+    # ==== Optional Parameters
+    #
+    # * +timeout+ - The amount of time to wait before giving up.
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   element.wait_for_element_to_be_enabled(3000)
+
+    def wait_for_element_to_be_enabled(timeout = 3000)
 
       wait_for_condition('isEnabled() == 1', timeout)
     end
@@ -348,7 +363,7 @@ module Cumber
     end
 
     ##
-    # Returns the description of the element.
+    # Returns the description of the element. Mirrors the behavior of logElement() in UI Automation
     #
     # ==== Examples
     #
@@ -366,6 +381,29 @@ module Cumber
     def description
 
       response = search_and_execute_command('description()')
+      ResponseHelper.process_hash_response(response)
+    end
+
+    ##
+    # Returns the description of the target element and as well as the description for all sub elements. Mirrors the behavior of logElementTree() in UI Automation
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch") <br>
+    #   description = element.element_tree
+    #   description[:type] #=> UIAStaticText
+    #   description[:label] #=> ElementSearchLabel
+    #   description[:name] #=> ElementSearch
+    #   description[:frame][:origin][:x] #=> "22"
+    #   description[:frame][:origin][:y] #=> "123"
+    #   description[:frame][:size][:width] #=> "200"
+    #   description[:frame][:size][:height] #=> "50"
+    #   description[:value] #=> "The label is here"
+    #   description[:child_elements] #=> [child_element0-description, child_element1-description, ...]
+
+    def element_tree
+
+      response = search_and_execute_command('element_tree()')
       ResponseHelper.process_hash_response(response)
     end
 

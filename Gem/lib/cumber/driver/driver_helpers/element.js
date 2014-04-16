@@ -20,5 +20,18 @@ UIAElement.prototype["description"] = function()
     return '{:type => "' + this.type() + '", :label => "' + this.label() + '", :name => "' + this.name() + '", :value => "' + this.value() + '", :frame => ' + this.frame() + '}';
 };
 
+UIAElement.prototype["element_tree"] = function()
+{
+    var child_elements = this.elements();
+    var hashed_elements = [];
+
+    for (var i=0; i < child_elements.length; i++)
+    {
+        hashed_elements.push(child_elements[i].element_tree());
+    }
+
+    return '{:type => "' + this.type() + '", :label => "' + this.label() + '", :name => "' + this.name() + '", :value => "' + this.value() + '", :frame => ' + this.frame() + ', :child_elements => [' + hashed_elements.join(", ") + ']}';
+};
+
 
 

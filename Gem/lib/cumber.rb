@@ -2,6 +2,7 @@ require 'json'
 require 'uri'
 require 'net/http'
 require 'cumber/imports'
+require 'fileutils'
 
 ##
 # Cumber is an automated testing tool that bridges the gap between cucumber tests and the Apple automated testing tools
@@ -178,6 +179,7 @@ module Cumber
 
     stop_instruments
     system('rm -rf ./bin/ins.trace')
+    system('rm -rf ./bin/logs/*')
 
     Thread.new do
       start_instruments(udid, target)
@@ -201,7 +203,7 @@ module Cumber
   def self.start_instruments(udid, target)
     driver_path = path_to_driver + '/driver.js'
 
-    system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path)
+    system('instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path + ' -e UIARESULTSPATH ./bin/logs')
   end
 
   ##
@@ -226,6 +228,18 @@ module Cumber
 
   def self.path_to_driver
     File.join(File.dirname(File.expand_path(__FILE__)), 'cumber/driver')
+  end
+
+  ##
+  # Generates meta data to be used when inspecting the Elements on the screen. Generates json file for element meta data and takes a screenshot
+  #
+
+  def self.inspect
+    puts 'Getting elements this may take a min...'
+    json_data = Cumber::Element.new(:ancestry => 'target').element_tree
+    file_location = Cumber::Device.new().screenshot
+    json_location = File.dirname(file_location) + '/data.txt'
+    File.open(json_location, 'w+') {|f| f.write(json_data) }
   end
 
 end
