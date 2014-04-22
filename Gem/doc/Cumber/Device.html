@@ -6,7 +6,7 @@
 <title>
   Class: Cumber::Device
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Cumber/Device.html";
 </script>
 
 
@@ -180,6 +180,40 @@ hardware such as orientation.</p>
       
     </ul>
   
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#screenshot-instance_method" title="#screenshot (instance method)">- (Object) <strong>screenshot</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Takes a screen shot of the app and saves the file as a PNG to the designate
+location.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -191,7 +225,7 @@ hardware such as orientation.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Cumber.html" title="Cumber (module)">Cumber</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Cumber.html#execute_step-class_method" title="Cumber.execute_step (method)">execute_step</a></span>, <span class='object_link'><a href="../Cumber.html#format_command-class_method" title="Cumber.format_command (method)">format_command</a></span>, <span class='object_link'><a href="../Cumber.html#new_run-class_method" title="Cumber.new_run (method)">new_run</a></span>, <span class='object_link'><a href="../Cumber.html#parse_response-class_method" title="Cumber.parse_response (method)">parse_response</a></span>, <span class='object_link'><a href="../Cumber.html#path_to_driver-class_method" title="Cumber.path_to_driver (method)">path_to_driver</a></span>, <span class='object_link'><a href="../Cumber.html#send_command-class_method" title="Cumber.send_command (method)">send_command</a></span>, <span class='object_link'><a href="../Cumber.html#start-class_method" title="Cumber.start (method)">start</a></span>, <span class='object_link'><a href="../Cumber.html#start_instruments-class_method" title="Cumber.start_instruments (method)">start_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop-class_method" title="Cumber.stop (method)">stop</a></span>, <span class='object_link'><a href="../Cumber.html#stop_instruments-class_method" title="Cumber.stop_instruments (method)">stop_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop_server-class_method" title="Cumber.stop_server (method)">stop_server</a></span>, <span class='object_link'><a href="../Cumber.html#strip_special_chars-class_method" title="Cumber.strip_special_chars (method)">strip_special_chars</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Cumber.html#execute_step-class_method" title="Cumber.execute_step (method)">execute_step</a></span>, <span class='object_link'><a href="../Cumber.html#format_command-class_method" title="Cumber.format_command (method)">format_command</a></span>, <span class='object_link'><a href="../Cumber.html#inspect-class_method" title="Cumber.inspect (method)">inspect</a></span>, <span class='object_link'><a href="../Cumber.html#new_run-class_method" title="Cumber.new_run (method)">new_run</a></span>, <span class='object_link'><a href="../Cumber.html#parse_response-class_method" title="Cumber.parse_response (method)">parse_response</a></span>, <span class='object_link'><a href="../Cumber.html#path_to_driver-class_method" title="Cumber.path_to_driver (method)">path_to_driver</a></span>, <span class='object_link'><a href="../Cumber.html#send_command-class_method" title="Cumber.send_command (method)">send_command</a></span>, <span class='object_link'><a href="../Cumber.html#start-class_method" title="Cumber.start (method)">start</a></span>, <span class='object_link'><a href="../Cumber.html#start_instruments-class_method" title="Cumber.start_instruments (method)">start_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop-class_method" title="Cumber.stop (method)">stop</a></span>, <span class='object_link'><a href="../Cumber.html#stop_instruments-class_method" title="Cumber.stop_instruments (method)">stop_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop_server-class_method" title="Cumber.stop_server (method)">stop_server</a></span>, <span class='object_link'><a href="../Cumber.html#strip_special_chars-class_method" title="Cumber.strip_special_chars (method)">strip_special_chars</a></span></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -212,16 +246,17 @@ hardware such as orientation.</p>
     
 <p>Set the orientation of the device.</p>
 
-<h3>Orientations</h3>
+<h3 id="label-Orientations">Orientations</h3>
 
 <p>UIA_DEVICE_ORIENTATION_UNKNOWN UIA_DEVICE_ORIENTATION_PORTRAIT
 UIA_DEVICE_ORIENTATION_PORTRAIT_UPSIDEDOWN
 UIA_DEVICE_ORIENTATION_LANDSCAPELEFT UIA_DEVICE_ORIENTATION_LANDSCAPERIGHT
 UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Device</span><span class='period'>.</span><span class='id identifier rubyid_orientation'>orientation</span> <span class='comment'>#=&gt; UIA_DEVICE_ORIENTATION_LANDSCAPELEFT</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Device</span><span class='period'>.</span><span class='id identifier rubyid_orientation'>orientation</span> <span class='comment'>#=&gt; UIA_DEVICE_ORIENTATION_LANDSCAPELEFT
+</span></code></pre>
 
 
   </div>
@@ -244,8 +279,8 @@ UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
       <pre class="code"><span class="info file"># File 'lib/cumber/device.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_orientation'>orientation</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>target.deviceOrientation()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@orientation_strings</span><span class='lbracket'>[</span><span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target.deviceOrientation()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@orientation_strings</span><span class='lbracket'>[</span><span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>message</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -266,19 +301,19 @@ UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
     
 <p>Set the orientation of the device.</p>
 
-<h3>Orientations</h3>
+<h3 id="label-Orientations">Orientations</h3>
 
 <p>UIA_DEVICE_ORIENTATION_UNKNOWN UIA_DEVICE_ORIENTATION_PORTRAIT
 UIA_DEVICE_ORIENTATION_PORTRAIT_UPSIDEDOWN
 UIA_DEVICE_ORIENTATION_LANDSCAPELEFT UIA_DEVICE_ORIENTATION_LANDSCAPERIGHT
 UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>orientation</tt> - The desired orientation to rotate the device to</p>
+<p><code>orientation</code> - The desired orientation to rotate the device to</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Device</span><span class='period'>.</span><span class='id identifier rubyid_set_orientation'>set_orientation</span><span class='lparen'>(</span><span class='const'>UIA_DEVICE_ORIENTATION_LANDSCAPELEFT</span><span class='rparen'>)</span></code></pre>
 
@@ -305,8 +340,74 @@ UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_orientation'>set_orientation</span> <span class='id identifier rubyid_orientation'>orientation</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>target.setDeviceOrientation(</span><span class='tstring_end'>'</span></span><span class='op'>+</span> <span class='id identifier rubyid_orientation'>orientation</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target.setDeviceOrientation(</span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span> <span class='id identifier rubyid_orientation'>orientation</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="screenshot-instance_method">
+  
+    - (<tt>Object</tt>) <strong>screenshot</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Takes a screen shot of the app and saves the file as a PNG to the designate
+location. The file will be saved to the path
+./bin/MM-DD-YYYY_##h##m:##s/screenshot.png Returns the full file path of
+the file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/device.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_screenshot'>screenshot</span>
+  <span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%m-%d-%Y_%Hh%Mm%Ss</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target.captureScreenWithName(&quot;screenshot&quot;)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_sleep'>sleep</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_source'>source</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>./bin</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/logs/**/screenshot.png</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>./bin</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_time'>time</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_destination'>destination</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>./bin/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_time'>time</span><span class='embexpr_end'>}</span><span class='tstring_content'>/screenshot.png</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mv'>mv</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_destination'>destination</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_destination'>destination</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -318,9 +419,9 @@ UIA_DEVICE_ORIENTATION_FACEUP UIA_DEVICE_ORIENTATION_FACEDOWN</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Mar 20 20:33:50 2014 by
+  Generated on Fri Apr 18 14:39:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.1.1).
 </div>
 
   </body>

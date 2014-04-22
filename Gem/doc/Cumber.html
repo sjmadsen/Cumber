@@ -6,7 +6,7 @@
 <title>
   Module: Cumber
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Cumber.html";
 </script>
 
 
@@ -172,6 +172,30 @@ Automation.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Formats the string query that will be sent to UI Automation.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-class_method" title="inspect (class method)">+ (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates meta data to be used when inspecting the Elements on the screen.</p>
 </div></span>
   
 </li>
@@ -413,7 +437,8 @@ the resulting value of the executed ruby command.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Replaces special characters in the string query with modified HTML codes
-for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
+for the characters &#39;&amp;&#39;, &#39;[&#39;, &#39;]&#39;, &#39;“&#39;,
+&#39; &#39;, &#39;and &#39;&#39;.</p>
 </div></span>
   
 </li>
@@ -443,15 +468,16 @@ for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
 <p>Creates an instance of a Cumber Element to use as a base to query UI
 Automation.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>step</tt> - A string that represents the javascript call to execute in
-UI Automation.</p>
+<p><code>step</code> - A string that represents the javascript call to execute
+in UI Automation.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>target.mainWindow.size()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns the result of the command</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target.mainWindow.size()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns the result of the command
+</span></code></pre>
 
 
   </div>
@@ -465,18 +491,18 @@ UI Automation.</p>
       <pre class="lines">
 
 
-28
 29
 30
 31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>run</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>run</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_response'>response</span>
@@ -500,14 +526,15 @@ UI Automation.</p>
     
 <p>Formats the string query that will be sent to UI Automation.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>command</tt> - The string query to send to UI Automation.</p>
+<p><code>command</code> - The string query to send to UI Automation.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns '{&quot;message&quot;:&quot;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;);&quot;}'</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns &#39;{&quot;message&quot;:&quot;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;);&quot;}&#39;
+</span></code></pre>
 
 
   </div>
@@ -521,15 +548,65 @@ UI Automation.</p>
       <pre class="lines">
 
 
-87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;, &quot;status&quot;:&quot;</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;}</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;, &quot;status&quot;:&quot;</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-class_method">
+  
+    + (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates meta data to be used when inspecting the Elements on the screen.
+Generates json file for element meta data and takes a screenshot</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Getting elements this may take a min...</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_json_data'>json_data</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:ancestry</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>target</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_element_tree'>element_tree</span>
+  <span class='id identifier rubyid_file_location'>file_location</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Device</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_screenshot'>screenshot</span>
+  <span class='id identifier rubyid_json_location'>json_location</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_file_location'>file_location</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/data.txt</span><span class='tstring_end'>&#39;</span></span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_json_location'>json_location</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w+</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_json_data'>json_data</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -552,15 +629,15 @@ UI Automation.</p>
 instruments, cleans up the trace file and reloads instruments in a new
 thread.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>udid</tt> - The unique identifier of the iOS Device to run tests
+<p><code>udid</code> - The unique identifier of the iOS Device to run tests
 against.</p>
 </li><li>
-<p><tt>target</tt> - The name of the app to launch when cumber starts.</p>
+<p><code>target</code> - The name of the app to launch when cumber starts.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby">#Place in your hooks.rb file.
 
@@ -580,7 +657,6 @@ end</code></pre>
       <pre class="lines">
 
 
-177
 178
 179
 180
@@ -589,15 +665,18 @@ end</code></pre>
 183
 184
 185
-186</pre>
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new_run'>new_run</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
-  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rm -rf ./bin/ins.trace</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rm -rf ./bin/ins.trace</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rm -rf ./bin/logs/*</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_start_instruments'>start_instruments</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
@@ -624,14 +703,15 @@ end</code></pre>
 <p>Parses through the response from send_command and returns the portion of
 the resulting value of the executed ruby command.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>response</tt> - The json response from UI Automation.</p>
+<p><code>response</code> - The json response from UI Automation.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;test&quot;}</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns 'test'</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;test&quot;}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns &#39;test&#39;
+</span></code></pre>
 
 
   </div>
@@ -645,13 +725,13 @@ the resulting value of the executed ruby command.</p>
       <pre class="lines">
 
 
-47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse_response'>parse_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response_json'>response_json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
@@ -674,9 +754,9 @@ the resulting value of the executed ruby command.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the path to the Cumber instruments driver file. &lt;br&gt;</p>
+<p>Returns the path to the Cumber instruments driver file. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_path_to_driver'>path_to_driver</span></code></pre>
 
@@ -692,15 +772,15 @@ the resulting value of the executed ruby command.</p>
       <pre class="lines">
 
 
-227
-228
-229</pre>
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 229</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_path_to_driver'>path_to_driver</span>
-  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>cumber/driver</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cumber/driver</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -722,14 +802,15 @@ the resulting value of the executed ruby command.</p>
 <p>Formats and sends the string query to UI Automation. and returns the
 response</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>command</tt> - The string query to send to UI Automation.</p>
+<p><code>command</code> - The string query to send to UI Automation.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns '{&quot;message&quot;:&quot;response&quot;}'</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns &#39;{&quot;message&quot;:&quot;response&quot;}&#39;
+</span></code></pre>
 
 
   </div>
@@ -743,7 +824,6 @@ response</p>
       <pre class="lines">
 
 
-63
 64
 65
 66
@@ -754,14 +834,15 @@ response</p>
 71
 72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/cumber</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_initheader'>initheader</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>application/json</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/cumber</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_initheader'>initheader</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Content-Type</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>application/json</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='id identifier rubyid_format_command'>format_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='ivar'>@host</span><span class='comma'>,</span> <span class='ivar'>@port</span><span class='comma'>,</span> <span class='symbol'>:read_timeout</span> <span class='op'>=&gt;</span> <span class='int'>2000000</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_http'>http</span><span class='op'>|</span>
@@ -789,9 +870,9 @@ response</p>
   <div class="discussion">
     
 <p>Starts the Cumber Server. Needs to be called once at the begging of a
-Cucumber run. &lt;br&gt;</p>
+Cucumber run. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'>#Place in your env.rb file.
 </span><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span></code></pre>
@@ -808,7 +889,6 @@ Cucumber run. &lt;br&gt;</p>
       <pre class="lines">
 
 
-117
 118
 119
 120
@@ -816,10 +896,11 @@ Cucumber run. &lt;br&gt;</p>
 122
 123
 124
-125</pre>
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_debug'>debug</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
@@ -849,15 +930,15 @@ Cucumber run. &lt;br&gt;</p>
     
 <p>Starts instruments</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>udid</tt> - The unique identifier of the iOS Device to run tests
+<p><code>udid</code> - The unique identifier of the iOS Device to run tests
 against.</p>
 </li><li>
-<p><tt>target</tt> - The name of the app to launch when cumber starts.</p>
+<p><code>target</code> - The name of the app to launch when cumber starts.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby">Cumber.start_instruments(Cumber-Test, 23123sasd12321313...)</code></pre>
 
@@ -873,19 +954,19 @@ against.</p>
       <pre class="lines">
 
 
-201
-202
 203
 204
-205</pre>
+205
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 203</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_start_instruments'>start_instruments</span><span class='lparen'>(</span><span class='id identifier rubyid_udid'>udid</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_driver_path'>driver_path</span> <span class='op'>=</span> <span class='id identifier rubyid_path_to_driver'>path_to_driver</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/driver.js</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_driver_path'>driver_path</span> <span class='op'>=</span> <span class='id identifier rubyid_path_to_driver'>path_to_driver</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/driver.js</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>instruments -w </span><span class='tstring_end'>'</span></span><span class='op'>+</span> <span class='id identifier rubyid_udid'>udid</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate </span><span class='tstring_end'>'</span></span><span class='op'>+</span> <span class='id identifier rubyid_target'>target</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> -e UIASCRIPT </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_driver_path'>driver_path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>instruments -w </span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span> <span class='id identifier rubyid_udid'>udid</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate </span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span> <span class='id identifier rubyid_target'>target</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> -e UIASCRIPT </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_driver_path'>driver_path</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> -e UIARESULTSPATH ./bin/logs</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -905,9 +986,9 @@ against.</p>
   <div class="discussion">
     
 <p>Stops the Cumber Server and the current instruments run. Needs to be called
-at the end of a Cucumber run. &lt;br&gt;</p>
+at the end of a Cucumber run. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'>#Place in your env.rb file.
 </span>
@@ -927,13 +1008,13 @@ at the end of a Cucumber run. &lt;br&gt;</p>
       <pre class="lines">
 
 
-138
 139
 140
-141</pre>
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop'>stop</span>
   <span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
@@ -956,9 +1037,9 @@ at the end of a Cucumber run. &lt;br&gt;</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Stops instruments before starting a new run. &lt;br&gt;</p>
+<p>Stops instruments before starting a new run. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_stop_instruments'>stop_instruments</span></code></pre>
 
@@ -974,17 +1055,17 @@ at the end of a Cucumber run. &lt;br&gt;</p>
       <pre class="lines">
 
 
-214
-215
 216
-217</pre>
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 216</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop_instruments'>stop_instruments</span>
-  <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>end</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pkill -9 -f instruments</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_send_command'>send_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>end</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pkill -9 -f instruments</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1003,9 +1084,9 @@ at the end of a Cucumber run. &lt;br&gt;</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Stops the Cumber Server &lt;br&gt;</p>
+<p>Stops the Cumber Server <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_stop_server'>stop_server</span></code></pre>
 
@@ -1021,7 +1102,6 @@ at the end of a Cucumber run. &lt;br&gt;</p>
       <pre class="lines">
 
 
-151
 152
 153
 154
@@ -1029,17 +1109,18 @@ at the end of a Cucumber run. &lt;br&gt;</p>
 156
 157
 158
-159</pre>
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stop_server'>stop_server</span>
   <span class='id identifier rubyid_server_pid'>server_pid</span> <span class='op'>=</span> <span class='backtick'>%x[</span><span class='tstring_content'>lsof -t -i TCP:8080</span><span class='tstring_end'>]</span></span>
   <span class='id identifier rubyid_pids'>pids</span> <span class='op'>=</span> <span class='id identifier rubyid_server_pid'>server_pid</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_pids'>pids</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pid'>pid</span><span class='op'>|</span>
-    <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>kill -3 </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>kill -3 </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_pid'>pid</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1061,16 +1142,18 @@ at the end of a Cucumber run. &lt;br&gt;</p>
   <div class="discussion">
     
 <p>Replaces special characters in the string query with modified HTML codes
-for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
+for the characters &#39;&amp;&#39;, &#39;[&#39;, &#39;]&#39;, &#39;“&#39;,
+&#39; &#39;, &#39;and &#39;&#39;.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>command</tt> - The string query to send to UI Automation.</p>
+<p><code>command</code> - The string query to send to UI Automation.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns 'target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;)'</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frontApp.keyboard().typeString(&quot;password&quot;)</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; returns &#39;target.frontMostApp().keyboard().typeString(&amp;34;password&amp;34;)&#39;
+</span></code></pre>
 
 
   </div>
@@ -1084,19 +1167,19 @@ for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
       <pre class="lines">
 
 
-103
 104
 105
 106
 107
-108</pre>
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_strip_special_chars'>strip_special_chars</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_command'>command</span>
 <span class='kw'>end</span></pre>
@@ -1110,9 +1193,9 @@ for the characters '&amp;', '[', ']', '"', ' ', 'and ''.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Mar 20 20:33:50 2014 by
+  Generated on Fri Apr 18 14:39:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.1.1).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Class: CumberServer
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!CumberServer.html";
 </script>
 
 
@@ -129,7 +129,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost</span><span class='tstring_end'>'</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="PORT-constant" class="">PORT =
           <div class="docstring">
@@ -357,9 +357,9 @@ response.</p>
 <p>Processes the Json data from the client request and returns the proper
 response.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_generate_response'>generate_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/device</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_generate_response'>generate_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/device</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
 
 
   </div>
@@ -373,10 +373,6 @@ response.</p>
       <pre class="lines">
 
 
-72
-73
-74
-75
 76
 77
 78
@@ -389,22 +385,26 @@ response.</p>
 85
 86
 87
-88</pre>
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_generate_response'>generate_response</span><span class='lparen'>(</span><span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_request'>request</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/cumber</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_request'>request</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/cumber</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_response'>wait_for_response</span>
 
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_request'>request</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/device</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_request'>request</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/device</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_response'>set_response</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_command'>wait_for_command</span>
   <span class='kw'>end</span>
@@ -431,7 +431,7 @@ response.</p>
 <p>Logs information for debug mode. Pass in true when starting the server for
 debug mode.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
 
@@ -447,15 +447,15 @@ debug mode.</p>
       <pre class="lines">
 
 
-169
-170
-171
-172
 173
-174</pre>
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span> <span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
@@ -482,9 +482,9 @@ debug mode.</p>
     
 <p>Processes the data response from the Cumber Gem client.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
 
 
   </div>
@@ -498,30 +498,30 @@ debug mode.</p>
       <pre class="lines">
 
 
-96
-97
-98
-99
 100
 101
 102
 103
 104
 105
-106</pre>
+106
+107
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_command'>set_command</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='ivar'>@cmd</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span>
-  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Received Command: </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='ivar'>@cmd</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Received Command: </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='ivar'>@cmd</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_message_json'>message_json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_message_json'>message_json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>end</span><span class='tstring_end'>'</span></span>
-    <span class='ivar'>@cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>break;</span><span class='tstring_end'>'</span></span>
-    <span class='ivar'>@rsp</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;end&quot;, &quot;status&quot;:&quot;closing&quot;}</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_message_json'>message_json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>end</span><span class='tstring_end'>&#39;</span></span>
+    <span class='ivar'>@cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>break;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='ivar'>@rsp</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;end&quot;, &quot;status&quot;:&quot;closing&quot;}</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -543,9 +543,9 @@ debug mode.</p>
     
 <p>Processes the data response from the instruments driver client.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_set_response'>set_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_set_response'>set_response</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>{&quot;message&quot;:&quot;&quot;, &quot;status&quot;:&quot;&quot;}</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
 
 
   </div>
@@ -559,10 +559,6 @@ debug mode.</p>
       <pre class="lines">
 
 
-114
-115
-116
-117
 118
 119
 120
@@ -570,19 +566,23 @@ debug mode.</p>
 122
 123
 124
-125</pre>
+125
+126
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_response'>set_response</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Received Response: </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Received Response: </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_message_json'>message_json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Received Response: </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Received Response: </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_message_json'>message_json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>connecting</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_message_json'>message_json</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>connecting</span><span class='tstring_end'>&#39;</span></span>
     <span class='ivar'>@rsp</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span>
   <span class='kw'>end</span>
 
@@ -606,12 +606,12 @@ debug mode.</p>
     
 <p>Starts the running Cumber server on localhost:8080.</p>
 
-<h4>Optional Parameters</h4>
+<h4 id="label-Optional+Parameters">Optional Parameters</h4>
 <ul><li>
-<p><tt>debug</tt> - Turns on logging for the server. Defaults to false.</p>
+<p><code>debug</code> - Turns on logging for the server. Defaults to false.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span></code></pre>
 
@@ -659,7 +659,11 @@ debug mode.</p>
 61
 62
 63
-64</pre>
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 32</span>
@@ -667,25 +671,29 @@ debug mode.</p>
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span> <span class='lparen'>(</span><span class='id identifier rubyid_debug'>debug</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
 
   <span class='ivar'>@debug</span> <span class='op'>=</span> <span class='id identifier rubyid_debug'>debug</span>
-  <span class='id identifier rubyid_server'>server</span> <span class='op'>=</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>8080</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Server listening on: </span><span class='embexpr_beg'>#{</span><span class='const'>HOST</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='const'>PORT</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_server'>server</span> <span class='op'>=</span> <span class='const'>TCPServer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>localhost</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>8080</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Server listening on: </span><span class='embexpr_beg'>#{</span><span class='const'>HOST</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='const'>PORT</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
 
     <span class='const'>Thread</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_socket'>socket</span><span class='op'>|</span>
+      <span class='id identifier rubyid_content_size'>content_size</span>  <span class='op'>=</span> <span class='int'>0</span>
       <span class='id identifier rubyid_request'>request</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
-      <span class='id identifier rubyid_user_agent'>user_agent</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
-      <span class='id identifier rubyid_host'>host</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
-      <span class='id identifier rubyid_accept'>accept</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
-      <span class='id identifier rubyid_content_type'>content_type</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
-      <span class='id identifier rubyid_content_size'>content_size</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-      <span class='id identifier rubyid_line_break'>line_break</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
+
+      <span class='kw'>while</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^Content-Length:\s+(\d+)</span><span class='regexp_end'>/i</span></span>
+          <span class='id identifier rubyid_content_size'>content_size</span> <span class='op'>=</span> <span class='backref'>$1</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+        <span class='kw'>end</span>
+
+        <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+
       <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_content_size'>content_size</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_generate_response'>generate_response</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
 
       <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HTTP/1.1 200 OK\r\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Type: text/plain\r\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-                       <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Length: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_bytesize'>bytesize</span><span class='rbrace'>}</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+                       <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Content-Length: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_bytesize'>bytesize</span><span class='embexpr_end'>}</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
                        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Connection: close\r\n</span><span class='tstring_end'>&quot;</span></span>
 
       <span class='id identifier rubyid_socket'>socket</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\r\n</span><span class='tstring_end'>&quot;</span></span>
@@ -716,7 +724,7 @@ debug mode.</p>
     
 <p>Delays the response to the device until a command comes in.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_command'>wait_for_command</span></code></pre>
 
@@ -732,20 +740,20 @@ debug mode.</p>
       <pre class="lines">
 
 
-133
-134
-135
-136
 137
 138
 139
 140
 141
 142
-143</pre>
+143
+144
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_command'>wait_for_command</span>
 
@@ -753,8 +761,8 @@ debug mode.</p>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_command'>command</span> <span class='op'>=</span> <span class='ivar'>@cmd</span>
-  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Sending Command: </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='ivar'>@cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Sending Command: </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+  <span class='ivar'>@cmd</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_command'>command</span>
 <span class='kw'>end</span></pre>
@@ -777,7 +785,7 @@ debug mode.</p>
     
 <p>Delays the response to the cumber gem client until a response comes in.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>CumberServer</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_response'>wait_for_response</span></code></pre>
 
@@ -793,20 +801,20 @@ debug mode.</p>
       <pre class="lines">
 
 
-151
-152
-153
-154
 155
 156
 157
 158
 159
 160
-161</pre>
+161
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/driver/cumber_server.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_response'>wait_for_response</span>
 
@@ -814,8 +822,8 @@ debug mode.</p>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@rsp</span>
-  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Sending Response: </span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
-  <span class='ivar'>@rsp</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Sending Response: </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+  <span class='ivar'>@rsp</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_response'>response</span>
 <span class='kw'>end</span></pre>
@@ -829,9 +837,9 @@ debug mode.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Mar 20 20:33:51 2014 by
+  Generated on Fri Apr 18 14:39:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.1.1).
 </div>
 
   </body>

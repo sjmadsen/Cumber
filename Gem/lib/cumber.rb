@@ -179,7 +179,8 @@ module Cumber
 
     stop_instruments
     system('rm -rf ./bin/ins.trace')
-    system('rm -rf ./bin/logs/*')
+    system('rm -rf ./bin/logs')
+    system('mkdir ./bin/logs')
 
     Thread.new do
       start_instruments(udid, target)

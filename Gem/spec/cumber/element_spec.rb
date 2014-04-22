@@ -77,7 +77,7 @@ describe 'UIAElement Wrapper' do
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'Did Stuff', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
-        element.search_and_execute_command('doStuff()').should == {'message' =>'Did Stuff', 'status'=>'success'}
+        element.search_and_execute_command('doStuff()').should == {'message' => 'Did Stuff', 'status' => 'success'}
       end
 
     end
@@ -89,7 +89,7 @@ describe 'UIAElement Wrapper' do
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
-        element.search_and_execute_command('doStuff()').should == {'message' =>'', 'status'=>'error'}
+        element.search_and_execute_command('doStuff()').should == {'message' => '', 'status' => 'error'}
       end
 
     end
@@ -118,7 +118,7 @@ describe 'UIAElement Wrapper' do
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
 
-        lambda{ element.wait_for_condition('doStuff()', 200)}.should raise_error
+        element.wait_for_condition('doStuff()', 200).should == nil
       end
 
     end
@@ -176,7 +176,7 @@ describe 'UIAElement Wrapper' do
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
 
-        lambda{ element.wait_for_element_to_be_enabled(200)}.should raise_error
+        element.wait_for_element_to_be_enabled(200).should == nil
       end
 
     end
@@ -205,7 +205,7 @@ describe 'UIAElement Wrapper' do
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')
 
-        lambda{ element.wait_for_element_to_be_visible(200)}.should raise_error
+        element.wait_for_element_to_be_visible(200).should == nil
       end
 
     end
@@ -490,8 +490,62 @@ describe 'UIAElement Wrapper' do
 
         Cumber.should_receive(:execute_step).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:label => 'ItemNotThere')
-        lambda{ element.tap}.should raise_error
+        lambda { element.tap }.should raise_error
       end
+
+    end
+
+  end
+
+  context 'Tap an element with options' do
+
+    it 'should attempt to tap the element with no additional arguments' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tapWithOptions({})]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.tap_with_options()
+
+    end
+
+    it 'should attempt to tap the element with tap count 2' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tapWithOptions({tapCount:2})]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.tap_with_options(:tap_count => 2)
+
+    end
+
+    it 'should attempt to tap the element with touch count 4' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tapWithOptions({touchCount:4})]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.tap_with_options(:touch_count => 4)
+
+    end
+
+    it 'should attempt to tap the element with duration 0.5' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tapWithOptions({duration:0.5})]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.tap_with_options(:duration => 0.5)
+
+    end
+
+    it 'should attempt to tap the element with offset x = 0.25 y = 0.66' do
+
+      command = %q[searchWithPredicate("label = 'ItemLabel'", target).tapWithOptions({tapOffset:{x:0.5, y:0.66}})]
+
+      Cumber.should_receive(:execute_step).with(command).and_return('message' => 'undefined', 'status' => 'success')
+      element = Cumber::Element.new(:label => 'ItemLabel')
+      element.tap_with_options(:offset => {:x => 0.5, :y => 0.66})
 
     end
 

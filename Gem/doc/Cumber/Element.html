@@ -6,7 +6,7 @@
 <title>
   Class: Cumber::Element
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Cumber/Element.html";
 </script>
 
 
@@ -239,6 +239,31 @@ class is the UIAutomation superclass for all user interface objects.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the description of the element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#element_tree-instance_method" title="#element_tree (instance method)">- (Object) <strong>element_tree</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the description of the target element and as well as the
+description for all sub elements.</p>
 </div></span>
   
 </li>
@@ -541,6 +566,30 @@ locators.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#tap_with_options-instance_method" title="#tap_with_options (instance method)">- (Object) <strong>tap_with_options</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Allows for tapping an element with more control.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#type-instance_method" title="#type (instance method)">- (Object) <strong>type</strong> </a>
     
 
@@ -613,7 +662,7 @@ locators.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wait_for_condition-instance_method" title="#wait_for_condition (instance method)">- (Object) <strong>wait_for_condition</strong>(condition, timeout = 300) </a>
+      <a href="#wait_for_condition-instance_method" title="#wait_for_condition (instance method)">- (Object) <strong>wait_for_condition</strong>(condition, timeout = 3000) </a>
     
 
     
@@ -637,7 +686,7 @@ locators.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wait_for_element_to_be_enabled-instance_method" title="#wait_for_element_to_be_enabled (instance method)">- (Object) <strong>wait_for_element_to_be_enabled</strong>(timeout = 300) </a>
+      <a href="#wait_for_element_to_be_enabled-instance_method" title="#wait_for_element_to_be_enabled (instance method)">- (Object) <strong>wait_for_element_to_be_enabled</strong>(timeout = 3000) </a>
     
 
     
@@ -661,7 +710,31 @@ locators.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#wait_for_element_to_exist-instance_method" title="#wait_for_element_to_exist (instance method)">- (Object) <strong>wait_for_element_to_exist</strong>(timeout = 300) </a>
+      <a href="#wait_for_element_to_be_visible-instance_method" title="#wait_for_element_to_be_visible (instance method)">- (Object) <strong>wait_for_element_to_be_visible</strong>(timeout = 3000) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Waits until the element is visible over the given time period.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wait_for_element_to_exist-instance_method" title="#wait_for_element_to_exist (instance method)">- (Object) <strong>wait_for_element_to_exist</strong>(timeout = 3000) </a>
     
 
     
@@ -695,7 +768,7 @@ locators.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../Cumber.html" title="Cumber (module)">Cumber</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Cumber.html#execute_step-class_method" title="Cumber.execute_step (method)">execute_step</a></span>, <span class='object_link'><a href="../Cumber.html#format_command-class_method" title="Cumber.format_command (method)">format_command</a></span>, <span class='object_link'><a href="../Cumber.html#new_run-class_method" title="Cumber.new_run (method)">new_run</a></span>, <span class='object_link'><a href="../Cumber.html#parse_response-class_method" title="Cumber.parse_response (method)">parse_response</a></span>, <span class='object_link'><a href="../Cumber.html#path_to_driver-class_method" title="Cumber.path_to_driver (method)">path_to_driver</a></span>, <span class='object_link'><a href="../Cumber.html#send_command-class_method" title="Cumber.send_command (method)">send_command</a></span>, <span class='object_link'><a href="../Cumber.html#start-class_method" title="Cumber.start (method)">start</a></span>, <span class='object_link'><a href="../Cumber.html#start_instruments-class_method" title="Cumber.start_instruments (method)">start_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop-class_method" title="Cumber.stop (method)">stop</a></span>, <span class='object_link'><a href="../Cumber.html#stop_instruments-class_method" title="Cumber.stop_instruments (method)">stop_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop_server-class_method" title="Cumber.stop_server (method)">stop_server</a></span>, <span class='object_link'><a href="../Cumber.html#strip_special_chars-class_method" title="Cumber.strip_special_chars (method)">strip_special_chars</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Cumber.html#execute_step-class_method" title="Cumber.execute_step (method)">execute_step</a></span>, <span class='object_link'><a href="../Cumber.html#format_command-class_method" title="Cumber.format_command (method)">format_command</a></span>, <span class='object_link'><a href="../Cumber.html#inspect-class_method" title="Cumber.inspect (method)">inspect</a></span>, <span class='object_link'><a href="../Cumber.html#new_run-class_method" title="Cumber.new_run (method)">new_run</a></span>, <span class='object_link'><a href="../Cumber.html#parse_response-class_method" title="Cumber.parse_response (method)">parse_response</a></span>, <span class='object_link'><a href="../Cumber.html#path_to_driver-class_method" title="Cumber.path_to_driver (method)">path_to_driver</a></span>, <span class='object_link'><a href="../Cumber.html#send_command-class_method" title="Cumber.send_command (method)">send_command</a></span>, <span class='object_link'><a href="../Cumber.html#start-class_method" title="Cumber.start (method)">start</a></span>, <span class='object_link'><a href="../Cumber.html#start_instruments-class_method" title="Cumber.start_instruments (method)">start_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop-class_method" title="Cumber.stop (method)">stop</a></span>, <span class='object_link'><a href="../Cumber.html#stop_instruments-class_method" title="Cumber.stop_instruments (method)">stop_instruments</a></span>, <span class='object_link'><a href="../Cumber.html#stop_server-class_method" title="Cumber.stop_server (method)">stop_server</a></span>, <span class='object_link'><a href="../Cumber.html#strip_special_chars-class_method" title="Cumber.strip_special_chars (method)">strip_special_chars</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -714,19 +787,20 @@ locators.</p>
 <p>Creates an instance of a Cumber Element to use as a base to query UI
 Automation.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>locator</tt> - A hash of values used to locate a UIAElement.</p>
+<p><code>locator</code> - A hash of values used to locate a UIAElement.</p>
 </li></ul>
 
-<h4>Locators</h4>
+<h4 id="label-Locators">Locators</h4>
 <ul><li>
-<p><tt>:name</tt> - Represents the accessibiltyLabel of the UIAElement.</p>
+<p><code>:name</code> - Represents the accessibiltyLabel of the UIAElement.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+<pre class="code ruby"><code class="ruby"><span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
 
 
   </div>
@@ -821,16 +895,17 @@ Automation.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the accessibilityLabel value for the specified Element. &lt;br&gt;
-See &lt;a href = "<a
-href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's">developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's</a>
+<p>Returns the accessibilityLabel value for the specified Element. <br> See
+&lt;a href = “<a
+href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple’s”>developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label“>Apple’s</a>
 UIAElement Documentation&lt;/a&gt; for more information on the differences
 between name and label.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span> <span class='comment'>#=&gt; returns the value of the label</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_label'>label</span> <span class='comment'>#=&gt; returns the value of the label
+</span></code></pre>
 
 
   </div>
@@ -873,18 +948,19 @@ between name and label.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the name value for the specified Element.&lt;br&gt; Often this is
-the same as the accessibilityLabel. One notable difference is when working
-with an Image View. The name will represent the file path to the image
-being displayed &lt;br&gt; See &lt;a href = "<a
-href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's">developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple's</a>
+<p>Returns the name value for the specified Element.<br> Often this is the
+same as the accessibilityLabel. One notable difference is when working with
+an Image View. The name will represent the file path to the image being
+displayed <br> See &lt;a href = “<a
+href="https://developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label">Apple’s”>developer.apple.com/library/ios/documentation/ToolsLanguages/Reference/UIAElementClassReference/UIAElement/UIAElement.html#//apple_ref/javascript/instm/UIAElement/label“>Apple’s</a>
 UIAElement Documentation&lt;/a&gt; for more information on the differences
 between name and label.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:label</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='comment'>#=&gt; returns the value of the accessibilityLabel</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='comment'>#=&gt; returns the value of the accessibilityLabel
+</span></code></pre>
 
 
   </div>
@@ -932,9 +1008,10 @@ between name and label.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the description of the element.</p>
+<p>Returns the description of the element. Mirrors the behavior of
+logElement() in UI Automation</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
 <span class='id identifier rubyid_description'>description</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span>
@@ -945,7 +1022,8 @@ between name and label.</p>
 </span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
 </span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;200&quot;
 </span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;
-</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;The label is here&quot;</span></code></pre>
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;The label is here&quot;
+</span></code></pre>
 
 
   </div>
@@ -959,18 +1037,80 @@ between name and label.</p>
       <pre class="lines">
 
 
-366
-367
-368
-369
-370</pre>
+420
+421
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 366</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 420</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>description()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>description()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="element_tree-instance_method">
+  
+    - (<tt>Object</tt>) <strong>element_tree</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the description of the target element and as well as the
+description for all sub elements. Mirrors the behavior of logElementTree()
+in UI Automation</p>
+
+<h4 id="label-Examples">Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_description'>description</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_element_tree'>element_tree</span>
+<span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; UIAStaticText
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:label</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; ElementSearchLabel
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; ElementSearch
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;200&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:frame</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:value</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;The label is here&quot;
+</span><span class='id identifier rubyid_description'>description</span><span class='lbracket'>[</span><span class='symbol'>:child_elements</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; [child_element0-description, child_element1-description, ...]
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+443
+444
+445
+446
+447</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 443</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_element_tree'>element_tree</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>element_tree()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -993,10 +1133,11 @@ between name and label.</p>
 <p>Returns an array of descriptions about each element that is a direct
 subview of the listed element.</p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_descriptions'>descriptions</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_elements'>elements</span></code></pre>
+<span class='id identifier rubyid_descriptions'>descriptions</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_elements'>elements</span>
+</code></pre>
 
 
   </div>
@@ -1010,18 +1151,18 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-380
-381
-382
-383
-384</pre>
+457
+458
+459
+460
+461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 380</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 457</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_elements'>elements</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>elements().description()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>elements().description()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1041,12 +1182,13 @@ subview of the listed element.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Checks the enabled stated of the object. &lt;br&gt;</p>
+<p>Checks the enabled stated of the object. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_enabled?'>enabled?</span> <span class='comment'>#=&gt; returns true If the element is enabled</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_enabled?'>enabled?</span> <span class='comment'>#=&gt; returns true If the element is enabled
+</span></code></pre>
 
 
   </div>
@@ -1073,19 +1215,19 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-235
-236
-237
-238
-239
-240</pre>
+250
+251
+252
+253
+254
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 250</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_enabled?'>enabled?</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isEnabled()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>isEnabled()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1120,15 +1262,15 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-389
-390
-391</pre>
+466
+467
+468</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 389</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 466</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\\\\\\\\\'</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\\\\\\\\\\\&#39;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1147,12 +1289,13 @@ subview of the listed element.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Checks the validity attribute and verifies the object exists. &lt;br&gt;</p>
+<p>Checks the validity attribute and verifies the object exists. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span> <span class='comment'>#=&gt; returns true If the element exists</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span> <span class='comment'>#=&gt; returns true If the element exists
+</span></code></pre>
 
 
   </div>
@@ -1179,29 +1322,29 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225</pre>
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>checkIsValid()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>checkIsValid()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span>
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>message</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1221,30 +1364,31 @@ subview of the listed element.</p>
   <div class="discussion">
     
 <p>Returns the frame origin :x, :y and size :width, :height of the UIAElement.
-&lt;br&gt;</p>
+<br></p>
 
-<h4>Origin</h4>
+<h4 id="label-Origin">Origin</h4>
 <ul><li>
-<p><tt>:x</tt> - The left most x coordinate of the UIAElement.</p>
+<p><code>:x</code> - The left most x coordinate of the UIAElement.</p>
 </li><li>
-<p><tt>:y</tt> - The top most y coordinate of the UIAElement.</p>
+<p><code>:y</code> - The top most y coordinate of the UIAElement.</p>
 </li></ul>
 
-<h4>size</h4>
+<h4 id="label-size">size</h4>
 <ul><li>
-<p><tt>:width</tt> - The left most x coordinate of the UIAElement.</p>
+<p><code>:width</code> - The left most x coordinate of the UIAElement.</p>
 </li><li>
-<p><tt>:height</tt> - The top most y coordinate of the UIAElement.</p>
+<p><code>:height</code> - The top most y coordinate of the UIAElement.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
 <span class='id identifier rubyid_frame'>frame</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_frame'>frame</span>
 <span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
 </span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:origin</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
 </span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;200&quot;
-</span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;</span></code></pre>
+</span><span class='id identifier rubyid_frame'>frame</span><span class='lbracket'>[</span><span class='symbol'>:size</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;50&quot;
+</span></code></pre>
 
 
   </div>
@@ -1258,18 +1402,18 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-316
-317
-318
-319
-320</pre>
+370
+371
+372
+373
+374</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 316</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 370</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frame'>frame</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>frame()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>frame()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1289,12 +1433,13 @@ subview of the listed element.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns if the selected element has the focus of the keyboard. &lt;br&gt;</p>
+<p>Returns if the selected element has the focus of the keyboard. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_has_keyboard_focus?'>has_keyboard_focus?</span> <span class='comment'>#=&gt; true or false</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_has_keyboard_focus?'>has_keyboard_focus?</span> <span class='comment'>#=&gt; true or false
+</span></code></pre>
 
 
   </div>
@@ -1321,18 +1466,18 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-330
-331
-332
-333
-334</pre>
+384
+385
+386
+387
+388</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 330</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 384</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_keyboard_focus?'>has_keyboard_focus?</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hasKeyboardFocus()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hasKeyboardFocus()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1352,21 +1497,22 @@ subview of the listed element.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the position :x, :y touched by the UIAElement Tap method &lt;br&gt;</p>
+<p>Returns the position :x, :y touched by the UIAElement Tap method <br></p>
 
-<h4>Returned Hash Variables</h4>
+<h4 id="label-Returned+Hash+Variables">Returned Hash Variables</h4>
 <ul><li>
-<p><tt>:x</tt> - The x coordinate tapped by the tap command.</p>
+<p><code>:x</code> - The x coordinate tapped by the tap command.</p>
 </li><li>
-<p><tt>:y</tt> - The y coordinate tapped by the tap command.</p>
+<p><code>:y</code> - The y coordinate tapped by the tap command.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
 <span class='id identifier rubyid_point'>point</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_hit_point'>hit_point</span>
 <span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;22&quot;
-</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;</span></code></pre>
+</span><span class='id identifier rubyid_point'>point</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span> <span class='comment'>#=&gt; &quot;123&quot;
+</span></code></pre>
 
 
   </div>
@@ -1380,18 +1526,18 @@ subview of the listed element.</p>
       <pre class="lines">
 
 
-288
-289
-290
-291
-292</pre>
+342
+343
+344
+345
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 288</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 342</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hit_point'>hit_point</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>hit_point()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hit_point()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1414,15 +1560,16 @@ subview of the listed element.</p>
 <p>Appends the command to execute on the located object and returns the
 response.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>command</tt> - The additional step to execute on a UIAElement.</p>
+<p><code>command</code> - The additional step to execute on a UIAElement.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby">element = Cumber::Element.new(:name =&gt; &quot;ElementSearch&quot;) &lt;br&gt;
-element.search_and_execute_command &quot;label()&quot;</code></pre>
+element.search_and_execute_command &quot;label()&quot;
+</code></pre>
 
 
   </div>
@@ -1447,7 +1594,7 @@ element.search_and_execute_command &quot;label()&quot;</code></pre>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_command'>command</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_command'>command</span>
   <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1555,14 +1702,14 @@ locators.</p>
   <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
   <span class='kw'>if</span> <span class='ivar'>@name</span>
-    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name = '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name = &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@name</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='ivar'>@label</span>
-    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label = '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@label</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>'</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_predicate'>predicate</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label = &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escape_single_quotes'>escape_single_quotes</span><span class='lparen'>(</span><span class='ivar'>@label</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_predicate'>predicate</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> AND </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_predicate'>predicate</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> AND </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1582,12 +1729,13 @@ locators.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Simulate a user tapping on the UIAElement. &lt;br&gt;</p>
+<p>Simulate a user tapping on the UIAElement. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span>
+</code></pre>
 
 
   </div>
@@ -1601,19 +1749,123 @@ locators.</p>
       <pre class="lines">
 
 
-266
-267
-268
-269
-270
-271</pre>
+281
+282
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tap'>tap</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tap()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tap()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tap_with_options-instance_method">
+  
+    - (<tt>Object</tt>) <strong>tap_with_options</strong>(options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Allows for tapping an element with more control.</p>
+
+<h4 id="label-Options">Options</h4>
+<ul><li>
+<p><code>:tap_count</code> - The number of times to tap the specified element.</p>
+</li><li>
+<p><code>:touch_count</code> - The number touches (aka fingers a user would
+use) to tap the specified element.</p>
+</li><li>
+<p><code>:duration</code> - The length of hold the touch.</p>
+</li><li>
+<p><code>:offset</code> - This will offset the tap for the specified element.
+The offset is based on percentage where =&gt; 0.0, :y =&gt; 0.0 would
+signify the top left, =&gt; 1.0, :y =&gt; 1.0 would signify the bottom
+right</p>
+</li></ul>
+
+<h4 id="label-Examples">Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_tap_with_options'>tap_with_options</span><span class='lparen'>(</span><span class='symbol'>:tap_count</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span> <span class='symbol'>:touch_count</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span> <span class='symbol'>:duration</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span> <span class='symbol'>:offset</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='symbol'>:x</span> <span class='op'>=&gt;</span> <span class='float'>0.5</span><span class='comma'>,</span> <span class='symbol'>:y</span> <span class='op'>=&gt;</span> <span class='float'>0.0</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 302</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tap_with_options'>tap_with_options</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_tap_options'>tap_options</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:tap_count</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_tap_options'>tap_options</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tapCount:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:tap_count</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:touch_count</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_tap_options'>tap_options</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>touchCount:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:touch_count</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:duration</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_tap_options'>tap_options</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>duration:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:duration</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:offset</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_tap_options'>tap_options</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tapOffset:{x:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:offset</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>, y:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:offset</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tapWithOptions({</span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span> <span class='id identifier rubyid_tap_options'>tap_options</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>, </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>})</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1634,12 +1886,13 @@ locators.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the class of the specified object &lt;br&gt;</p>
+<p>Returns the class of the specified object <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='comment'>#=&gt; UIAStaticText</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='comment'>#=&gt; UIAStaticText
+</span></code></pre>
 
 
   </div>
@@ -1653,18 +1906,18 @@ locators.</p>
       <pre class="lines">
 
 
-344
-345
-346
-347
-348</pre>
+398
+399
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 344</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 398</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>type()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>type()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_string_response'>process_string_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1684,12 +1937,13 @@ locators.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value attribute for the specified Element. &lt;br&gt;</p>
+<p>Returns the value attribute for the specified Element. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='comment'>#=&gt; returns the value attribute &quot;Element Found&quot;</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span> <span class='comment'>#=&gt; returns the value attribute &quot;Element Found&quot;
+</span></code></pre>
 
 
   </div>
@@ -1703,18 +1957,18 @@ locators.</p>
       <pre class="lines">
 
 
-202
-203
-204
-205
-206</pre>
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_value'>value</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>value()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>value()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_string_response'>process_string_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1734,12 +1988,13 @@ locators.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Checks the visibility stated of the object. &lt;br&gt;</p>
+<p>Checks the visibility stated of the object. <br></p>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_visible?'>visible?</span> <span class='comment'>#=&gt; returns true If the element is visible</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_visible?'>visible?</span> <span class='comment'>#=&gt; returns true If the element is visible
+</span></code></pre>
 
 
   </div>
@@ -1766,19 +2021,19 @@ locators.</p>
       <pre class="lines">
 
 
-251
-252
-253
-254
-255
-256</pre>
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_visible?'>visible?</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isVisible()</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_search_and_execute_command'>search_and_execute_command</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>isVisible()</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1790,7 +2045,7 @@ locators.</p>
       <div class="method_details ">
   <h3 class="signature " id="wait_for_condition-instance_method">
   
-    - (<tt>Object</tt>) <strong>wait_for_condition</strong>(condition, timeout = 300) 
+    - (<tt>Object</tt>) <strong>wait_for_condition</strong>(condition, timeout = 3000) 
   
 
   
@@ -1802,22 +2057,22 @@ locators.</p>
 <p>Waits until a particular condition is met in the provided time period.
 Returns if the condition is met or not after the provided timeout.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>condition</tt> - The condition to to verify the command must be the
+<p><code>condition</code> - The condition to to verify the command must be the
 UIInstruments Command.</p>
 </li></ul>
 
-<h4>Optional Parameters</h4>
+<h4 id="label-Optional+Parameters">Optional Parameters</h4>
 <ul><li>
-<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
-is 5 mins.</p>
+<p><code>timeout</code> - The amount of time to wait before giving up.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isValid() == true</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>300</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>isValid() == true</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>3000</span><span class='rparen'>)</span>
+</code></pre>
 
 
   </div>
@@ -1836,18 +2091,14 @@ is 5 mins.</p>
 106
 107
 108
-109
-110
-111</pre>
+109</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 104</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='id identifier rubyid_condition'>condition</span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>waitForCondition(</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>, '</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_condition'>condition</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>', </span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>)</span><span class='tstring_end'>]</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='id identifier rubyid_condition'>condition</span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>3000</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>waitForCondition(</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_description'>search_description</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>, &#39;</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_condition'>condition</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>&#39;, </span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>)</span><span class='tstring_end'>]</span></span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
 
   <span class='const'>ResponseHelper</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1859,7 +2110,7 @@ is 5 mins.</p>
       <div class="method_details ">
   <h3 class="signature " id="wait_for_element_to_be_enabled-instance_method">
   
-    - (<tt>Object</tt>) <strong>wait_for_element_to_be_enabled</strong>(timeout = 300) 
+    - (<tt>Object</tt>) <strong>wait_for_element_to_be_enabled</strong>(timeout = 3000) 
   
 
   
@@ -1871,16 +2122,16 @@ is 5 mins.</p>
 <p>Waits until the element is enabled over the given time period. Returns if
 element is enabled or not after the provided timeout.</p>
 
-<h4>Optional Parameters</h4>
+<h4 id="label-Optional+Parameters">Optional Parameters</h4>
 <ul><li>
-<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
-is 5 mins.</p>
+<p><code>timeout</code> - The amount of time to wait before giving up.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='int'>300</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='int'>3000</span><span class='rparen'>)</span>
+</code></pre>
 
 
   </div>
@@ -1894,17 +2145,72 @@ is 5 mins.</p>
       <pre class="lines">
 
 
-149
-150
-151
-152</pre>
+164
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 164</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_be_enabled'>wait_for_element_to_be_enabled</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>3000</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>isEnabled() == 1</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>isEnabled() == 1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="wait_for_element_to_be_visible-instance_method">
+  
+    - (<tt>Object</tt>) <strong>wait_for_element_to_be_visible</strong>(timeout = 3000) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Waits until the element is visible over the given time period. Returns if
+element is visible or not after the provided timeout.</p>
+
+<h4 id="label-Optional+Parameters">Optional Parameters</h4>
+<ul><li>
+<p><code>timeout</code> - The amount of time to wait before giving up.</p>
+</li></ul>
+
+<h4 id="label-Examples">Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_be_visible'>wait_for_element_to_be_visible</span><span class='lparen'>(</span><span class='int'>3000</span><span class='rparen'>)</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_be_visible'>wait_for_element_to_be_visible</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>3000</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_wait_for_condition'>wait_for_condition</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>isVisible() == true</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1914,7 +2220,7 @@ is 5 mins.</p>
       <div class="method_details ">
   <h3 class="signature " id="wait_for_element_to_exist-instance_method">
   
-    - (<tt>Object</tt>) <strong>wait_for_element_to_exist</strong>(timeout = 300) 
+    - (<tt>Object</tt>) <strong>wait_for_element_to_exist</strong>(timeout = 3000) 
   
 
   
@@ -1926,16 +2232,16 @@ is 5 mins.</p>
 <p>Waits until the element exists over the given time period. Returns if
 element exists or not after the provided timeout.</p>
 
-<h4>Optional Parameters</h4>
+<h4 id="label-Optional+Parameters">Optional Parameters</h4>
 <ul><li>
-<p><tt>timeout</tt> - The amount of time to wait before giving up. The default
-is 5 mins.</p>
+<p><code>timeout</code> - The amount of time to wait before giving up.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_element'>element</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='op'>::</span><span class='const'>Element</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ElementSearch</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>&lt;</span><span class='id identifier rubyid_br'>br</span><span class='op'>&gt;</span>
-<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='int'>300</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='int'>3000</span><span class='rparen'>)</span>
+</code></pre>
 
 
   </div>
@@ -1949,6 +2255,8 @@ is 5 mins.</p>
       <pre class="lines">
 
 
+123
+124
 125
 126
 127
@@ -1957,14 +2265,12 @@ is 5 mins.</p>
 130
 131
 132
-133
-134
-135</pre>
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/cumber/element.rb', line 123</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>300</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_wait_for_element_to_exist'>wait_for_element_to_exist</span><span class='lparen'>(</span><span class='id identifier rubyid_timeout'>timeout</span> <span class='op'>=</span> <span class='int'>3000</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_step'>step</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>waitForElementToExist(&quot;</span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_search_predicate'>search_predicate</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>&quot;, target, </span><span class='tstring_end'>]</span></span> <span class='op'>+</span> <span class='id identifier rubyid_timeout'>timeout</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>%q[</span><span class='tstring_content'>).checkIsValid()</span><span class='tstring_end'>]</span></span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Cumber</span><span class='period'>.</span><span class='id identifier rubyid_execute_step'>execute_step</span><span class='lparen'>(</span><span class='id identifier rubyid_step'>step</span><span class='rparen'>)</span>
@@ -1985,9 +2291,9 @@ is 5 mins.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Mar 20 20:33:51 2014 by
+  Generated on Fri Apr 18 14:39:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.1.1).
 </div>
 
   </body>

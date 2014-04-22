@@ -6,7 +6,7 @@
 <title>
   Class: Cumber::ResponseHelper
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Cumber/ResponseHelper.html";
 </script>
 
 
@@ -245,14 +245,15 @@
 <p>Processes the result for a boolean return. Returns the boolean or nil if
 there was an error.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>response</tt> - The response from the executing a cumber command.</p>
+<p><code>response</code> - The response from the executing a cumber command.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby">ResponseHelper.process_bool_response {'message'=&gt;'true', 'status'=&gt;'success'}</code></pre>
+<pre class="code ruby"><code class="ruby">ResponseHelper.process_bool_response {&#39;message&#39;=&gt;&#39;true&#39;, &#39;status&#39;=&gt;&#39;success&#39;}
+</code></pre>
 
 
   </div>
@@ -280,11 +281,11 @@ there was an error.</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_process_bool_response'>process_bool_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span>
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>message</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_bool'>to_bool</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -306,15 +307,16 @@ there was an error.</p>
 <p>Processes the result for a json return. Returns a hash that represents the
 json.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>response</tt> - The response from the executing a cumber command.</p>
+<p><code>response</code> - The response from the executing a cumber command.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby">result = ResponseHelper.process_hash_response {'message'=&gt;&quot;{:x =&gt; '22', :y =&gt; '33'}&quot;, 'status'=&gt;'success'}
-result[:x] #=&gt; 22</code></pre>
+<pre class="code ruby"><code class="ruby">result = ResponseHelper.process_hash_response {&#39;message&#39;=&gt;&quot;{:x =&gt; &#39;22&#39;, :y =&gt; &#39;33&#39;}&quot;, &#39;status&#39;=&gt;&#39;success&#39;}
+result[:x] #=&gt; 22
+</code></pre>
 
 
   </div>
@@ -342,11 +344,11 @@ result[:x] #=&gt; 22</code></pre>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_process_hash_response'>process_hash_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>message</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -366,18 +368,19 @@ result[:x] #=&gt; 22</code></pre>
   <div class="discussion">
     
 <p>Processes the result of an opperation action. If the status is of type
-'error' the operation throws an warning. If not the operation returns the
-boolean true.</p>
+&#39;error&#39; the operation throws an warning. If not the operation
+returns the boolean true.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>response</tt> - The response from the executing a cumber command.</p>
+<p><code>response</code> - The response from the executing a cumber command.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby">result = ResponseHelper.process_operation_response {'message'=&gt;&quot;&quot;, 'status'=&gt;'success'}
-result #=&gt; true</code></pre>
+<pre class="code ruby"><code class="ruby">result = ResponseHelper.process_operation_response {&#39;message&#39;=&gt;&quot;&quot;, &#39;status&#39;=&gt;&#39;success&#39;}
+result #=&gt; true
+</code></pre>
 
 
   </div>
@@ -395,15 +398,21 @@ result #=&gt; true</code></pre>
 80
 81
 82
-83</pre>
+83
+84
+85
+86</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/cumber/response_helper.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_process_operation_response'>process_operation_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>An Error has occurred</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -425,14 +434,15 @@ result #=&gt; true</code></pre>
 <p>Processes the result for a string return. Returns the string or nil if
 there was an error.</p>
 
-<h4>Parameters</h4>
+<h4 id="label-Parameters">Parameters</h4>
 <ul><li>
-<p><tt>response</tt> - The response from the executing a cumber command.</p>
+<p><code>response</code> - The response from the executing a cumber command.</p>
 </li></ul>
 
-<h4>Examples</h4>
+<h4 id="label-Examples">Examples</h4>
 
-<pre class="code ruby"><code class="ruby">ResponseHelper.process_string_response {'message'=&gt;'item located', 'status'=&gt;'success'}</code></pre>
+<pre class="code ruby"><code class="ruby">ResponseHelper.process_string_response {&#39;message&#39;=&gt;&#39;item located&#39;, &#39;status&#39;=&gt;&#39;success&#39;}
+</code></pre>
 
 
   </div>
@@ -458,11 +468,11 @@ there was an error.</p>
       <pre class="code"><span class="info file"># File 'lib/cumber/response_helper.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_process_string_response'>process_string_response</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>status</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>status</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>message</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>message</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -474,9 +484,9 @@ there was an error.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Mar 20 20:33:51 2014 by
+  Generated on Fri Apr 18 14:39:38 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-1.9.3).
+  0.8.7.4 (ruby-2.1.1).
 </div>
 
   </body>

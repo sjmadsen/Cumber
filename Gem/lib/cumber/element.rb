@@ -286,6 +286,45 @@ module Cumber
     end
 
     ##
+    # Allows for tapping an element with more control.
+    #
+    # ==== Options
+    # * +:tap_count+ - The number of times to tap the specified element.
+    # * +:touch_count+ - The number touches (aka fingers a user would use) to tap the specified element.
+    # * +:duration+ - The length of hold the touch.
+    # * +:offset+ - This will offset the tap for the specified element. The offset is based on percentage where {:x => 0.0, :y => 0.0} would signify the top left, {:x => 1.0, :y => 1.0} would signify the bottom right
+    #
+    # ==== Examples
+    #
+    #   element = Cumber::Element.new(:name => "ElementSearch")
+    #   element.tap_with_options(:tap_count => 2, :touch_count => 1, :duration => 0, :offset => {:x => 0.5, :y => 0.0})
+
+    def tap_with_options(options={})
+
+      tap_options = []
+
+      if options[:tap_count]
+        tap_options << "tapCount:#{options[:tap_count]}"
+      end
+
+      if options[:touch_count]
+        tap_options << "touchCount:#{options[:touch_count]}"
+      end
+
+      if options[:duration]
+        tap_options << "duration:#{options[:duration]}"
+      end
+
+      if options[:offset]
+        tap_options << "tapOffset:{x:#{options[:offset][:x]}, y:#{options[:offset][:y]}}"
+      end
+
+      response = search_and_execute_command('tapWithOptions({'+ tap_options.join(', ') +'})')
+
+      ResponseHelper.process_operation_response(response)
+    end
+
+    ##
     # Returns the position :x, :y touched by the UIAElement Tap method <br>
     #
     # ==== Returned Hash Variables
