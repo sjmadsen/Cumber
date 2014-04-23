@@ -204,12 +204,15 @@ module Cumber
   def self.start_instruments(udid, target)
     driver_path = path_to_driver + '/driver.js'
     command = 'instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path + ' -e UIARESULTSPATH ./bin/logs'
-    successful = !%x[#{command}].include?('Known Devices:')
+    result = %x[#{command}]
 
-    unless successful
+    if result.include?('Known Devices:')
       puts 'Instruments Failed to start attempting to start again'
       system('pkill -9 -f instruments')
       start_instruments(udid, target)
+
+    else
+      result
     end
 
   end
