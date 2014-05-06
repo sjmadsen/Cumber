@@ -42,9 +42,10 @@ function waitForCondition(element, condition, timeout)
 
     do
     {
+      theElement = eval(element);
       var now = new Date();
 
-    } while(eval('!theElement.' + condition) && now - start < timeoutInMillis )
+    } while((!theElement || eval('!theElement.' + condition)) && now - start < timeoutInMillis )
 
     return eval('theElement.' + condition);
 }

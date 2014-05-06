@@ -42,6 +42,8 @@ desc 'Start up a debug session'
 task :debug do
   Cumber.stop_server
   CumberServer.start true
+  Cumber.start
+  Cumber.new_run(%x[appdeploy get_udid].strip, 'Cumber-Test')
 end
 
 desc 'Start instruments'

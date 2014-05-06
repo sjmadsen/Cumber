@@ -205,12 +205,12 @@ module Cumber
     driver_path = path_to_driver + '/driver.js'
     command = 'instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path + ' -e UIARESULTSPATH ./bin/logs'
     result = %x[#{command}]
+    puts result
 
-    if result.include?('Known Devices:')
+    if result.include?('Known Devices:') || result.include?('Fail:') || result.include?('Error:')
       puts 'Instruments Failed to start attempting to start again'
       system('pkill -9 -f instruments')
       start_instruments(udid, target)
-
     else
       result
     end
@@ -247,9 +247,9 @@ module Cumber
 
   def self.inspect
     puts 'Getting elements this may take a min...'
-    json_data = Cumber::Element.new(:ancestry => 'target').element_tree
+    json_data = Cumber::Element.new(:ancestry => 'target').element_tree.to_json
     file_location = Cumber::Device.new().screenshot
-    json_location = File.dirname(file_location) + '/data.txt'
+    json_location = File.dirname(file_location) + '/data.json'
     File.open(json_location, 'w+') {|f| f.write(json_data) }
   end
 

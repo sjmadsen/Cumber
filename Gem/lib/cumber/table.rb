@@ -15,7 +15,13 @@ module Cumber
 
     def cells
       response = search_and_execute_command('cells().description()')
-      ResponseHelper.process_hash_response(response)
+      response = ResponseHelper.process_hash_response(response)
+
+      unless response
+        response = []
+      end
+
+      response
     end
 
     ##
