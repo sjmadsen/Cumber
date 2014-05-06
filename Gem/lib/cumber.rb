@@ -247,7 +247,7 @@ module Cumber
 
   def self.inspect
     puts 'Getting elements this may take a min...'
-    json_data = Cumber::Element.new(:ancestry => 'target').element_tree.to_json
+    json_data = Cumber::Element.new(:ancestry => 'target').element_tree
     file_location = Cumber::Device.new().screenshot
     json_location = File.dirname(file_location) + '/data.json'
     File.open(json_location, 'w+') {|f| f.write(json_data) }

@@ -443,7 +443,7 @@ module Cumber
     def element_tree
 
       response = search_and_execute_command('element_tree()')
-      ResponseHelper.process_hash_response(response)
+      ResponseHelper.process_string_response(response)
     end
 
     ##
