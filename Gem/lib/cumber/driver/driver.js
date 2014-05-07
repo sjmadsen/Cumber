@@ -57,7 +57,7 @@ function executeCommand(command)
     }
     catch(err)
     {
-       response = formatResponse("", "error");
+       response = formatResponse(err, "error");
     }
 
     return response;

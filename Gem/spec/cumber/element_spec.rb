@@ -130,7 +130,7 @@ describe 'UIAElement Wrapper' do
     context 'No error when searching for the element' do
 
       it 'should return the result of the element search' do
-        command = %q[waitForElementToExist("name = 'ItemName'", target, 3000).checkIsValid()]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'checkIsValid()', 3000)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -142,7 +142,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was not located' do
 
       it 'should return false' do
-        command = %q[waitForElementToExist("name = 'ItemNotThere'", target, 200).checkIsValid()]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemNotThere'", target), 'checkIsValid()', 200)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => '', 'status' => 'error')
         element = Cumber::Element.new(:name => 'ItemNotThere')

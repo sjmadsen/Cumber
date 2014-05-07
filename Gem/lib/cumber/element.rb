@@ -121,11 +121,7 @@ module Cumber
     #   element.wait_for_element_to_exist(3000)
 
     def wait_for_element_to_exist(timeout = 3000)
-
-      step = %q[waitForElementToExist("] + search_predicate + %q[", target, ] + timeout.to_s + %q[).checkIsValid()]
-      response = Cumber.execute_step(step)
-
-      if ResponseHelper.process_bool_response(response) then
+      if wait_for_condition('checkIsValid()', timeout)
         true
       else
         false

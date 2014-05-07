@@ -79,7 +79,7 @@ module Cumber
     def self.process_operation_response(response)
 
       if response['status'] == 'error'
-        raise 'An Error has occurred'
+        raise response['message']
       end
 
       response['status'] != 'error'
