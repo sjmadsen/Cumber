@@ -99,9 +99,9 @@ module Cumber
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_condition('isValid() == true', 3000)
+    #   element.wait_for_condition('isValid() == true', 300)
 
-    def wait_for_condition(condition, timeout = 3000)
+    def wait_for_condition(condition, timeout = 300)
       step = %q[waitForCondition(] + search_description + %q[, '] + condition + %q[', ] + timeout.to_s + %q[)]
       response = Cumber.execute_step(step)
 
@@ -118,9 +118,9 @@ module Cumber
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_exist(3000)
+    #   element.wait_for_element_to_exist(300)
 
-    def wait_for_element_to_exist(timeout = 3000)
+    def wait_for_element_to_exist(timeout = 300)
       if wait_for_condition('checkIsValid()', timeout)
         true
       else
@@ -138,9 +138,9 @@ module Cumber
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_be_visible(3000)
+    #   element.wait_for_element_to_be_visible(300)
 
-    def wait_for_element_to_be_visible(timeout = 3000)
+    def wait_for_element_to_be_visible(timeout = 300)
 
       wait_for_condition('isVisible() == true', timeout)
     end
@@ -155,9 +155,9 @@ module Cumber
     # ==== Examples
     #
     #   element = Cumber::Element.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_be_enabled(3000)
+    #   element.wait_for_element_to_be_enabled(300)
 
-    def wait_for_element_to_be_enabled(timeout = 3000)
+    def wait_for_element_to_be_enabled(timeout = 300)
 
       wait_for_condition('isEnabled() == 1', timeout)
     end

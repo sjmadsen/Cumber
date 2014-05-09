@@ -66,7 +66,7 @@ module Cumber
     request = Net::HTTP::Post.new('/cumber', initheader = {'Content-Type' => 'application/json'})
     request.body = format_command(command, status)
 
-    response = Net::HTTP.start(@host, @port, :read_timeout => 2000000) do |http|
+    response = Net::HTTP.start(@host, @port, :read_timeout => 400) do |http|
       http.request(request)
     end
 
@@ -225,7 +225,10 @@ module Cumber
   #   Cumber.stop_instruments
   #
   def self.stop_instruments
-    send_command('', 'end')
+    if %x[lsof -t -i TCP:8080].split("\n")[0]
+      send_command('', 'end')
+    end
+
     system('pkill -9 -f instruments')
   end
 

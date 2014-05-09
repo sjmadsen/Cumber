@@ -32,7 +32,7 @@ function replaceAll(find, replace, str)
 
 function requestCommand(response)
 {
-    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], Number.MAX_VALUE);
+    var command = system.performTaskWithPathArgumentsTimeout("/usr/bin/curl", ["-X", "POST", "-H", "Content-Type: application/json", "-d", response, "http://localhost:8080/device"], 400);
 
     var commandJson = eval("(" + command.stdout + ")");
 

@@ -116,10 +116,8 @@ class CumberServer
   #   CumberServer.set_response('{"message":"", "status":""}')
   #
   def self.set_response(message)
-    log('Received Response: ' + message)
 
     message_json = JSON.parse(message)
-
     log('Received Response: ' + message)
 
     if message_json['status'] != 'connecting'

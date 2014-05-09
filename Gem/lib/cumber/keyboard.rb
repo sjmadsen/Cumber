@@ -32,9 +32,9 @@ module Cumber
     # ==== Examples
     #
     #   element = Cumber::Keyboard.new(:name => "ElementSearch") <br>
-    #   element.wait_for_element_to_exist(3000)
+    #   element.wait_for_element_to_exist(300)
 
-    def wait_for_element_to_exist(timeout = 3000)
+    def wait_for_element_to_exist(timeout = 300)
       wait_for_condition('checkIsValid()', timeout)
     end
   end

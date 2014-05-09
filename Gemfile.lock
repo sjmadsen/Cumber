@@ -35,7 +35,7 @@ GEM
       gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.1)
-    cumber (1.0.9)
+    cumber (1.0.10)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     gherkin (2.12.2)

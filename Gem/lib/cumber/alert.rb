@@ -76,9 +76,9 @@ module Cumber
     # ==== Examples
     #
     #   alert = Cumber::Alert.new <br>
-    #   alert.wait_for_element_to_exist(3000)
+    #   alert.wait_for_element_to_exist(300)
 
-    def wait_for_element_to_exist(timeout = 3000)
+    def wait_for_element_to_exist(timeout = 300)
 
       step = %q[waitForCondition("] + search_description + %q[", 'checkIsValid() == 1', ] + timeout.to_s + %q[)]
       response = Cumber.execute_step(step)

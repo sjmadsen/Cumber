@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name = 'cumber'
-  gem.version = '1.0.9'
+  gem.version = '1.0.10'
   gem.licenses    = ['MIT']
   gem.authors = ['Chip Snyder']
   gem.email = ['chip.snyder3@gmail.com']
