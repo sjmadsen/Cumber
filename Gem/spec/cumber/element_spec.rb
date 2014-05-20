@@ -101,7 +101,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result of the condition' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'doStuff()', 3000)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'doStuff()', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -130,7 +130,7 @@ describe 'UIAElement Wrapper' do
     context 'No error when searching for the element' do
 
       it 'should return the result of the element search' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'checkIsValid()', 3000)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'checkIsValid()', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -159,7 +159,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result if the element was enabled after the timeout' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isEnabled() == 1', 3000)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isEnabled() == 1', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
@@ -188,7 +188,7 @@ describe 'UIAElement Wrapper' do
     context 'Element was found' do
 
       it 'should return the result if the element was visible after the timeout' do
-        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isVisible() == true', 3000)]
+        command = %q[waitForCondition(searchWithPredicate("name = 'ItemName'", target), 'isVisible() == true', 300)]
 
         Cumber.should_receive(:execute_step).with(command).and_return('message' => 'true', 'status' => 'success')
         element = Cumber::Element.new(:name => 'ItemName')
