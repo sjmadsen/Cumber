@@ -203,7 +203,8 @@ module Cumber
 
   def self.start_instruments(udid, target)
     driver_path = path_to_driver + '/driver.js'
-    command = 'instruments -w '+ udid +' -D ./bin/ins -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.bundle/Contents/Resources/Automation.tracetemplate '+ target +' -e UIASCRIPT ' + driver_path + ' -e UIARESULTSPATH ./bin/logs'
+    trace_template = Dir['/Applications/Xcode.app/Contents/Applications/Instruments.app/**/Automation.tracetemplate'].first
+    command = "instruments -w #{udid} -D ./bin/ins -t #{trace_template} #{target} -e UIASCRIPT #{driver_path} -e UIARESULTSPATH ./bin/logs"
     result = %x[#{command}]
     puts result
 
